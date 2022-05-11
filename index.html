@@ -272,18 +272,18 @@
                 <h2 class="contacto__header--secondheading">Contacto</h2>
             </div>
             <div class="contacto__body">
-                <form action="" class="contacto__formulario" data-aos="zoom-in-up" data-aos-duration="2000">
+                <form action="https://formspree.io/f/xdobygaw" method="POST" class="contacto__formulario" data-aos="zoom-in-up" data-aos-duration="2000" autocomplete="off">
                     <div class="contacto__formulario--box">
-                        <input type="text" class="contacto__formulario--input" placeholder="Nombre">
+                        <input type="text" class="contacto__formulario--input contacto__formulario--name" placeholder="Nombre" name="name" id="contacto__formulario--name" required>
                     </div>
                     <div class="contacto__formulario--box">
-                        <input type="email" class="contacto__formulario--input" placeholder="Correo Electronico">
+                        <input type="email" class="contacto__formulario--input contacto__formulario--email" id="contacto__formulario--email" placeholder="Correo Electronico" name="email" required>
                     </div>
                     <div class="contacto__formulario--box">
-                        <input type="text" class="contacto__formulario--input" placeholder="Asunto">
+                        <input type="text" class="contacto__formulario--input" placeholder="Asunto" name="subject">
                     </div>
                     <div class="contacto__formulario--box">
-                        <textarea name="" id="" cols="30" rows="10" placeholder="Mensaje" class="contacto__formulario--txt"></textarea>
+                        <textarea name="message" id="" cols="30" rows="10" placeholder="Mensaje" class="contacto__formulario--txt"></textarea>
                     </div>
                     <div class="contacto__formulario--bottom">
                         <input type="submit" value="Enviar" class="contacto__formulario--btn">
@@ -311,6 +311,7 @@
     </footer>
     <script src="js/menu.js"></script>
     <script src="js/aos.js"></script>
+    <script src="js/validation.js"></script>
     <script>
         AOS.init();
     </script>

@@ -836,7 +836,7 @@ textarea {
         box-shadow: 0px 3px 15px -4px rgba(0, 0, 0, 0.75);
         -webkit-box-shadow: 0px 3px 15px -4px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 0px 3px 15px -4px rgba(0, 0, 0, 0.75);
-        padding-top: 20px;
+        padding-top: 20px;       
 
         &--box {
             width: 100%;
@@ -854,6 +854,30 @@ textarea {
             &:hover,
             &:focus{
                 outline:1px solid $hover-skyblue;
+            }
+        }
+
+         &--name{
+            &.active{
+                outline:1px solid green;
+            }
+            &.empty{
+                outline:1px solid $skyblue;
+            }
+            &.error{
+                outline:1px solid red;
+            }
+        }
+
+         &--email{
+            &.active{
+                outline:1px solid green;
+            }
+            &.empty{
+                outline:1px solid $skyblue;
+            }
+            &.error{
+                outline:1px solid red;
             }
         }
 

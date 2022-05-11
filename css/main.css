@@ -1019,6 +1019,30 @@ textarea {
   outline: 1px solid #2668a5;
 }
 
+.contacto__formulario--name.active {
+  outline: 1px solid green;
+}
+
+.contacto__formulario--name.empty {
+  outline: 1px solid #3895EA;
+}
+
+.contacto__formulario--name.error {
+  outline: 1px solid red;
+}
+
+.contacto__formulario--email.active {
+  outline: 1px solid green;
+}
+
+.contacto__formulario--email.empty {
+  outline: 1px solid #3895EA;
+}
+
+.contacto__formulario--email.error {
+  outline: 1px solid red;
+}
+
 .contacto__formulario--txt {
   width: 100%;
   height: 80px;
