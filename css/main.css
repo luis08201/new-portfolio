@@ -784,6 +784,10 @@ textarea {
   color: #D88CB1;
 }
 
+.retos__body--item-bootstrap {
+  color: #7410F0;
+}
+
 .retos__body--item-js {
   color: #F7E018;
 }
