@@ -14,4 +14,14 @@ btnOn.addEventListener("click", () => {
             nav.classList.remove("active");
         })
     }
+   
 })
+
+const enlace = document.querySelectorAll(".header__nav--link");
+
+enlace.forEach(function (en) {
+  en.addEventListener("click", () => {
+      btnOn.classList.remove("active");
+      nav.classList.remove("active");
+  });
+});
