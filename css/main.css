@@ -798,23 +798,26 @@ textarea {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 20px;
+}
+
+.retos__body--item-bottom-cta {
+  display: block;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
   background-color: #3895EA;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  cursor: pointer;
 }
 
-.retos__body--item-bottom:hover, .retos__body--item-bottom:focus {
+.retos__body--item-bottom-cta:hover, .retos__body--item-bottom-cta:focus {
   background-color: #2668a5;
-}
-
-.retos__body--item-bottom-cta {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #fff;
 }
 
 .retos__body--item-header {

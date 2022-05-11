@@ -655,25 +655,28 @@ textarea {
             }
 
             &-bottom {
-                display: flex;
+                 display: flex;
                 justify-content: center;
                 align-items: center;
-                padding: 20px;
-                background-color: $skyblue;
-                border-bottom-left-radius: 8px;
-                border-bottom-right-radius: 8px;
-                transition:all 0.5s ease;
-                cursor:pointer;
-
-                &:hover,
-                &:focus{
-                    background-color: $hover-skyblue;
-                }
 
                 &-cta {
+                    display:block;
+                    width:100%;
+                    height:50px;
+                    line-height: 50px;
+                    background-color: $skyblue;
                     text-decoration: none;
                     text-transform: uppercase;
+                    text-align: center;
                     color: #fff;
+                    border-bottom-left-radius: 8px;
+                    border-bottom-right-radius: 8px;
+                    transition: all 0.5s ease;
+
+                    &:hover,
+                        &:focus {
+                            background-color: $hover-skyblue;
+                        }
                 }
             }
 
