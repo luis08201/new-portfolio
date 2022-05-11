@@ -24,8 +24,8 @@ textarea {
 }
 
 .header {
-    padding: 0.1px;
-
+    padding: 0.1px;    
+    
     &-bg {
         background: rgb(0, 0, 0);
         background:
@@ -235,8 +235,8 @@ textarea {
 
     @media screen and (min-width:768px) {
         &-bg{
-            height:750px;
-        }
+             height:750px;
+        } 
 
         &__top {
             &--toggle {

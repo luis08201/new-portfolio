@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <title>Portfolio | Luis Selva</title>
 </head>
@@ -43,7 +44,7 @@
                 </nav>
             </div>
             <div class="header__home">
-                <div class="header__home--description">
+                <div class="header__home--description" data-aos-duration="2000" data-aos="fade-up">
                     <h1 class="header__home--firstheading">luis selva</h1>
                     <h4 class="header__home--smallheading">desarrollador web</h4>
                     <a href="#" class="header__home--cta">ver mis proyectos</a>
@@ -59,10 +60,10 @@
                 </h2>
             </div>
             <div class="about__body">
-                <figure class="about__body--picture">
+                <figure class="about__body--picture" data-aos="fade-right" data-aos-duration="2000">
                     <img src="img/photo-transparent.png" alt="Luis Selva photo" class="about__body--img">
                 </figure>
-                <div class="about__body--description">
+                <div class="about__body--description" data-aos="fade-left" data-aos-duration="2000">
                     <p class="about__body--paragraph">Desde mi carrera universitaria me ha gustado construir programas que contengan una interactividad llamativa y muy
                     amigable para las personas.</p>
                     <p class="about__body--paragraph">
@@ -86,7 +87,7 @@
                 <h2 class="project__header--secondheading">proyectos</h2>
             </div>
             <div class="project__body">
-            <div class="project__card">
+            <div class="project__card" data-aos="flip-left" data-aos-duration="2000">
                    <div class="project__card--front project__card--subcard">
                        <img src="img/isic.png" alt="Isic" class="project__card--img">
                    </div>
@@ -107,7 +108,7 @@
                         </div>
                    </div>
             </div>
-            <div class="project__card">
+            <div class="project__card" data-aos="flip-right" data-aos-duration="2000">
                 <div class="project__card--front project__card--subcard">
                     <img src="img/sydicom.png" alt="sydicom" class="project__card--img">
                 </div>
@@ -149,7 +150,7 @@
                         y elaboración de páginas web.
                     </p>
                 </div>
-                <div class="retos__body--item">
+                <div class="retos__body--item" data-aos-duration="2000" data-aos="fade-up">
                     <figure class="retos__body--item-header">
                         <img src="img/item01.png" alt="" class="retos__body--item-img">
                         <a href="#" class="retos__body--item-cta">
@@ -168,7 +169,7 @@
                         <a href="#" class="retos__body--item-bottom-cta">ver proyecto</a>
                     </div>
                 </div>
-                <div class="retos__body--item">
+                <div class="retos__body--item" data-aos-duration="2000" data-aos="fade-up">
                     <figure class="retos__body--item-header">
                         <img src="img/item02.png" alt="" class="retos__body--item-img">
                         <a href="#" class="retos__body--item-cta">
@@ -187,7 +188,7 @@
                         <a href="#" class="retos__body--item-bottom-cta">ver proyecto</a>
                     </div>
                 </div>
-                <div class="retos__body--item">
+                <div class="retos__body--item" data-aos-duration="2000" data-aos="fade-up">
                     <figure class="retos__body--item-header">
                         <img src="img/item03.png" alt="" class="retos__body--item-img">
                         <a href="#" class="retos__body--item-cta">
@@ -206,7 +207,7 @@
                         <a href="#" class="retos__body--item-bottom-cta">ver proyecto</a>
                     </div>
                 </div>
-                <div class="retos__body--item">
+                <div class="retos__body--item" data-aos-duration="2000" data-aos="fade-up">
                     <figure class="retos__body--item-header">
                         <img src="img/item04.png" alt="" class="retos__body--item-img">
                         <a href="#" class="retos__body--item-cta">
@@ -224,7 +225,7 @@
                         <a href="#" class="retos__body--item-bottom-cta">ver proyecto</a>
                     </div>
                 </div>
-                <div class="retos__body--item">
+                <div class="retos__body--item" data-aos-duration="2000" data-aos="fade-up">
                     <figure class="retos__body--item-header">
                         <img src="img/item05.png" alt="" class="retos__body--item-img">
                         <a href="#" class="retos__body--item-cta">
@@ -243,7 +244,7 @@
                         <a href="#" class="retos__body--item-bottom-cta">ver proyecto</a>
                     </div>
                 </div>
-                <div class="retos__body--item">
+                <div class="retos__body--item" data-aos-duration="2000" data-aos="fade-up">
                     <figure class="retos__body--item-header">
                         <img src="img/item06.png" alt="" class="retos__body--item-img">
                         <a href="#" class="retos__body--item-cta">
@@ -271,7 +272,7 @@
                 <h2 class="contacto__header--secondheading">Contacto</h2>
             </div>
             <div class="contacto__body">
-                <form action="" class="contacto__formulario">
+                <form action="" class="contacto__formulario" data-aos="zoom-in-up" data-aos-duration="2000">
                     <div class="contacto__formulario--box">
                         <input type="text" class="contacto__formulario--input" placeholder="Nombre">
                     </div>
@@ -309,5 +310,9 @@
         </section>
     </footer>
     <script src="js/menu.js"></script>
+    <script src="js/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
