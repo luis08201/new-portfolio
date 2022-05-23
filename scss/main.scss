@@ -396,7 +396,7 @@ textarea {
 .project {
     background-color: #e5e5e5;
     padding: 0.1px;
-    overflow-x: hidden;
+    overflow: hidden;
 
     &__main {
         @include content-max-width;
