@@ -23,6 +23,47 @@ textarea {
     font-size: 15px;
 }
 
+.floating--btn{
+    position:fixed;
+    bottom:50px;
+    right:30px;
+    cursor:pointer;
+    /* background-color: $skyblue; */
+    border-radius:32px;
+    width:32px;
+    height:32px;
+    opacity:0;
+    transition:1s;
+
+    &.sticky{
+        opacity:1;
+    }
+
+    &::before{
+        content:'';
+        position:absolute;
+        bottom:0;
+        left:0;
+        width:35px;
+        height:35px;
+        background-color:rgba(180, 180, 180, 0.232);
+        border-radius:32px;
+        z-index:-1;
+        transform:translateY(8px);
+    }
+}
+
+.floating--btn i{
+    color:$skyblue;
+    font-size:35px;
+    transition: 1s;   
+
+    &:hover,
+    &:focus{
+        color:$hover-skyblue;
+    }
+}
+
 .header {
     padding: 0.1px;    
     
@@ -30,7 +71,7 @@ textarea {
         background: rgb(0, 0, 0);
         background:
             linear-gradient(75deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%),
-            url(../img/header-bg.webp);
+            url(../img/header-bg.avif);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -293,6 +334,7 @@ textarea {
 
 .about {
     padding: 0.1px;
+    overflow-x:hidden;
 
     &__main {
       @include content-max-width;
@@ -354,6 +396,7 @@ textarea {
 .project {
     background-color: #e5e5e5;
     padding: 0.1px;
+    overflow-x: hidden;
 
     &__main {
         @include content-max-width;
@@ -515,9 +558,10 @@ textarea {
 
 .retos {
     padding: 0.1px;
+    overflow:hidden;
 
     &__main {
-        @include content-max-width;
+        @include content-max-width;  
     }
 
     &__header {
@@ -535,7 +579,7 @@ textarea {
         }
     }
 
-    &__body {
+    &__body {        
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
@@ -801,12 +845,13 @@ textarea {
 
 .contacto {
     padding: 0.1px;
+    overflow-x: hidden;
 
     &-bg {
         background: rgb(0, 0, 0);
         background:
             linear-gradient(75deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%),
-            url(../img/contacto-bg.webp);
+            url(../img/contacto-bg.avif);
         background-repeat: no-repeat;
         background-size: cover;
         width: 100%;
