@@ -5,653 +5,658 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Luis Selva, desarrollador web en Nicaragua. Maquetación e interfaces que se entienden a la primera."
+      content="Luis Selva, desarrollador web en Nicaragua. Páginas en HTML, CSS y JavaScript que cargan rápido y se entienden a la primera."
     />
-    <meta name="theme-color" content="#1d261b" />
+    <meta name="theme-color" content="#f4efe6" />
     <title>Luis Selva · Desarrollador web</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter+Tight:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <script>
+      document.documentElement.classList.add("js-motion");
+      setTimeout(() => document.documentElement.classList.remove("js-motion"), 2500);
+    </script>
+    <script defer src="js/vendor/gsap.min.js"></script>
+    <script defer src="js/vendor/ScrollTrigger.min.js"></script>
+    <script defer src="js/vendor/Flip.min.js"></script>
+    <script defer src="js/vendor/DrawSVGPlugin.min.js"></script>
+    <script defer src="js/vendor/SplitText.min.js"></script>
     <script type="module" src="js/main.js"></script>
   </head>
   <body>
     <a class="skip" href="#contenido">Saltar al contenido</a>
 
-    <div class="page">
-      <header class="hero" id="inicio">
-        <nav class="topbar" aria-label="Principal">
-          <a class="brand" href="#inicio">Luis Selva<sup>®</sup></a>
-          <ul class="topbar__links">
-            <li><a href="#trabajo">Trabajo</a></li>
-            <li><a href="#practica">Práctica</a></li>
-            <li><a href="#acerca">Acerca</a></li>
+    <header class="topbar wrap" id="inicio">
+      <a class="brand" href="#inicio">Luis Selva<span class="brand__dot" aria-hidden="true"></span></a>
+      <nav aria-label="Principal">
+        <ul class="topbar__links">
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#retos">Retos</a></li>
+          <li><a href="#recorrido">Recorrido</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--ink btn--small" href="#contacto">Escríbeme</a>
+    </header>
+
+    <main id="contenido">
+      <section class="bento wrap" aria-labelledby="hero-titulo">
+        <div class="tile tile--intro">
+          <p class="eyebrow">Hola, soy Luis</p>
+          <h1 id="hero-titulo">Desarrollador web que cuida <em>cada detalle</em> de la pantalla.</h1>
+          <p class="tile__text">
+            Maqueto páginas en HTML, CSS y JavaScript que cargan rápido y se leen
+            bien en cualquier pantalla.
+          </p>
+          <div class="actions">
+            <a class="btn btn--terra" href="#proyectos">Ver proyectos</a>
+            <a class="btn btn--line" href="#contacto">Escríbeme</a>
+          </div>
+        </div>
+
+        <figure class="tile tile--photo">
+          <img src="img/luis.png" alt="Luis Selva" width="800" height="800" />
+          <figcaption>Nicaragua</figcaption>
+        </figure>
+
+        <div class="tile tile--stat">
+          <p class="stat"><span data-count="34">34</span></p>
+          <p>retos de Frontend Mentor publicados, de tarjetas a sitios de varias páginas.</p>
+        </div>
+
+        <div class="tile tile--status">
+          <p class="status"><span class="status__dot" aria-hidden="true"></span>Disponible</p>
+          <p>Para nuevos proyectos y colaboraciones.</p>
+          <a class="tile__link" href="#contacto">Hablemos →</a>
+        </div>
+
+        <div class="tile tile--stack">
+          <p class="tile__label">Herramientas</p>
+          <ul class="tags">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Sass</li>
+            <li>JavaScript</li>
+            <li>Bootstrap</li>
+            <li>Git</li>
           </ul>
-          <a class="pill pill--light" href="#contacto">
-            Escríbeme
-            <span class="pill__arrow" aria-hidden="true">→</span>
-          </a>
-        </nav>
+        </div>
 
-        <main id="contenido" class="hero__body">
-          <div class="hero__intro">
-            <p class="script">Hola, soy Luis,</p>
-            <h1>Desarrollador<br />Web</h1>
-          </div>
+        <blockquote class="tile tile--quote">
+          <p>“Una buena interfaz se entiende a la primera.”</p>
+        </blockquote>
+      </section>
 
-          <figure class="hero__portrait">
-            <img
-              src="img/luis.png"
-              alt="Luis Selva"
-              width="800"
-              height="800"
-              onerror="this.onerror=null;this.src='img/photo-transparent.png';this.closest('figure').classList.add('hero__portrait--fallback')"
-            />
-          </figure>
-
-          <div class="hero__aside">
-            <p class="hero__quote">
-              Una buena interfaz se entiende a la primera.
-            </p>
-            <p class="hero__small">
-              Maqueto páginas en HTML, CSS y JavaScript que cargan rápido y se
-              leen bien en cualquier pantalla.
-            </p>
-          </div>
-        </main>
-
-        <ol class="services">
+      <section class="services wrap" aria-label="Qué hago">
+        <ol>
           <li><span>01</span>Maquetación HTML y CSS</li>
           <li><span>02</span>Estilos con Sass</li>
           <li><span>03</span>Interacción con JavaScript</li>
           <li><span>04</span>Diseño responsivo</li>
         </ol>
-      </header>
-
-      <section class="trust" aria-label="Dónde he practicado">
-        <p class="trust__label">Formación y retos que dieron forma a mi trabajo</p>
-        <ul class="trust__list">
-          <li>ISIC</li>
-          <li>Sydicom</li>
-          <li>Frontend Mentor</li>
-          <li>devChallenges</li>
-        </ul>
       </section>
 
-      <section class="section" id="trabajo" aria-labelledby="trabajo-titulo">
-        <div class="split">
+      <section class="section wrap" id="proyectos" aria-labelledby="proyectos-titulo">
+        <div class="section__head">
           <div>
-            <p class="script script--green">Detrás del código</p>
-            <h2 id="trabajo-titulo">Páginas claras que hacen la visita más simple</h2>
+            <p class="eyebrow">Proyectos</p>
+            <h2 id="proyectos-titulo">Páginas claras que hacen la visita <em>más simple</em></h2>
           </div>
-          <div class="split__aside">
-            <p class="lead-serif">
-              Me enfoco en interfaces limpias e intuitivas, construidas con
-              cuidado desde la primera línea de HTML.
-            </p>
-            <div class="split__cta">
-              <p>Construyamos algo útil juntos</p>
-              <a class="pill pill--green" href="#contacto">
-                Escríbeme
-                <span class="pill__arrow" aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
+          <p>
+            Interfaces limpias e intuitivas, construidas con cuidado desde la
+            primera línea de HTML.
+          </p>
         </div>
 
         <div class="projects">
-          <article class="project">
-            <a class="project__media" href="https://luis08201.github.io/isic-version2021/">
-              <img
-                src="img/isic.png"
-                alt="Sitio de ISIC visto en una tableta y un teléfono"
-                width="307"
-                height="259"
-              />
-            </a>
-            <div class="project__meta">
-              <p class="project__tag">Proyecto de curso</p>
-              <h3>ISIC</h3>
-              <p>Proyecto final del curso de diseño de páginas web en el instituto ISIC.</p>
-              <p class="project__links">
-                <a href="https://github.com/luis08201/isic-version2021">Código</a>
-                <a href="https://luis08201.github.io/isic-version2021/">Ver proyecto</a>
-              </p>
-            </div>
-          </article>
-
-          <article class="project">
-            <a class="project__media" href="https://luis08201.github.io/SYDICOM/">
-              <img
-                src="img/sydicom.png"
-                alt="Sitio de Sydicom visto en una laptop y un teléfono"
-                width="336"
-                height="280"
-              />
-            </a>
-            <div class="project__meta">
-              <p class="project__tag">Proyecto de curso</p>
-              <h3>Sydicom</h3>
-              <p>Proyecto final del curso de desarrollo de páginas web en el instituto Sydicom.</p>
-              <p class="project__links">
-                <a href="https://github.com/luis08201/SYDICOM">Código</a>
-                <a href="https://luis08201.github.io/SYDICOM/">Ver proyecto</a>
-              </p>
-            </div>
-          </article>
-
-          <article class="project">
-            <a
-              class="project__media project__media--cover"
-              href="https://luis08201.github.io/Simple-Feature-Section/"
-            >
+          <article class="project project--wide">
+            <a class="project__media project__media--dark" href="https://luis08201.github.io/Simple-Feature-Section/" tabindex="-1" aria-hidden="true">
               <img
                 src="https://raw.githubusercontent.com/luis08201/Simple-Feature-Section/main/thumbnail.jpg"
-                alt="Sección de características con tres tarjetas sobre fondo oscuro"
+                alt=""
                 width="1280"
                 height="900"
               />
             </a>
             <div class="project__meta">
-              <p class="project__tag">Ejercicio · julio 2025</p>
-              <h3>Simple Feature Section</h3>
-              <p>Reto de devChallenges. Práctica de maquetación, no un trabajo de cliente.</p>
-              <p class="project__links">
+              <p class="project__tag">Reto de devChallenges · 2025</p>
+              <h3><a href="https://luis08201.github.io/Simple-Feature-Section/">Simple Feature Section</a></h3>
+              <p>Sección de características con tres tarjetas. Práctica de maquetación, no un trabajo de cliente.</p>
+              <p class="links">
                 <a href="https://github.com/luis08201/Simple-Feature-Section">Código</a>
-                <a href="https://luis08201.github.io/Simple-Feature-Section/">Ver proyecto</a>
+                <a href="https://luis08201.github.io/Simple-Feature-Section/">Ver sitio</a>
+              </p>
+            </div>
+          </article>
+
+          <article class="project">
+            <a class="project__media" href="https://luis08201.github.io/isic-version2021/" tabindex="-1" aria-hidden="true">
+              <img src="img/isic.png" alt="" width="307" height="259" />
+            </a>
+            <div class="project__meta">
+              <p class="project__tag">Proyecto de curso · ISIC</p>
+              <h3><a href="https://luis08201.github.io/isic-version2021/">ISIC</a></h3>
+              <p>Proyecto final del curso de diseño web, rehecho en 2021.</p>
+              <p class="links">
+                <a href="https://github.com/luis08201/isic-version2021">Código</a>
+                <a href="https://luis08201.github.io/isic-version2021/">Ver sitio</a>
+              </p>
+            </div>
+          </article>
+
+          <article class="project">
+            <a class="project__media project__media--sage" href="https://luis08201.github.io/SYDICOM/" tabindex="-1" aria-hidden="true">
+              <img src="img/sydicom.png" alt="" width="336" height="280" />
+            </a>
+            <div class="project__meta">
+              <p class="project__tag">Proyecto de curso · Unitec</p>
+              <h3><a href="https://luis08201.github.io/SYDICOM/">Sydicom</a></h3>
+              <p>Proyecto final del curso de diseño web de Unitec, rehecho en 2021.</p>
+              <p class="links">
+                <a href="https://github.com/luis08201/SYDICOM">Código</a>
+                <a href="https://luis08201.github.io/SYDICOM/">Ver sitio</a>
               </p>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="section section--tint" id="practica" aria-labelledby="practica-titulo">
-        <div class="section-head">
-          <p class="script script--green">Práctica</p>
-          <h2 id="practica-titulo">Retos de Frontend Mentor</h2>
+      <section class="section section--clay" id="retos" aria-labelledby="retos-titulo">
+        <div class="wrap">
+          <div class="section__head">
+            <div>
+              <p class="eyebrow">Práctica</p>
+              <h2 id="retos-titulo">Retos de Frontend Mentor</h2>
+            </div>
+            <p>
+              34 retos publicados entre 2021 y 2024. Sirven para afinar la
+              maquetación; no son proyectos de cliente.
+            </p>
+          </div>
+
+          <div class="filters" role="group" aria-label="Filtrar retos por nivel">
+            <button type="button" class="chip" data-filter="todos" aria-pressed="true">Todos <span>34</span></button>
+            <button type="button" class="chip" data-filter="premium" aria-pressed="false">Premium <span>2</span></button>
+            <button type="button" class="chip" data-filter="avanzado" aria-pressed="false">Avanzado <span>2</span></button>
+            <button type="button" class="chip" data-filter="intermedio" aria-pressed="false">Intermedio <span>15</span></button>
+            <button type="button" class="chip" data-filter="junior" aria-pressed="false">Junior <span>9</span></button>
+            <button type="button" class="chip" data-filter="newbie" aria-pressed="false">Newbie <span>6</span></button>
+          </div>
+
+          <div class="retos" id="lista-retos" aria-live="polite">
+            <article class="reto" data-level="avanzado">
+              <a class="reto__media" href="https://luis08201.github.io/space-tourism-website-main/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/space-tourism-website-main.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Avanzado</p>
+                <h3><a href="https://luis08201.github.io/space-tourism-website-main/">Space Tourism</a></h3>
+                <p class="reto__stack">HTML · Sass · JavaScript</p>
+                <p class="links"><a href="https://github.com/luis08201/space-tourism-website-main">Código</a><a href="https://luis08201.github.io/space-tourism-website-main/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="avanzado">
+              <a class="reto__media" href="https://luis08201.github.io/arch-studio-multi-page-website/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/arch-studio-multi-page-website.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Avanzado · multipágina</p>
+                <h3><a href="https://luis08201.github.io/arch-studio-multi-page-website/">Arch Studio</a></h3>
+                <p class="reto__stack">HTML · Sass · JavaScript</p>
+                <p class="links"><a href="https://github.com/luis08201/arch-studio-multi-page-website">Código</a><a href="https://luis08201.github.io/arch-studio-multi-page-website/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="intermedio">
+              <a class="reto__media" href="https://luis08201.github.io/room-homepage-master/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/room-homepage-master.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Intermedio</p>
+                <h3><a href="https://luis08201.github.io/room-homepage-master/">Room</a></h3>
+                <p class="reto__stack">HTML · Sass · JavaScript</p>
+                <p class="links"><a href="https://github.com/luis08201/room-homepage-master">Código</a><a href="https://luis08201.github.io/room-homepage-master/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="intermedio">
+              <a class="reto__media" href="https://luis08201.github.io/time-tracking-dashboard-main/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/time-tracking-dashboard-main.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Intermedio</p>
+                <h3><a href="https://luis08201.github.io/time-tracking-dashboard-main/">Time Tracking Dashboard</a></h3>
+                <p class="reto__stack">HTML · Sass</p>
+                <p class="links"><a href="https://github.com/luis08201/time-tracking-dashboard-main">Código</a><a href="https://luis08201.github.io/time-tracking-dashboard-main/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="premium">
+              <a class="reto__media" href="https://luis08201.github.io/meet-landing-page-frontend-mentor-main/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/meet-landing-page-frontend-mentor-main.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Premium</p>
+                <h3><a href="https://luis08201.github.io/meet-landing-page-frontend-mentor-main/">Meet</a></h3>
+                <p class="reto__stack">HTML · Sass</p>
+                <p class="links"><a href="https://github.com/luis08201/meet-landing-page-frontend-mentor-main">Código</a><a href="https://luis08201.github.io/meet-landing-page-frontend-mentor-main/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="premium">
+              <a class="reto__media" href="https://luis08201.github.io/typemaster-pre-launch-landing-page/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/typemaster-pre-launch-landing-page.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Premium</p>
+                <h3><a href="https://luis08201.github.io/typemaster-pre-launch-landing-page/">Typemaster</a></h3>
+                <p class="reto__stack">HTML · Sass</p>
+                <p class="links"><a href="https://github.com/luis08201/typemaster-pre-launch-landing-page">Código</a><a href="https://luis08201.github.io/typemaster-pre-launch-landing-page/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="intermedio">
+              <a class="reto__media" href="https://luis08201.github.io/easybank-landing-page-master-secondattempt/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/easybank-landing-page-master-secondattempt.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Intermedio</p>
+                <h3><a href="https://luis08201.github.io/easybank-landing-page-master-secondattempt/">Easybank</a></h3>
+                <p class="reto__stack">HTML · Sass · JavaScript</p>
+                <p class="links"><a href="https://github.com/luis08201/easybank-landing-page-master-secondattempt">Código</a><a href="https://luis08201.github.io/easybank-landing-page-master-secondattempt/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="intermedio">
+              <a class="reto__media" href="https://luis08201.github.io/sunnyside-agency-landing-page-main/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/sunnyside-agency-landing-page-main.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Intermedio</p>
+                <h3><a href="https://luis08201.github.io/sunnyside-agency-landing-page-main/">Sunnyside Agency</a></h3>
+                <p class="reto__stack">HTML · Sass · JavaScript</p>
+                <p class="links"><a href="https://github.com/luis08201/sunnyside-agency-landing-page-main">Código</a><a href="https://luis08201.github.io/sunnyside-agency-landing-page-main/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="intermedio">
+              <a class="reto__media" href="https://luis08201.github.io/manage-landing-page-master/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/manage-landing-page-master.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Intermedio</p>
+                <h3><a href="https://luis08201.github.io/manage-landing-page-master/">Manage</a></h3>
+                <p class="reto__stack">HTML · Sass · JavaScript</p>
+                <p class="links"><a href="https://github.com/luis08201/manage-landing-page-master">Código</a><a href="https://luis08201.github.io/manage-landing-page-master/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="intermedio">
+              <a class="reto__media" href="https://luis08201.github.io/loopstudios-landing-page-main-second-attempt/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/loopstudios-landing-page-main-second-attempt.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Intermedio</p>
+                <h3><a href="https://luis08201.github.io/loopstudios-landing-page-main-second-attempt/">Loopstudios</a></h3>
+                <p class="reto__stack">HTML · Sass · JavaScript · Bootstrap</p>
+                <p class="links"><a href="https://github.com/luis08201/loopstudios-landing-page-main-second-attempt">Código</a><a href="https://luis08201.github.io/loopstudios-landing-page-main-second-attempt/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="intermedio">
+              <a class="reto__media" href="https://luis08201.github.io/bookmark-landing-page-master/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/bookmark-landing-page-master.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Intermedio</p>
+                <h3><a href="https://luis08201.github.io/bookmark-landing-page-master/">Bookmark</a></h3>
+                <p class="reto__stack">HTML · Sass · JavaScript</p>
+                <p class="links"><a href="https://github.com/luis08201/bookmark-landing-page-master">Código</a><a href="https://luis08201.github.io/bookmark-landing-page-master/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="intermedio">
+              <a class="reto__media" href="https://luis08201.github.io/calculator-app-main-second-attempt/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/calculator-app-main-second-attempt.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Intermedio</p>
+                <h3><a href="https://luis08201.github.io/calculator-app-main-second-attempt/">Calculadora</a></h3>
+                <p class="reto__stack">HTML · Sass · JavaScript</p>
+                <p class="links"><a href="https://github.com/luis08201/calculator-app-main-second-attempt">Código</a><a href="https://luis08201.github.io/calculator-app-main-second-attempt/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="intermedio" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/insure-landing-page-master/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/insure-landing-page-master.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Intermedio</p>
+                <h3><a href="https://luis08201.github.io/insure-landing-page-master/">Insure</a></h3>
+                <p class="reto__stack">HTML · Sass · JavaScript</p>
+                <p class="links"><a href="https://github.com/luis08201/insure-landing-page-master">Código</a><a href="https://luis08201.github.io/insure-landing-page-master/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="intermedio" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/blogr-landing-page-main/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/blogr-landing-page-main.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Intermedio</p>
+                <h3><a href="https://luis08201.github.io/blogr-landing-page-main/">Blogr</a></h3>
+                <p class="reto__stack">HTML · Sass</p>
+                <p class="links"><a href="https://github.com/luis08201/blogr-landing-page-main">Código</a><a href="https://luis08201.github.io/blogr-landing-page-main/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="intermedio" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/fylo-dark-theme-landing-page-master/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/fylo-dark-theme-landing-page-master.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Intermedio</p>
+                <h3><a href="https://luis08201.github.io/fylo-dark-theme-landing-page-master/">Fylo (tema oscuro)</a></h3>
+                <p class="reto__stack">HTML · Sass</p>
+                <p class="links"><a href="https://github.com/luis08201/fylo-dark-theme-landing-page-master">Código</a><a href="https://luis08201.github.io/fylo-dark-theme-landing-page-master/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="intermedio" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/coding-bootcamp-testimonials-slider-master/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/coding-bootcamp-testimonials-slider-master.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Intermedio</p>
+                <h3><a href="https://luis08201.github.io/coding-bootcamp-testimonials-slider-master/">Coding Bootcamp Slider</a></h3>
+                <p class="reto__stack">HTML · Sass · JavaScript</p>
+                <p class="links"><a href="https://github.com/luis08201/coding-bootcamp-testimonials-slider-master">Código</a><a href="https://luis08201.github.io/coding-bootcamp-testimonials-slider-master/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="intermedio" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/intro-section-with-dropdown-navigation-main/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/intro-section-with-dropdown-navigation-main.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Intermedio</p>
+                <h3><a href="https://luis08201.github.io/intro-section-with-dropdown-navigation-main/">Menú desplegable</a></h3>
+                <p class="reto__stack">HTML · Sass · JavaScript</p>
+                <p class="links"><a href="https://github.com/luis08201/intro-section-with-dropdown-navigation-main">Código</a><a href="https://luis08201.github.io/intro-section-with-dropdown-navigation-main/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="intermedio" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/huddle-landing-page-with-alternating-feature-blocks-master-/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/huddle-landing-page-with-alternating-feature-blocks-master-.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Intermedio</p>
+                <h3><a href="https://luis08201.github.io/huddle-landing-page-with-alternating-feature-blocks-master-/">Huddle</a></h3>
+                <p class="reto__stack">HTML · Sass</p>
+                <p class="links"><a href="https://github.com/luis08201/huddle-landing-page-with-alternating-feature-blocks-master-">Código</a><a href="https://luis08201.github.io/huddle-landing-page-with-alternating-feature-blocks-master-/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="junior" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/Clipboard-landing-page/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/Clipboard-landing-page.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Junior</p>
+                <h3><a href="https://luis08201.github.io/Clipboard-landing-page/">Clipboard</a></h3>
+                <p class="reto__stack">HTML · CSS</p>
+                <p class="links"><a href="https://github.com/luis08201/Clipboard-landing-page">Código</a><a href="https://luis08201.github.io/Clipboard-landing-page/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="junior" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/base-apparel-coming-soon-master/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/base-apparel-coming-soon-master.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Junior</p>
+                <h3><a href="https://luis08201.github.io/base-apparel-coming-soon-master/">Base Apparel</a></h3>
+                <p class="reto__stack">HTML · Sass · JavaScript</p>
+                <p class="links"><a href="https://github.com/luis08201/base-apparel-coming-soon-master">Código</a><a href="https://luis08201.github.io/base-apparel-coming-soon-master/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="junior" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/ping-coming-soon-page-master/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/ping-coming-soon-page-master.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Junior</p>
+                <h3><a href="https://luis08201.github.io/ping-coming-soon-page-master/">Ping</a></h3>
+                <p class="reto__stack">HTML · CSS · JavaScript</p>
+                <p class="links"><a href="https://github.com/luis08201/ping-coming-soon-page-master">Código</a><a href="https://luis08201.github.io/ping-coming-soon-page-master/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="junior" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/faq-accordion-card-main/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/faq-accordion-card-main.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Junior</p>
+                <h3><a href="https://luis08201.github.io/faq-accordion-card-main/">FAQ Accordion</a></h3>
+                <p class="reto__stack">HTML · CSS · JavaScript</p>
+                <p class="links"><a href="https://github.com/luis08201/faq-accordion-card-main">Código</a><a href="https://luis08201.github.io/faq-accordion-card-main/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="junior" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/intro-component-with-signup-form-master/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/intro-component-with-signup-form-master.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Junior</p>
+                <h3><a href="https://luis08201.github.io/intro-component-with-signup-form-master/">Formulario de registro</a></h3>
+                <p class="reto__stack">HTML · Sass · JavaScript</p>
+                <p class="links"><a href="https://github.com/luis08201/intro-component-with-signup-form-master">Código</a><a href="https://luis08201.github.io/intro-component-with-signup-form-master/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="junior" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/article-preview-component-master/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/article-preview-component-master.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Junior</p>
+                <h3><a href="https://luis08201.github.io/article-preview-component-master/">Article Preview</a></h3>
+                <p class="reto__stack">HTML · CSS</p>
+                <p class="links"><a href="https://github.com/luis08201/article-preview-component-master">Código</a><a href="https://luis08201.github.io/article-preview-component-master/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="junior" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/testimonials-grid-section-main/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/testimonials-grid-section-main.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Junior</p>
+                <h3><a href="https://luis08201.github.io/testimonials-grid-section-main/">Testimonials Grid</a></h3>
+                <p class="reto__stack">HTML · CSS</p>
+                <p class="links"><a href="https://github.com/luis08201/testimonials-grid-section-main">Código</a><a href="https://luis08201.github.io/testimonials-grid-section-main/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="intermedio" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/fylo-data-storage-component-master/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/fylo-data-storage-component-master.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Intermedio</p>
+                <h3><a href="https://luis08201.github.io/fylo-data-storage-component-master/">Fylo Data Storage</a></h3>
+                <p class="reto__stack">HTML · Sass · JavaScript</p>
+                <p class="links"><a href="https://github.com/luis08201/fylo-data-storage-component-master">Código</a><a href="https://luis08201.github.io/fylo-data-storage-component-master/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="junior" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/chat-app-css-illustration-master/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/chat-app-css-illustration-master.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Junior</p>
+                <h3><a href="https://luis08201.github.io/chat-app-css-illustration-master/">Chat App (ilustración CSS)</a></h3>
+                <p class="reto__stack">HTML · Sass</p>
+                <p class="links"><a href="https://github.com/luis08201/chat-app-css-illustration-master">Código</a><a href="https://luis08201.github.io/chat-app-css-illustration-master/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="newbie" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/nft-preview-card-component-main/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/nft-preview-card-component-main.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Newbie</p>
+                <h3><a href="https://luis08201.github.io/nft-preview-card-component-main/">NFT Preview Card</a></h3>
+                <p class="reto__stack">HTML · Sass</p>
+                <p class="links"><a href="https://github.com/luis08201/nft-preview-card-component-main">Código</a><a href="https://luis08201.github.io/nft-preview-card-component-main/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="junior" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/news-homepage/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/news-homepage.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Junior</p>
+                <h3><a href="https://luis08201.github.io/news-homepage/">News Homepage</a></h3>
+                <p class="reto__stack">HTML · CSS · JavaScript</p>
+                <p class="links"><a href="https://github.com/luis08201/news-homepage">Código</a><a href="https://luis08201.github.io/news-homepage/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="newbie" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/recipe-page-main/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/recipe-page-main.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Newbie</p>
+                <h3><a href="https://luis08201.github.io/recipe-page-main/">Recipe Page</a></h3>
+                <p class="reto__stack">HTML · CSS</p>
+                <p class="links"><a href="https://github.com/luis08201/recipe-page-main">Código</a><a href="https://luis08201.github.io/recipe-page-main/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="newbie" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/social-link-profile/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/social-link-profile.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Newbie</p>
+                <h3><a href="https://luis08201.github.io/social-link-profile/">Social Links Profile</a></h3>
+                <p class="reto__stack">HTML · CSS</p>
+                <p class="links"><a href="https://github.com/luis08201/social-link-profile">Código</a><a href="https://luis08201.github.io/social-link-profile/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="newbie" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/blog-preview-card-v1/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/blog-preview-card-v1.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Newbie</p>
+                <h3><a href="https://luis08201.github.io/blog-preview-card-v1/">Blog Preview Card</a></h3>
+                <p class="reto__stack">HTML · CSS</p>
+                <p class="links"><a href="https://github.com/luis08201/blog-preview-card-v1">Código</a><a href="https://luis08201.github.io/blog-preview-card-v1/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="newbie" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/product-preview-card-component-main/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/product-preview-card-component-main.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Newbie</p>
+                <h3><a href="https://luis08201.github.io/product-preview-card-component-main/">Product Preview Card</a></h3>
+                <p class="reto__stack">HTML · Sass</p>
+                <p class="links"><a href="https://github.com/luis08201/product-preview-card-component-main">Código</a><a href="https://luis08201.github.io/product-preview-card-component-main/">Ver sitio</a></p>
+              </div>
+            </article>
+            <article class="reto" data-level="newbie" data-extra hidden>
+              <a class="reto__media" href="https://luis08201.github.io/qr-code-component-v1/" tabindex="-1" aria-hidden="true">
+                <img src="img/retos/qr-code-component-v1.webp" alt="" width="640" height="400" loading="lazy" />
+              </a>
+              <div class="reto__meta">
+                <p class="reto__level">Newbie</p>
+                <h3><a href="https://luis08201.github.io/qr-code-component-v1/">QR Code</a></h3>
+                <p class="reto__stack">HTML · CSS</p>
+                <p class="links"><a href="https://github.com/luis08201/qr-code-component-v1">Código</a><a href="https://luis08201.github.io/qr-code-component-v1/">Ver sitio</a></p>
+              </div>
+            </article>
+          </div>
+
+          <div class="retos__more">
+            <button type="button" class="btn btn--line" id="ver-todos" aria-controls="lista-retos" aria-expanded="false">
+              Ver los 34 retos
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap about" id="recorrido" aria-labelledby="recorrido-titulo">
+        <div class="about__intro">
+          <p class="eyebrow">Recorrido</p>
+          <h2 id="recorrido-titulo">
+            Desde la universidad me gusta construir programas con una
+            interactividad <em>llamativa y amigable</em>.
+          </h2>
           <p>
-            34 retos publicados entre 2021 y 2024, de tarjetas sencillas a sitios
-            de varias páginas. Sirven para afinar la maquetación; no son proyectos de cliente.
+            La persistencia, la perseverancia, la disciplina y el hambre de
+            aprender me han llevado a comprender un poco más el desarrollo web.
+            Sigo aprendiendo para mejorar como persona y como profesional.
           </p>
         </div>
-        <div class="practice">
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/space-tourism-website-main/">
-              <img src="img/retos/space-tourism-website-main.webp" alt="Captura de Space Tourism" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Avanzado</p>
-            <h3>Space Tourism</h3>
-            <p class="practice__stack">HTML · Sass · JavaScript</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/space-tourism-website-main">Código</a>
-              <a href="https://luis08201.github.io/space-tourism-website-main/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/arch-studio-multi-page-website/">
-              <img src="img/retos/arch-studio-multi-page-website.webp" alt="Captura de Arch Studio" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Avanzado · multipágina</p>
-            <h3>Arch Studio</h3>
-            <p class="practice__stack">HTML · Sass · JavaScript</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/arch-studio-multi-page-website">Código</a>
-              <a href="https://luis08201.github.io/arch-studio-multi-page-website/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/room-homepage-master/">
-              <img src="img/retos/room-homepage-master.webp" alt="Captura de Room" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Intermedio</p>
-            <h3>Room</h3>
-            <p class="practice__stack">HTML · Sass · JavaScript</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/room-homepage-master">Código</a>
-              <a href="https://luis08201.github.io/room-homepage-master/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/time-tracking-dashboard-main/">
-              <img src="img/retos/time-tracking-dashboard-main.webp" alt="Captura de Time Tracking Dashboard" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Intermedio</p>
-            <h3>Time Tracking Dashboard</h3>
-            <p class="practice__stack">HTML · Sass</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/time-tracking-dashboard-main">Código</a>
-              <a href="https://luis08201.github.io/time-tracking-dashboard-main/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/meet-landing-page-frontend-mentor-main/">
-              <img src="img/retos/meet-landing-page-frontend-mentor-main.webp" alt="Captura de Meet" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Premium</p>
-            <h3>Meet</h3>
-            <p class="practice__stack">HTML · Sass</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/meet-landing-page-frontend-mentor-main">Código</a>
-              <a href="https://luis08201.github.io/meet-landing-page-frontend-mentor-main/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/typemaster-pre-launch-landing-page/">
-              <img src="img/retos/typemaster-pre-launch-landing-page.webp" alt="Captura de Typemaster" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Premium</p>
-            <h3>Typemaster</h3>
-            <p class="practice__stack">HTML · Sass</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/typemaster-pre-launch-landing-page">Código</a>
-              <a href="https://luis08201.github.io/typemaster-pre-launch-landing-page/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/easybank-landing-page-master-secondattempt/">
-              <img src="img/retos/easybank-landing-page-master-secondattempt.webp" alt="Captura de Easybank" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Intermedio</p>
-            <h3>Easybank</h3>
-            <p class="practice__stack">HTML · Sass · JavaScript</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/easybank-landing-page-master-secondattempt">Código</a>
-              <a href="https://luis08201.github.io/easybank-landing-page-master-secondattempt/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/sunnyside-agency-landing-page-main/">
-              <img src="img/retos/sunnyside-agency-landing-page-main.webp" alt="Captura de Sunnyside Agency" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Intermedio</p>
-            <h3>Sunnyside Agency</h3>
-            <p class="practice__stack">HTML · Sass · JavaScript</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/sunnyside-agency-landing-page-main">Código</a>
-              <a href="https://luis08201.github.io/sunnyside-agency-landing-page-main/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/manage-landing-page-master/">
-              <img src="img/retos/manage-landing-page-master.webp" alt="Captura de Manage" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Intermedio</p>
-            <h3>Manage</h3>
-            <p class="practice__stack">HTML · Sass · JavaScript</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/manage-landing-page-master">Código</a>
-              <a href="https://luis08201.github.io/manage-landing-page-master/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/loopstudios-landing-page-main-second-attempt/">
-              <img src="img/retos/loopstudios-landing-page-main-second-attempt.webp" alt="Captura de Loopstudios" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Intermedio</p>
-            <h3>Loopstudios</h3>
-            <p class="practice__stack">HTML · Sass · JavaScript · Bootstrap</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/loopstudios-landing-page-main-second-attempt">Código</a>
-              <a href="https://luis08201.github.io/loopstudios-landing-page-main-second-attempt/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/bookmark-landing-page-master/">
-              <img src="img/retos/bookmark-landing-page-master.webp" alt="Captura de Bookmark" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Intermedio</p>
-            <h3>Bookmark</h3>
-            <p class="practice__stack">HTML · Sass · JavaScript</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/bookmark-landing-page-master">Código</a>
-              <a href="https://luis08201.github.io/bookmark-landing-page-master/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/calculator-app-main-second-attempt/">
-              <img src="img/retos/calculator-app-main-second-attempt.webp" alt="Captura de Calculadora" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Intermedio</p>
-            <h3>Calculadora</h3>
-            <p class="practice__stack">HTML · Sass · JavaScript</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/calculator-app-main-second-attempt">Código</a>
-              <a href="https://luis08201.github.io/calculator-app-main-second-attempt/">Ver</a>
-            </p>
-          </article>
-        </div>
-        <div class="practice practice--more" id="mas-retos" hidden>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/insure-landing-page-master/">
-              <img src="img/retos/insure-landing-page-master.webp" alt="Captura de Insure" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Intermedio</p>
-            <h3>Insure</h3>
-            <p class="practice__stack">HTML · Sass · JavaScript</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/insure-landing-page-master">Código</a>
-              <a href="https://luis08201.github.io/insure-landing-page-master/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/blogr-landing-page-main/">
-              <img src="img/retos/blogr-landing-page-main.webp" alt="Captura de Blogr" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Intermedio</p>
-            <h3>Blogr</h3>
-            <p class="practice__stack">HTML · Sass</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/blogr-landing-page-main">Código</a>
-              <a href="https://luis08201.github.io/blogr-landing-page-main/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/fylo-dark-theme-landing-page-master/">
-              <img src="img/retos/fylo-dark-theme-landing-page-master.webp" alt="Captura de Fylo (tema oscuro)" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Intermedio</p>
-            <h3>Fylo (tema oscuro)</h3>
-            <p class="practice__stack">HTML · Sass</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/fylo-dark-theme-landing-page-master">Código</a>
-              <a href="https://luis08201.github.io/fylo-dark-theme-landing-page-master/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/coding-bootcamp-testimonials-slider-master/">
-              <img src="img/retos/coding-bootcamp-testimonials-slider-master.webp" alt="Captura de Coding Bootcamp Slider" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Intermedio</p>
-            <h3>Coding Bootcamp Slider</h3>
-            <p class="practice__stack">HTML · Sass · JavaScript</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/coding-bootcamp-testimonials-slider-master">Código</a>
-              <a href="https://luis08201.github.io/coding-bootcamp-testimonials-slider-master/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/intro-section-with-dropdown-navigation-main/">
-              <img src="img/retos/intro-section-with-dropdown-navigation-main.webp" alt="Captura de Menú desplegable" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Intermedio</p>
-            <h3>Menú desplegable</h3>
-            <p class="practice__stack">HTML · Sass · JavaScript</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/intro-section-with-dropdown-navigation-main">Código</a>
-              <a href="https://luis08201.github.io/intro-section-with-dropdown-navigation-main/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/huddle-landing-page-with-alternating-feature-blocks-master-/">
-              <img src="img/retos/huddle-landing-page-with-alternating-feature-blocks-master-.webp" alt="Captura de Huddle" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Intermedio</p>
-            <h3>Huddle</h3>
-            <p class="practice__stack">HTML · Sass</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/huddle-landing-page-with-alternating-feature-blocks-master-">Código</a>
-              <a href="https://luis08201.github.io/huddle-landing-page-with-alternating-feature-blocks-master-/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/Clipboard-landing-page/">
-              <img src="img/retos/Clipboard-landing-page.webp" alt="Captura de Clipboard" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Junior</p>
-            <h3>Clipboard</h3>
-            <p class="practice__stack">HTML · CSS</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/Clipboard-landing-page">Código</a>
-              <a href="https://luis08201.github.io/Clipboard-landing-page/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/base-apparel-coming-soon-master/">
-              <img src="img/retos/base-apparel-coming-soon-master.webp" alt="Captura de Base Apparel" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Junior</p>
-            <h3>Base Apparel</h3>
-            <p class="practice__stack">HTML · Sass · JavaScript</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/base-apparel-coming-soon-master">Código</a>
-              <a href="https://luis08201.github.io/base-apparel-coming-soon-master/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/ping-coming-soon-page-master/">
-              <img src="img/retos/ping-coming-soon-page-master.webp" alt="Captura de Ping" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Junior</p>
-            <h3>Ping</h3>
-            <p class="practice__stack">HTML · CSS · JavaScript</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/ping-coming-soon-page-master">Código</a>
-              <a href="https://luis08201.github.io/ping-coming-soon-page-master/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/faq-accordion-card-main/">
-              <img src="img/retos/faq-accordion-card-main.webp" alt="Captura de FAQ Accordion" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Junior</p>
-            <h3>FAQ Accordion</h3>
-            <p class="practice__stack">HTML · CSS · JavaScript</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/faq-accordion-card-main">Código</a>
-              <a href="https://luis08201.github.io/faq-accordion-card-main/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/intro-component-with-signup-form-master/">
-              <img src="img/retos/intro-component-with-signup-form-master.webp" alt="Captura de Formulario de registro" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Junior</p>
-            <h3>Formulario de registro</h3>
-            <p class="practice__stack">HTML · Sass · JavaScript</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/intro-component-with-signup-form-master">Código</a>
-              <a href="https://luis08201.github.io/intro-component-with-signup-form-master/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/article-preview-component-master/">
-              <img src="img/retos/article-preview-component-master.webp" alt="Captura de Article Preview" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Junior</p>
-            <h3>Article Preview</h3>
-            <p class="practice__stack">HTML · CSS</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/article-preview-component-master">Código</a>
-              <a href="https://luis08201.github.io/article-preview-component-master/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/testimonials-grid-section-main/">
-              <img src="img/retos/testimonials-grid-section-main.webp" alt="Captura de Testimonials Grid" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Junior</p>
-            <h3>Testimonials Grid</h3>
-            <p class="practice__stack">HTML · CSS</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/testimonials-grid-section-main">Código</a>
-              <a href="https://luis08201.github.io/testimonials-grid-section-main/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/fylo-data-storage-component-master/">
-              <img src="img/retos/fylo-data-storage-component-master.webp" alt="Captura de Fylo Data Storage" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Intermedio</p>
-            <h3>Fylo Data Storage</h3>
-            <p class="practice__stack">HTML · Sass · JavaScript</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/fylo-data-storage-component-master">Código</a>
-              <a href="https://luis08201.github.io/fylo-data-storage-component-master/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/chat-app-css-illustration-master/">
-              <img src="img/retos/chat-app-css-illustration-master.webp" alt="Captura de Chat App (ilustración CSS)" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Junior</p>
-            <h3>Chat App (ilustración CSS)</h3>
-            <p class="practice__stack">HTML · Sass</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/chat-app-css-illustration-master">Código</a>
-              <a href="https://luis08201.github.io/chat-app-css-illustration-master/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/nft-preview-card-component-main/">
-              <img src="img/retos/nft-preview-card-component-main.webp" alt="Captura de NFT Preview Card" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Newbie</p>
-            <h3>NFT Preview Card</h3>
-            <p class="practice__stack">HTML · Sass</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/nft-preview-card-component-main">Código</a>
-              <a href="https://luis08201.github.io/nft-preview-card-component-main/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/news-homepage/">
-              <img src="img/retos/news-homepage.webp" alt="Captura de News Homepage" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Junior</p>
-            <h3>News Homepage</h3>
-            <p class="practice__stack">HTML · CSS · JavaScript</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/news-homepage">Código</a>
-              <a href="https://luis08201.github.io/news-homepage/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/recipe-page-main/">
-              <img src="img/retos/recipe-page-main.webp" alt="Captura de Recipe Page" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Newbie</p>
-            <h3>Recipe Page</h3>
-            <p class="practice__stack">HTML · CSS</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/recipe-page-main">Código</a>
-              <a href="https://luis08201.github.io/recipe-page-main/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/social-link-profile/">
-              <img src="img/retos/social-link-profile.webp" alt="Captura de Social Links Profile" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Newbie</p>
-            <h3>Social Links Profile</h3>
-            <p class="practice__stack">HTML · CSS</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/social-link-profile">Código</a>
-              <a href="https://luis08201.github.io/social-link-profile/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/blog-preview-card-v1/">
-              <img src="img/retos/blog-preview-card-v1.webp" alt="Captura de Blog Preview Card" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Newbie</p>
-            <h3>Blog Preview Card</h3>
-            <p class="practice__stack">HTML · CSS</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/blog-preview-card-v1">Código</a>
-              <a href="https://luis08201.github.io/blog-preview-card-v1/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/product-preview-card-component-main/">
-              <img src="img/retos/product-preview-card-component-main.webp" alt="Captura de Product Preview Card" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Newbie</p>
-            <h3>Product Preview Card</h3>
-            <p class="practice__stack">HTML · Sass</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/product-preview-card-component-main">Código</a>
-              <a href="https://luis08201.github.io/product-preview-card-component-main/">Ver</a>
-            </p>
-          </article>
-          <article>
-            <a class="practice__media" href="https://luis08201.github.io/qr-code-component-v1/">
-              <img src="img/retos/qr-code-component-v1.webp" alt="Captura de QR Code" width="640" height="400" loading="lazy" />
-            </a>
-            <p class="practice__level">Newbie</p>
-            <h3>QR Code</h3>
-            <p class="practice__stack">HTML · CSS</p>
-            <p class="project__links">
-              <a href="https://github.com/luis08201/qr-code-component-v1">Código</a>
-              <a href="https://luis08201.github.io/qr-code-component-v1/">Ver</a>
-            </p>
-          </article>
-        </div>
-        <div class="practice__toggle">
-          <button type="button" class="pill pill--outline" aria-expanded="false" aria-controls="mas-retos" data-more="22">
-            <span class="pill__label">Ver 22 retos más</span>
-            <span class="pill__arrow" aria-hidden="true">↓</span>
-          </button>
+
+        <div class="timeline">
+          <svg class="timeline__line" viewBox="0 0 2 100" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M1 0 V100" />
+          </svg>
+          <ol>
+          <li>
+            <p class="timeline__year">2014</p>
+            <h3>Curso de diseño web en ISIC</h3>
+            <p>Mi primer contacto con HTML y CSS.</p>
+          </li>
+          <li>
+            <p class="timeline__year">2021</p>
+            <h3>Retomo la práctica</h3>
+            <p>Rehago los proyectos finales de ISIC y de Unitec, y empiezo con Frontend Mentor.</p>
+          </li>
+          <li>
+            <p class="timeline__year">2021 – 2024</p>
+            <h3>34 retos de Frontend Mentor</h3>
+            <p>De componentes sencillos a sitios de varias páginas con Sass y JavaScript.</p>
+          </li>
+          <li>
+            <p class="timeline__year">2025</p>
+            <h3>Retos de devChallenges</h3>
+            <p>Sigo practicando maquetación con nuevos retos, como Simple Feature Section.</p>
+          </li>
+          </ol>
         </div>
       </section>
 
-      <section class="section about" id="acerca" aria-labelledby="acerca-titulo">
-        <p class="script script--green">Acerca de mí</p>
-        <h2 id="acerca-titulo" class="about__statement">
-          Desde la universidad me gusta construir programas con una
-          interactividad <em>llamativa y amigable</em> para las personas.
-        </h2>
-        <p class="about__body">
-          La persistencia, la perseverancia, la disciplina y el hambre de
-          aprender me han llevado a comprender un poco más el desarrollo web.
-          Sigo aprendiendo para mejorar como persona y como profesional.
-        </p>
-      </section>
-
-      <section class="contact" id="contacto" aria-labelledby="contacto-titulo">
-        <div class="contact__intro">
-          <p class="script">Hablemos,</p>
-          <h2 id="contacto-titulo">¿Tienes una página en mente?</h2>
-          <p>
-            Cuéntame qué necesitas y te respondo al correo que dejes. También
-            estoy en GitHub y en Twitter.
-          </p>
-          <ul class="social">
-            <li><a href="https://github.com/luis08201">GitHub ↗</a></li>
-            <li><a href="https://twitter.com/luis08201">Twitter ↗</a></li>
-          </ul>
+      <section class="wrap" id="contacto" aria-labelledby="contacto-titulo">
+        <div class="contact">
+          <div class="contact__intro">
+            <p class="eyebrow eyebrow--light">Hablemos</p>
+            <h2 id="contacto-titulo">¿Tienes una página en mente?</h2>
+            <p>
+              Cuéntame qué necesitas y te respondo al correo que dejes. También
+              estoy en GitHub y en Twitter.
+            </p>
+            <ul class="social">
+              <li><a href="https://github.com/luis08201">GitHub ↗</a></li>
+              <li><a href="https://twitter.com/luis08201">Twitter ↗</a></li>
+            </ul>
+          </div>
+          <form id="contacto-form" action="https://formspree.io/f/xdobygaw" method="POST" novalidate>
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="name" type="text" autocomplete="name" required />
+              <p class="field-error" id="nombre-error"></p>
+            </div>
+            <div class="field">
+              <label for="correo">Correo</label>
+              <input id="correo" name="email" type="email" autocomplete="email" required />
+              <p class="field-error" id="correo-error"></p>
+            </div>
+            <div class="field">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="message" rows="5" required></textarea>
+              <p class="field-error" id="mensaje-error"></p>
+            </div>
+            <button type="submit" class="btn btn--terra">
+              <span class="btn__label">Enviar mensaje</span>
+            </button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+          </form>
         </div>
-        <form id="contacto-form" action="https://formspree.io/f/xdobygaw" method="POST" novalidate>
-          <div class="field">
-            <label for="nombre">Nombre</label>
-            <input id="nombre" name="name" type="text" autocomplete="name" required />
-            <p class="field-error" id="nombre-error"></p>
-          </div>
-          <div class="field">
-            <label for="correo">Correo</label>
-            <input id="correo" name="email" type="email" autocomplete="email" required />
-            <p class="field-error" id="correo-error"></p>
-          </div>
-          <div class="field">
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="message" required></textarea>
-            <p class="field-error" id="mensaje-error"></p>
-          </div>
-          <button type="submit" class="pill pill--green">
-            <span class="pill__label">Enviar</span>
-            <span class="pill__arrow" aria-hidden="true">→</span>
-          </button>
-          <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
-        </form>
       </section>
+    </main>
 
-      <footer class="footer">
-        <p>Diseñado y codificado por Luis Selva</p>
-        <a href="#inicio">Volver arriba ↑</a>
-      </footer>
-    </div>
+    <footer class="footer wrap">
+      <p>Diseñado y codificado por Luis Selva</p>
+      <a href="#inicio">Volver arriba ↑</a>
+    </footer>
   </body>
 </html>
