@@ -142,11 +142,17 @@ function render() {
   const toHeight = list.offsetHeight;
 
   const duration = 0.6;
-  gsap.fromTo(
-    list,
-    { height: fromHeight },
-    { height: toHeight, duration, ease: "power3.inOut", clearProps: "height", onComplete: () => ScrollTrigger.refresh() },
-  );
+  const settle = () => ScrollTrigger.refresh();
+  if (toHeight >= fromHeight) {
+    gsap.set(list, { height: toHeight });
+    gsap.set(list, { clearProps: "height", delay: duration + 0.2, onComplete: settle });
+  } else {
+    gsap.fromTo(
+      list,
+      { height: fromHeight },
+      { height: toHeight, duration: 0.5, delay: 0.3, ease: "power3.inOut", clearProps: "height", onComplete: settle },
+    );
+  }
   Flip.from(state, {
     duration,
     ease: "power3.inOut",
