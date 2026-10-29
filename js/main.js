@@ -83,6 +83,20 @@ form.addEventListener("submit", async (event) => {
   }
 });
 
+const moreButton = document.querySelector("[aria-controls='mas-retos']");
+const morePanel = document.getElementById("mas-retos");
+const moreLabel = moreButton.querySelector(".pill__label");
+
+moreButton.addEventListener("click", () => {
+  const open = morePanel.hidden;
+  morePanel.hidden = !open;
+  moreButton.setAttribute("aria-expanded", String(open));
+  moreLabel.textContent = open ? "Ver menos retos" : `Ver ${moreButton.dataset.more} retos más`;
+  if (!open) {
+    document.getElementById("practica").scrollIntoView({ behavior: "smooth" });
+  }
+});
+
 for (const field of fields) {
   document.getElementById(field.id).addEventListener("input", (event) => {
     if (event.target.getAttribute("aria-invalid") === "true") {
