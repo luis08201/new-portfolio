@@ -102,7 +102,8 @@ for (const field of fields) {
 
 /* Challenge filters */
 
-const cards = [...document.querySelectorAll(".reto")];
+const list = document.getElementById("lista-retos");
+const cards = [...list.querySelectorAll(".reto")];
 const chips = [...document.querySelectorAll(".chip")];
 const moreWrap = document.querySelector(".practice__toggle");
 const moreButton = document.getElementById("ver-todos");
@@ -116,26 +117,44 @@ function isVisible(card) {
   return expanded || !card.hasAttribute("data-extra");
 }
 
-function render() {
-  const animate = hasGsap && !reducedMotion.matches;
-  const state = animate ? Flip.getState(cards) : null;
-
+function applyFilter() {
   for (const card of cards) card.hidden = !isVisible(card);
   for (const chip of chips) chip.setAttribute("aria-pressed", String(chip.dataset.filter === filter));
   moreWrap.hidden = filter !== "todos";
   moreButton.setAttribute("aria-expanded", String(expanded));
   moreLabel.textContent = expanded ? "Ver menos retos" : moreText;
+}
 
-  if (!animate) return;
+function render() {
+  if (!hasGsap || reducedMotion.matches) {
+    applyFilter();
+    return;
+  }
+
+  // Flip lifts the cards out of the flow while they move, so the list keeps an
+  // explicit height that eases to the new one; otherwise the next section jumps up.
+  const fromHeight = list.getBoundingClientRect().height;
+  const state = Flip.getState(cards);
+  Flip.killFlipsOf(cards, true);
+  gsap.killTweensOf(list);
+  gsap.set(list, { clearProps: "height" });
+  applyFilter();
+  const toHeight = list.offsetHeight;
+
+  const duration = 0.6;
+  gsap.fromTo(
+    list,
+    { height: fromHeight },
+    { height: toHeight, duration, ease: "power3.inOut", clearProps: "height", onComplete: () => ScrollTrigger.refresh() },
+  );
   Flip.from(state, {
-    duration: 0.6,
+    duration,
     ease: "power3.inOut",
     absolute: true,
     stagger: 0.015,
     onEnter: (els) =>
       gsap.fromTo(els, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.45, delay: 0.15 }),
     onLeave: (els) => gsap.to(els, { opacity: 0, scale: 0.9, duration: 0.3 }),
-    onComplete: () => ScrollTrigger.refresh(),
   });
 }
 
