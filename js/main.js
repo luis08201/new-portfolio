@@ -244,64 +244,50 @@ if (!hasGsap) {
     const unhooks = [];
     const fontsReady = Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 1200))]);
 
+    // Page load: each block fades in while rising 5% of its height, at its own delay.
     fontsReady.then(context.add(() => {
-      const title = SplitText.create(".hero h1", { type: "words", mask: "words" });
-      const intro = gsap.timeline({ defaults: { ease: "power3.out" }, onComplete: () => title.revert() });
-      unhooks.push(onLanguageChange({ before: () => intro.progress(1) }));
-      gsap.set([".topbar", ".hero__body > *"], { opacity: 1 });
+      const intro = gsap.timeline({ defaults: { duration: 0.3, ease: "sine.inOut" } });
+      for (const el of document.querySelectorAll("[data-load]")) {
+        const from = el.dataset.load === "slide" ? { opacity: 0, yPercent: 5 } : { opacity: 0 };
+        const to = el.dataset.load === "slide" ? { opacity: 1, yPercent: 0 } : { opacity: 1 };
+        intro.fromTo(el, from, to, Number(el.dataset.delay) || 0);
+      }
       root.classList.remove("js-motion");
-
-      intro
-        .from(".topbar", { y: -24, opacity: 0, duration: 0.7 })
-        .from(".hero__intro .script", { y: 20, opacity: 0, duration: 0.6 }, "-=0.35")
-        .from(title.words, { yPercent: 110, duration: 1, ease: "power4.out", stagger: 0.12 }, "-=0.3")
-        .from(".hero__portrait img", { y: 80, opacity: 0, duration: 1.1 }, "-=0.9")
-        .from(".hero__intro .hero__small, .hero__aside", { y: 24, opacity: 0, duration: 0.7, stagger: 0.12 }, "-=0.6")
-        .from(".badge", { scale: 0, rotation: -120, duration: 0.9, ease: "back.out(1.6)" }, "-=0.6")
-        .from(".marquee", { opacity: 0, duration: 0.8 }, "-=0.5");
     }));
 
     gsap.to(".badge__ring", { rotation: 360, duration: 16, ease: "none", repeat: -1 });
 
-    let onResize = () => {};
-    fontsReady.then(context.add(() => {
-      const marquee = document.querySelector(".marquee");
-      const marqueeTrack = marquee.querySelector(".marquee__track");
-      const marqueeSet = marqueeTrack.querySelector("ul");
-      marquee.classList.add("is-moving");
-
-      // The loop shifts by exactly one list, so there must be enough copies to cover
-      // the viewport plus that shift on any screen width.
-      const fillMarquee = () => {
-        const needed = Math.ceil(window.innerWidth / marqueeSet.offsetWidth) + 1;
-        while (marqueeTrack.children.length < needed) {
-          const copy = marqueeSet.cloneNode(true);
-          copy.setAttribute("aria-hidden", "true");
-          marqueeTrack.append(copy);
+    // Each row is copied until one copy can slide out of view without exposing an edge,
+    // then the scroll moves the rows a full copy in opposite directions.
+    const showcaseRows = gsap.utils.toArray("[data-showcase]");
+    const fillRow = (row) => {
+      const originals = [...row.querySelectorAll(":scope > :not([data-clone])")];
+      const copyWidth = () => originals.length * (originals[1].offsetLeft - originals[0].offsetLeft);
+      const needed = Math.max(3, Math.ceil(window.innerWidth / copyWidth()) + 2);
+      while (row.children.length < originals.length * needed) {
+        for (const card of originals) {
+          const clone = card.cloneNode(true);
+          clone.setAttribute("data-clone", "");
+          row.append(clone);
         }
-      };
-      fillMarquee();
-
-      const loop = gsap.to(marqueeTrack, {
-        x: () => -marqueeSet.offsetWidth,
-        duration: marqueeSet.offsetWidth / 55,
-        ease: "none",
-        repeat: -1,
-      });
-      onResize = () => {
-        fillMarquee();
-        loop.invalidate();
-      };
-      window.addEventListener("resize", onResize);
-      unhooks.push(onLanguageChange({ after: onResize }));
-      ScrollTrigger.create({
-        onUpdate(self) {
-          const boost = 1 + Math.min(Math.abs(self.getVelocity()) / 300, 5);
-          loop.timeScale(boost);
-          gsap.to(loop, { timeScale: 1, duration: 0.8, overwrite: true });
+      }
+      return copyWidth;
+    };
+    for (const row of showcaseRows) {
+      const copyWidth = fillRow(row);
+      const left = row.dataset.showcase === "left";
+      gsap.fromTo(
+        row,
+        { x: () => (left ? 0 : -copyWidth()) },
+        {
+          x: () => (left ? -copyWidth() : 0),
+          ease: "none",
+          scrollTrigger: { trigger: row, start: "top bottom", end: "bottom top", scrub: 1, invalidateOnRefresh: true },
         },
-      });
-    }));
+      );
+    }
+    const onResize = () => showcaseRows.forEach(fillRow);
+    window.addEventListener("resize", onResize);
 
     gsap.to(".hero__portrait img", {
       yPercent: 10,
@@ -372,6 +358,7 @@ if (!hasGsap) {
 
     return () => {
       window.removeEventListener("resize", onResize);
+      document.querySelectorAll("[data-showcase] > [data-clone]").forEach((clone) => clone.remove());
       unhooks.forEach((unhook) => unhook());
     };
   });
@@ -404,7 +391,7 @@ if (!hasGsap) {
   });
 
   mm.add("(prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine)", () => {
-    const magnets = gsap.utils.toArray(".pill, .badge");
+    const magnets = gsap.utils.toArray(".badge");
     const cleanups = magnets.map((el) => {
       const toX = gsap.quickTo(el, "x", { duration: 0.5, ease: "power3.out" });
       const toY = gsap.quickTo(el, "y", { duration: 0.5, ease: "power3.out" });
@@ -426,4 +413,38 @@ if (!hasGsap) {
     });
     return () => cleanups.forEach((cleanup) => cleanup());
   });
+
+  // Buttons: a slight press, an oval fill rising from below and the arrow nudging
+  // out; leaving plays the same timeline backwards.
+  for (const pill of document.querySelectorAll(".pill")) {
+    const fill = document.createElement("span");
+    fill.className = "pill__fill";
+    fill.setAttribute("aria-hidden", "true");
+    pill.prepend(fill);
+    gsap.set(fill, { yPercent: 100 });
+
+    const glyph = pill.querySelector(".pill__arrow > span");
+    const nudge = glyph?.textContent.trim() === "↓" ? { y: 3 } : { x: 3, y: -3, rotation: -45 };
+    const hover = gsap
+      .timeline({ paused: true })
+      .to(pill, { scale: 0.98, duration: 0.3, ease: "power1.out" }, 0)
+      .to(fill, { yPercent: 0, duration: 0.5, ease: "power2.out" }, 0);
+    if (glyph) hover.to(glyph, { ...nudge, duration: 0.3, ease: "power1.out" }, 0);
+
+    const enter = () => {
+      if (pill.disabled) return;
+      pill.classList.add("is-hover");
+      if (reducedMotion.matches) hover.progress(1).pause();
+      else hover.play();
+    };
+    const leave = () => {
+      pill.classList.remove("is-hover");
+      if (reducedMotion.matches) hover.progress(0).pause();
+      else hover.reverse();
+    };
+    pill.addEventListener("pointerenter", (event) => event.pointerType === "mouse" && enter());
+    pill.addEventListener("pointerleave", leave);
+    pill.addEventListener("focusin", () => pill.matches(":focus-visible") && enter());
+    pill.addEventListener("focusout", leave);
+  }
 }

@@ -77,8 +77,7 @@ a {
   overflow-x: clip;
 }
 
-.js-motion .hero__body > *,
-.js-motion .topbar {
+.js-motion [data-load] {
   opacity: 0;
 }
 
@@ -116,17 +115,37 @@ h3 {
 
 .pill {
   appearance: none;
-  border: 0;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1.5px solid transparent;
   display: inline-flex;
   align-items: center;
   gap: 0.85rem;
-  padding: 0.38rem 0.4rem 0.38rem 1.25rem;
+  padding: 0.3rem 0.3rem 0.3rem 1.2rem;
   border-radius: 999px;
   font: 600 0.92rem/1 var(--sans);
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: color 0.3s ease 0.1s, border-color 0.3s ease 0.1s;
+}
+
+.pill > :not(.pill__fill) {
+  position: relative;
+  z-index: 1;
+}
+
+/* An oval wider than the button rises from below to fill it on hover. */
+.pill__fill {
+  position: absolute;
+  z-index: 0;
+  left: -10%;
+  top: calc(50% - 6.875rem);
+  width: 120%;
+  height: 13.75rem;
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 .pill__arrow {
@@ -137,15 +156,16 @@ h3 {
   border-radius: 50%;
   font-size: 1rem;
   line-height: 1;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, background-color 0.3s ease 0.1s, color 0.3s ease 0.1s;
 }
 
-.pill:hover .pill__arrow {
-  transform: translateX(3px) rotate(-45deg);
+.pill__arrow > span {
+  display: block;
 }
 
 .pill--light {
   background: var(--cream);
+  border-color: var(--cream);
   color: var(--ink);
 }
 
@@ -154,8 +174,22 @@ h3 {
   color: var(--night);
 }
 
+.pill--light .pill__fill {
+  background: var(--lime);
+}
+
+.pill--light.is-hover {
+  color: var(--night);
+}
+
+.pill--light.is-hover .pill__arrow {
+  background: var(--night);
+  color: var(--lime-soft);
+}
+
 .pill--green {
   background: var(--lime);
+  border-color: var(--lime);
   color: var(--night);
 }
 
@@ -164,8 +198,12 @@ h3 {
   color: var(--ink);
 }
 
-.pill--green:hover {
-  background: var(--lime-soft);
+.pill--green .pill__fill {
+  background: var(--navy);
+}
+
+.pill--green.is-hover {
+  color: var(--cream);
 }
 
 .pill:disabled {
@@ -381,66 +419,45 @@ h3 {
   color: var(--lime-soft);
 }
 
-.marquee {
+/* Screenshot marquee: two rows that slide in opposite directions with the scroll. */
+
+.showcase {
   position: relative;
   z-index: 2;
+  display: grid;
+  gap: 1rem;
   margin: 0 calc(-1 * var(--gutter));
+  padding: 1.5rem 0 2rem;
   overflow: hidden;
   border-top: 1px solid rgba(246, 242, 234, 0.12);
   background: rgba(6, 11, 24, 0.4);
 }
 
-.marquee__track {
+.showcase__row {
   display: flex;
-  width: max-content;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.marquee ul {
-  display: flex;
+.showcase__card {
   flex: none;
-  margin: 0;
-  padding: 1.25rem 0 1.6rem;
-  list-style: none;
+  width: clamp(14rem, 23vw, 21.25rem);
+  aspect-ratio: 16 / 10;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--navy-2);
+  transition: transform 0.4s ease;
 }
 
-.marquee li {
-  display: flex;
-  align-items: baseline;
-  gap: 0.7rem;
-  padding-right: 2.6rem;
-  font-family: var(--serif);
-  font-size: clamp(1.6rem, 2.6vw, 2.3rem);
-  white-space: nowrap;
+.showcase__card:hover {
+  transform: scale(0.95);
 }
 
-.marquee li::after {
-  content: "";
-  align-self: center;
-  width: 0.45rem;
-  height: 0.45rem;
-  margin-left: 1.9rem;
-  border-radius: 50%;
-  background: var(--lime);
-}
-
-.marquee span {
-  font-family: var(--sans);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--lime-soft);
-}
-
-.marquee:not(.is-moving) .marquee__track {
-  width: auto;
-  padding-inline: var(--gutter);
-}
-
-.marquee:not(.is-moving) ul {
-  flex-wrap: wrap;
-}
-
-.marquee:not(.is-moving) ul[aria-hidden] {
-  display: none;
+.showcase__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0%;
 }
 
 /* Trust strip */
@@ -835,8 +852,8 @@ h3 {
 
 .pill--outline {
   background: transparent;
+  border-color: var(--ink);
   color: var(--ink);
-  box-shadow: inset 0 0 0 1.5px var(--ink);
 }
 
 .pill--outline .pill__arrow {
@@ -844,15 +861,18 @@ h3 {
   color: var(--cream);
 }
 
-.pill--outline:hover {
-  background: var(--ink);
+.pill--outline .pill__fill {
+  background: var(--navy);
+}
+
+.pill--outline.is-hover {
+  border-color: var(--navy);
   color: var(--cream);
 }
 
-.pill--outline:hover .pill__arrow {
+.pill--outline.is-hover .pill__arrow {
   background: var(--lime);
   color: var(--night);
-  transform: none;
 }
 
 .pill--outline[aria-expanded="true"] .pill__arrow {
