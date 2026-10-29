@@ -1,15 +1,16 @@
-const { gsap, ScrollTrigger, Flip, DrawSVGPlugin, SplitText } = window;
-const hasGsap = Boolean(gsap && ScrollTrigger && Flip && DrawSVGPlugin && SplitText);
+const { gsap, ScrollTrigger, Flip, SplitText } = window;
+const hasGsap = Boolean(gsap && ScrollTrigger && Flip && SplitText);
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const root = document.documentElement;
 
-if (hasGsap) gsap.registerPlugin(ScrollTrigger, Flip, DrawSVGPlugin, SplitText);
+if (hasGsap) gsap.registerPlugin(ScrollTrigger, Flip, SplitText);
 
 /* Contact form */
 
 const form = document.querySelector("#contacto-form");
 const status = document.querySelector("#form-status");
 const submit = form.querySelector("button[type=submit]");
-const submitLabel = submit.querySelector(".btn__label");
+const submitLabel = submit.querySelector(".pill__label");
 
 const fields = [
   { id: "nombre", empty: "Escribe tu nombre." },
@@ -103,9 +104,10 @@ for (const field of fields) {
 
 const cards = [...document.querySelectorAll(".reto")];
 const chips = [...document.querySelectorAll(".chip")];
-const moreWrap = document.querySelector(".retos__more");
+const moreWrap = document.querySelector(".practice__toggle");
 const moreButton = document.getElementById("ver-todos");
-const moreText = moreButton.textContent.trim();
+const moreLabel = moreButton.querySelector(".pill__label");
+const moreText = moreLabel.textContent;
 let filter = "todos";
 let expanded = false;
 
@@ -122,7 +124,7 @@ function render() {
   for (const chip of chips) chip.setAttribute("aria-pressed", String(chip.dataset.filter === filter));
   moreWrap.hidden = filter !== "todos";
   moreButton.setAttribute("aria-expanded", String(expanded));
-  moreButton.textContent = expanded ? "Ver menos retos" : moreText;
+  moreLabel.textContent = expanded ? "Ver menos retos" : moreText;
 
   if (!animate) return;
   Flip.from(state, {
@@ -149,13 +151,11 @@ moreButton.addEventListener("click", () => {
   expanded = !expanded;
   render();
   if (!expanded) {
-    document.getElementById("retos").scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth" });
+    document.getElementById("practica").scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth" });
   }
 });
 
 /* Motion */
-
-const root = document.documentElement;
 
 if (!hasGsap) {
   root.classList.remove("js-motion");
@@ -167,51 +167,72 @@ if (!hasGsap) {
   });
 
   mm.add("(prefers-reduced-motion: no-preference)", () => {
-    const tiles = gsap.utils.toArray(".bento .tile");
-    const title = document.querySelector(".tile--intro h1");
+    const fontsReady = Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 1200))]);
 
-    gsap.fromTo(
-      tiles,
-      { opacity: 0, y: 40, scale: 0.97 },
-      { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: "power3.out", stagger: 0.08, clearProps: "transform" },
-    );
-    gsap.set(title, { visibility: "hidden" });
-    root.classList.remove("js-motion");
+    fontsReady.then(() => {
+      const title = SplitText.create(".hero h1", { type: "words", mask: "words" });
+      const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
+      gsap.set([".topbar", ".hero__body > *"], { opacity: 1 });
+      root.classList.remove("js-motion");
 
-    document.fonts.ready.then(() => {
-      SplitText.create(title, {
-        type: "lines",
-        mask: "lines",
-        autoSplit: true,
-        onSplit(self) {
-          gsap.set(title, { visibility: "visible" });
-          return gsap.from(self.lines, { yPercent: 110, duration: 1, ease: "power4.out", stagger: 0.1, delay: 0.15 });
-        },
-      });
+      intro
+        .from(".topbar", { y: -24, opacity: 0, duration: 0.7 })
+        .from(".hero__intro .script", { y: 20, opacity: 0, duration: 0.6 }, "-=0.35")
+        .from(title.words, { yPercent: 110, duration: 1, ease: "power4.out", stagger: 0.12 }, "-=0.3")
+        .from(".hero__portrait img", { y: 80, opacity: 0, duration: 1.1 }, "-=0.9")
+        .from(".hero__intro .hero__small, .hero__aside", { y: 24, opacity: 0, duration: 0.7, stagger: 0.12 }, "-=0.6")
+        .from(".badge", { scale: 0, rotation: -120, duration: 0.9, ease: "back.out(1.6)" }, "-=0.6")
+        .from(".marquee", { opacity: 0, duration: 0.8 }, "-=0.5");
     });
 
-    const counter = document.querySelector("[data-count]");
-    const total = Number(counter.dataset.count);
-    const tally = { value: 0 };
-    counter.textContent = "0";
-    gsap.to(tally, {
-      value: total,
-      duration: 1.8,
-      delay: 0.4,
-      ease: "power2.out",
-      onUpdate: () => {
-        counter.textContent = String(Math.round(tally.value));
+    gsap.to(".badge__ring", { rotation: 360, duration: 16, ease: "none", repeat: -1 });
+
+    const marquee = document.querySelector(".marquee");
+    marquee.classList.add("is-moving");
+    const loop = gsap.to(".marquee__track", { xPercent: -50, duration: 26, ease: "none", repeat: -1 });
+    ScrollTrigger.create({
+      onUpdate(self) {
+        const boost = 1 + Math.min(Math.abs(self.getVelocity()) / 300, 5);
+        loop.timeScale(boost);
+        gsap.to(loop, { timeScale: 1, duration: 0.8, overwrite: true });
       },
-      scrollTrigger: { trigger: counter, start: "top 95%", once: true },
     });
 
-    gsap.utils.toArray(".services li, .section__head, .project, .about__intro, .contact").forEach((el) => {
-      gsap.from(el, {
+    gsap.to(".hero__portrait img", {
+      yPercent: 10,
+      ease: "none",
+      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true },
+    });
+
+    gsap.utils
+      .toArray(".trust__list, .split > *, .practice__head > *, .about__row, .contact__intro, .contact form")
+      .forEach((el) => {
+        gsap.from(el, {
+          opacity: 0,
+          y: 40,
+          duration: 0.9,
+          ease: "power3.out",
+          scrollTrigger: { trigger: el, start: "top 88%", once: true },
+        });
+      });
+
+    gsap.utils.toArray(".work").forEach((work) => {
+      gsap.fromTo(
+        work.querySelector(".work__media"),
+        { clipPath: "inset(10% 14% 10% 14% round 22px)" },
+        {
+          clipPath: "inset(0% 0% 0% 0% round 22px)",
+          ease: "none",
+          scrollTrigger: { trigger: work, start: "top 90%", end: "top 40%", scrub: 0.6 },
+        },
+      );
+      gsap.from(work.querySelectorAll(".work__body > *"), {
         opacity: 0,
-        y: 40,
-        duration: 0.9,
+        y: 30,
+        duration: 0.8,
         ease: "power3.out",
-        scrollTrigger: { trigger: el, start: "top 88%", once: true },
+        stagger: 0.08,
+        scrollTrigger: { trigger: work, start: "top 75%", once: true },
       });
     });
 
@@ -223,52 +244,56 @@ if (!hasGsap) {
         gsap.to(batch, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.06, clearProps: "transform" }),
     });
 
-    gsap.from(".timeline__line path", {
-      drawSVG: "0%",
-      ease: "none",
-      scrollTrigger: { trigger: ".timeline", start: "top 75%", end: "bottom 55%", scrub: 0.6 },
-    });
+    const statement = SplitText.create(".about__statement", { type: "words" });
+    gsap.fromTo(
+      statement.words,
+      { opacity: 0.18 },
+      {
+        opacity: 1,
+        ease: "none",
+        stagger: 0.1,
+        scrollTrigger: { trigger: ".about__statement", start: "top 80%", end: "bottom 45%", scrub: true },
+      },
+    );
 
-    gsap.utils.toArray(".timeline li").forEach((item) => {
-      gsap.from(item, {
-        opacity: 0.15,
-        x: 24,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: { trigger: item, start: "top 80%", once: true },
+    document.querySelectorAll("[data-count]").forEach((el) => {
+      const total = Number(el.dataset.count);
+      const tally = { value: 0 };
+      el.textContent = "0";
+      gsap.to(tally, {
+        value: total,
+        duration: 1.6,
+        ease: "power2.out",
+        delay: el.closest(".hero") ? 1.2 : 0,
+        onUpdate: () => {
+          el.textContent = String(Math.round(tally.value));
+        },
+        scrollTrigger: { trigger: el, start: "top 95%", once: true },
       });
     });
   });
 
   mm.add("(prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine)", () => {
-    const tiltables = gsap.utils.toArray(".bento .tile, .project");
-    const cleanups = tiltables.map((el) => {
-      const rotateX = gsap.quickTo(el, "rotationX", { duration: 0.5, ease: "power3.out" });
-      const rotateY = gsap.quickTo(el, "rotationY", { duration: 0.5, ease: "power3.out" });
-
-      const enter = () => gsap.set(el, { transformPerspective: 1000 });
+    const magnets = gsap.utils.toArray(".pill, .badge");
+    const cleanups = magnets.map((el) => {
+      const toX = gsap.quickTo(el, "x", { duration: 0.5, ease: "power3.out" });
+      const toY = gsap.quickTo(el, "y", { duration: 0.5, ease: "power3.out" });
       const move = (event) => {
         const box = el.getBoundingClientRect();
-        const x = (event.clientX - box.left) / box.width - 0.5;
-        const y = (event.clientY - box.top) / box.height - 0.5;
-        rotateY(x * 6);
-        rotateX(y * -6);
+        toX((event.clientX - box.left - box.width / 2) * 0.25);
+        toY((event.clientY - box.top - box.height / 2) * 0.35);
       };
       const leave = () => {
-        rotateX(0);
-        rotateY(0);
+        toX(0);
+        toY(0);
       };
-
-      el.addEventListener("pointerenter", enter);
       el.addEventListener("pointermove", move);
       el.addEventListener("pointerleave", leave);
       return () => {
-        el.removeEventListener("pointerenter", enter);
         el.removeEventListener("pointermove", move);
         el.removeEventListener("pointerleave", leave);
       };
     });
-
     return () => cleanups.forEach((cleanup) => cleanup());
   });
 }
