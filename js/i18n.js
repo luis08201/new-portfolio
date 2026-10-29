@@ -141,9 +141,44 @@ export function initialLanguage() {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (LANGS.includes(saved)) return saved;
   } catch {
-    // Storage can be blocked; Spanish is the default.
+    // Storage can be blocked; fall back to the visitor's region.
   }
-  return "es";
+  return isLatinAmerica() ? "es" : "en";
+}
+
+// Latin America is detected from the browser's time zone: it needs no network
+// request, so the page never shows one language and then flips to the other.
+const LATAM_ZONES = new Set(
+  [
+    "Mexico_City", "Cancun", "Merida", "Monterrey", "Matamoros", "Chihuahua", "Ciudad_Juarez",
+    "Ojinaga", "Mazatlan", "Bahia_Banderas", "Hermosillo", "Tijuana", "Ensenada", "Santa_Isabel",
+    "Guatemala", "Belize", "El_Salvador", "Tegucigalpa", "Managua", "Costa_Rica", "Panama",
+    "Havana", "Santo_Domingo", "Puerto_Rico",
+    "Bogota", "Caracas", "Guayaquil", "Lima", "La_Paz", "Santiago", "Punta_Arenas", "Asuncion",
+    "Montevideo", "Buenos_Aires", "Cordoba", "Catamarca", "Jujuy", "Mendoza", "Rosario",
+    "Sao_Paulo", "Bahia", "Fortaleza", "Recife", "Maceio", "Belem", "Manaus", "Cuiaba",
+    "Campo_Grande", "Porto_Velho", "Boa_Vista", "Rio_Branco", "Eirunepe", "Araguaina",
+    "Santarem", "Noronha",
+  ].map((city) => `America/${city}`),
+);
+const LATAM_LEGACY = ["Mexico/", "Chile/", "Brazil/", "Pacific/Easter", "Pacific/Galapagos", "Cuba"];
+const LATAM_REGIONS = new Set(
+  "MX GT BZ SV HN NI CR PA CU DO PR CO VE EC PE BO CL PY UY AR BR 419".split(" "),
+);
+
+function isLatinAmerica() {
+  const zone = Intl.DateTimeFormat().resolvedOptions().timeZone ?? "";
+  if (zone && zone !== "UTC" && zone !== "Etc/UTC") {
+    return (
+      LATAM_ZONES.has(zone) ||
+      zone.startsWith("America/Argentina/") ||
+      LATAM_LEGACY.some((prefix) => zone.startsWith(prefix))
+    );
+  }
+  // Without a usable time zone, the region in the browser language (es-NI, pt-BR…) decides.
+  return (navigator.languages ?? [navigator.language]).some((tag) =>
+    LATAM_REGIONS.has(tag.split("-")[1]?.toUpperCase()),
+  );
 }
 
 export function applyLanguage(lang) {

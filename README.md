@@ -11,7 +11,7 @@ En línea: https://luis08201.github.io/new-portfolio/
 - `js/vendor/`: GSAP 3.15 (núcleo, ScrollTrigger, Flip y SplitText)
 - `img/`: retrato y capturas de los proyectos y retos
 
-El botón ES / EN del pie de página cambia el idioma sin recargar y recuerda la elección. También se puede abrir en inglés con `?lang=en`.
+El idioma inicial depende de la región del visitante, según la zona horaria del navegador: Latinoamérica ve la página en español y el resto del mundo en inglés. El botón ES / EN del pie de página cambia el idioma sin recargar y recuerda la elección, que tiene prioridad sobre la detección. Un enlace con `?lang=es` o `?lang=en` fuerza el idioma.
 
 Las animaciones se desactivan cuando el sistema pide reducir el movimiento, y el contenido se muestra igual si GSAP no carga.
 
