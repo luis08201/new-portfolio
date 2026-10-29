@@ -182,19 +182,8 @@ moreButton.addEventListener("click", () => {
 
 /* Projects gallery */
 
-const works = document.querySelector(".works");
-const bar = document.querySelector(".works__bar");
-const hint = document.querySelector(".works__hint");
-const hintText = hint.textContent;
-
-works.addEventListener(
-  "scroll",
-  () => {
-    const max = works.scrollWidth - works.clientWidth;
-    bar.style.transform = `scaleX(${max > 0 ? works.scrollLeft / max : 0})`;
-  },
-  { passive: true },
-);
+const projects = document.getElementById("trabajo");
+const works = projects.querySelector(".works");
 
 /* Motion */
 
@@ -332,30 +321,23 @@ if (!hasGsap) {
       return Math.max(0, track.scrollWidth - inner);
     };
 
-    works.classList.add("is-pinned");
+    projects.classList.add("is-pinned");
     works.scrollLeft = 0;
-    hint.textContent = "Sigue bajando para recorrerlos";
 
     gsap.to(track, {
       x: () => -distance(),
       ease: "none",
       scrollTrigger: {
-        trigger: ".works-pin",
+        trigger: projects,
         start: "center center",
         end: () => `+=${distance()}`,
-        pin: ".works-pin",
-        pinSpacing: true,
+        pin: true,
         scrub: 0.8,
         invalidateOnRefresh: true,
-        onUpdate: (self) => gsap.set(bar, { scaleX: self.progress }),
       },
     });
 
-    return () => {
-      works.classList.remove("is-pinned");
-      hint.textContent = hintText;
-      gsap.set(bar, { scaleX: 0 });
-    };
+    return () => projects.classList.remove("is-pinned");
   });
 
   mm.add("(prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine)", () => {
