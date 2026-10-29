@@ -1,6 +1,6 @@
 # Portafolio de Luis Selva
 
-Página del portafolio con tema de naturaleza (verde bosque y lima): presentación, proyectos, 34 retos de Frontend Mentor filtrables por nivel, acerca de mí y formulario de contacto (Formspree). Es HTML, CSS y JavaScript sin paso de compilación, así que GitHub Pages la sirve tal cual.
+Página del portafolio con azul marino y lima: presentación, proyectos, 34 retos de Frontend Mentor filtrables por nivel, acerca de mí y formulario de contacto (Formspree). Es HTML, CSS y JavaScript sin paso de compilación, así que GitHub Pages la sirve tal cual.
 
 En línea: https://luis08201.github.io/new-portfolio/
 
