@@ -1,324 +1,282 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <title>Portfolio | Luis Selva</title>
-</head>
-<body>
-    <header class="header header-bg" id="home">
-        <section class="header__main">
-            <div class="header__top">
-                <a href="index.html" class="header__top--brand">
-                    <h3 class="header__top--title">Luis Selva</h3>
-                </a>
-    
-                <div class="header__top--toggle" id="menuBTNON"></div>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Luis Selva, desarrollador web en Nicaragua. Maquetación e interfaces que se entienden a la primera."
+    />
+    <meta name="theme-color" content="#1d261b" />
+    <title>Luis Selva · Desarrollador web</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#contenido">Saltar al contenido</a>
 
-                <nav class="header__nav" id="nav">
-                    <div class="header__nav--head">
-                        <a href="#home" class="header__top--brand">
-                            <h3 class="header__nav--title">Luis Selva</h3>
-                        </a>
-                        
-                        <div class="header__nav--toggle" id="menuBTNOFF"></div>
-                    </div>
-                    <ul class="header__nav--menu">                        
-                        <li class="header__nav--list">
-                            <a href="#project" class="header__nav--link" >proyectos</a>
-                        </li>
-                        <li class="header__nav--list">
-                            <a href="#retos" class="header__nav--link">retos</a>
-                        </li>
-                        <li class="header__nav--list">
-                            <a href="#about" class="header__nav--link">acerca de</a>
-                        </li>
-                        <li class="header__nav--list">
-                            <a href="#contacto" class="header__nav--link">contacto</a>
-                        </li>
-                    </ul>
-                </nav>
+    <div class="page">
+      <header class="hero" id="inicio">
+        <nav class="topbar" aria-label="Principal">
+          <a class="brand" href="#inicio">Luis Selva<sup>®</sup></a>
+          <ul class="topbar__links">
+            <li><a href="#trabajo">Trabajo</a></li>
+            <li><a href="#practica">Práctica</a></li>
+            <li><a href="#acerca">Acerca</a></li>
+          </ul>
+          <a class="pill pill--light" href="#contacto">
+            Escríbeme
+            <span class="pill__arrow" aria-hidden="true">→</span>
+          </a>
+        </nav>
+
+        <main id="contenido" class="hero__body">
+          <div class="hero__intro">
+            <p class="script">Hola, soy Luis,</p>
+            <h1>Desarrollador<br />Web</h1>
+          </div>
+
+          <figure class="hero__portrait">
+            <img
+              src="img/luis.png"
+              alt="Luis Selva"
+              width="800"
+              height="800"
+              onerror="this.onerror=null;this.src='img/photo-transparent.png';this.closest('figure').classList.add('hero__portrait--fallback')"
+            />
+          </figure>
+
+          <div class="hero__aside">
+            <p class="hero__quote">
+              Una buena interfaz se entiende a la primera.
+            </p>
+            <p class="hero__small">
+              Maqueto páginas en HTML, CSS y JavaScript que cargan rápido y se
+              leen bien en cualquier pantalla.
+            </p>
+          </div>
+        </main>
+
+        <ol class="services">
+          <li><span>01</span>Maquetación HTML y CSS</li>
+          <li><span>02</span>Estilos con Sass</li>
+          <li><span>03</span>Interacción con JavaScript</li>
+          <li><span>04</span>Diseño responsivo</li>
+        </ol>
+      </header>
+
+      <section class="trust" aria-label="Dónde he practicado">
+        <p class="trust__label">Formación y retos que dieron forma a mi trabajo</p>
+        <ul class="trust__list">
+          <li>ISIC</li>
+          <li>Sydicom</li>
+          <li>Frontend Mentor</li>
+          <li>devChallenges</li>
+        </ul>
+      </section>
+
+      <section class="section" id="trabajo" aria-labelledby="trabajo-titulo">
+        <div class="split">
+          <div>
+            <p class="script script--green">Detrás del código</p>
+            <h2 id="trabajo-titulo">Páginas claras que hacen la visita más simple</h2>
+          </div>
+          <div class="split__aside">
+            <p class="lead-serif">
+              Me enfoco en interfaces limpias e intuitivas, construidas con
+              cuidado desde la primera línea de HTML.
+            </p>
+            <div class="split__cta">
+              <p>Construyamos algo útil juntos</p>
+              <a class="pill pill--green" href="#contacto">
+                Escríbeme
+                <span class="pill__arrow" aria-hidden="true">→</span>
+              </a>
             </div>
-            <div class="header__home">
-                <div class="header__home--description" data-aos-duration="2000" data-aos="fade-up">
-                    <h1 class="header__home--firstheading">luis selva</h1>
-                    <h4 class="header__home--smallheading">desarrollador web</h4>
-                    <a href="#project" class="header__home--cta">ver mis proyectos</a>
-                </div>
-            </div>
-        </section>
-    </header>
-    <section class="about" id="about">
-        <div class="about__main">
-            <div class="about__header">
-                <h2 class="about__header--secondheading">
-                    Acerca de m&iacute;
-                </h2>
-            </div>
-            <div class="about__body">
-                <figure class="about__body--picture" data-aos="fade-right" data-aos-duration="2000">
-                    <img src="img/photo-transparent.png" alt="Luis Selva photo" class="about__body--img">
-                </figure>
-                <div class="about__body--description" data-aos="fade-left" data-aos-duration="2000">
-                    <p class="about__body--paragraph">Desde mi carrera universitaria me ha gustado construir programas que contengan una interactividad llamativa y muy
-                    amigable para las personas.</p>
-                    <p class="about__body--paragraph">
-                        En 2014 descubrí este mundo del desarrollo web y quedé asombrado, ya que logre encontrar un entorno donde pueda dar pie
-                        a la creatividad para realizar páginas web que sean llamativas e interactivas con el usuario.
-                    </p>
-                    <p class="about__body--paragraph">
-                        La persistencia, perseverancia, disciplina y el hambre de aprender me ha llevado a comprender un poco más acerca de este
-                        gran mundo que es el desarrollo web.
-                    </p>
-                    <p class="about__body--paragraph">
-                        Siempre entusiasta de aprender mucho más y mejorar como persona y profesional.
-                    </p>
-                </div>
-            </div>
+          </div>
         </div>
-    </section>
-    <section class="project" id="project">
-        <div class="project__main">
-            <div class="project__header">
-                <h2 class="project__header--secondheading">proyectos</h2>
+
+        <div class="projects">
+          <article class="project">
+            <a class="project__media" href="https://luis08201.github.io/isic-version2021/">
+              <img
+                src="img/isic.png"
+                alt="Sitio de ISIC visto en una tableta y un teléfono"
+                width="307"
+                height="259"
+              />
+            </a>
+            <div class="project__meta">
+              <p class="project__tag">Proyecto de curso</p>
+              <h3>ISIC</h3>
+              <p>Proyecto final del curso de diseño de páginas web en el instituto ISIC.</p>
+              <p class="project__links">
+                <a href="https://github.com/luis08201/isic-version2021">Código</a>
+                <a href="https://luis08201.github.io/isic-version2021/">Ver proyecto</a>
+              </p>
             </div>
-            <div class="project__body">
-            <div class="project__card" data-aos="flip-left" data-aos-duration="2000">
-                   <div class="project__card--front project__card--subcard">
-                       <img src="img/isic.png" alt="Isic" class="project__card--img">
-                   </div>
-                   <div class="project__card--back project__card--subcard">
-                        <div class="project__card--Title">
-                            <h3 class="project__card--middleheading">isic</h3>
-                            <div class="project__card--code">
-                                <span class="fa-brands fa-html5"></span>
-                                <span class="fa-brands fa-css3-alt"></span>
-                            </div>
-                        </div>
-                        <p class="project__card--paragraph">
-                            Pagina web creada para proyecto final de curso de diseño de pagina web en el instituto ISIC
-                        </p>
-                        <div class="project__card--buttongroup">
-                            <a href="https://github.com/luis08201/isic-version2021" class="project__card--cta">Ver codigo</a>
-                            <a href="https://luis08201.github.io/isic-version2021/" class="project__card--cta">ver proyecto</a>
-                        </div>
-                   </div>
+          </article>
+
+          <article class="project">
+            <a class="project__media" href="https://luis08201.github.io/SYDICOM/">
+              <img
+                src="img/sydicom.png"
+                alt="Sitio de Sydicom visto en una laptop y un teléfono"
+                width="336"
+                height="280"
+              />
+            </a>
+            <div class="project__meta">
+              <p class="project__tag">Proyecto de curso</p>
+              <h3>Sydicom</h3>
+              <p>Proyecto final del curso de desarrollo de páginas web en el instituto Sydicom.</p>
+              <p class="project__links">
+                <a href="https://github.com/luis08201/SYDICOM">Código</a>
+                <a href="https://luis08201.github.io/SYDICOM/">Ver proyecto</a>
+              </p>
             </div>
-            <div class="project__card" data-aos="flip-right" data-aos-duration="2000">
-                <div class="project__card--front project__card--subcard">
-                    <img src="img/sydicom.png" alt="sydicom" class="project__card--img">
-                </div>
-                <div class="project__card--back project__card--subcard">
-                    <div class="project__card--Title">
-                        <h3 class="project__card--middleheading">sydicom</h3>
-                        <div class="project__card--code">
-                            <span class="fa-brands fa-html5"></span>
-                            <span class="fa-brands fa-css3-alt"></span>
-                        </div>
-                    </div>
-                    <p class="project__card--paragraph">
-                        Pagina web creada para proyecto final de curso de desarrollo de pagina web en el instituto Sydicom
-                    </p>
-                    <div class="project__card--buttongroup">
-                        <a href="https://github.com/luis08201/SYDICOM" class="project__card--cta">Ver codigo</a>
-                        <a href="https://luis08201.github.io/SYDICOM/" class="project__card--cta">ver proyecto</a>
-                    </div>
-                </div>
+          </article>
+
+          <article class="project">
+            <a
+              class="project__media project__media--cover"
+              href="https://luis08201.github.io/Simple-Feature-Section/"
+            >
+              <img
+                src="https://raw.githubusercontent.com/luis08201/Simple-Feature-Section/main/thumbnail.jpg"
+                alt="Sección de características con tres tarjetas sobre fondo oscuro"
+                width="1280"
+                height="900"
+              />
+            </a>
+            <div class="project__meta">
+              <p class="project__tag">Ejercicio · julio 2025</p>
+              <h3>Simple Feature Section</h3>
+              <p>Reto de devChallenges. Práctica de maquetación, no un trabajo de cliente.</p>
+              <p class="project__links">
+                <a href="https://github.com/luis08201/Simple-Feature-Section">Código</a>
+                <a href="https://luis08201.github.io/Simple-Feature-Section/">Ver proyecto</a>
+              </p>
             </div>
-            </div>
+          </article>
         </div>
-    </section>
-    <section class="retos" id="retos">
-        <div class="retos__main">
-            <div class="retos__header">
-                <h2 class="retos__header--secondheading">
-                    Retos realizados de 
-                </h2>
-                <img src="img/logo__frontendmentor 1.png" alt="frontendmentor logo" class="retos__header--img">
-            </div>
-            <div class="retos__body">
-                <div class="retos__body--banner">
-                    <figure class="retos__body--picture">
-                        <img src="img/avatar1.png" alt="" class="retos__body--img">
-                    </figure>
-                    <p class="retos__body--paragraph">
-                        Los retos que he realizado de la página web Frontend Mentor me han ayudado a desarrollar mis habilidades de maquetación
-                        y elaboración de páginas web.
-                    </p>
-                </div>
-                <div class="retos__body--item" data-aos-duration="2000" data-aos="fade-up">
-                    <figure class="retos__body--item-header">
-                        <img src="img/item01.png" alt="bookmark landing page master" class="retos__body--item-img">
-                        <a href="https://github.com/luis08201/bookmark-landing-page-master" class="retos__body--item-cta">
-                            <i class="fa-solid fa-code"></i>
-                        </a>
-                    </figure>
-                    <div class="retos__body--item-middle">
-                        <h4 class="retos__body--item-smallheading">bookmark landing page master</h4>
-                        <div class="retos__body--item-code">
-                            <i class="fa-brands fa-html5 retos__body--item-html"></i>
-                            <i class="fa-brands fa-css3-alt retos__body--item-css"></i>
-                            <i class="fa-brands fa-js-square retos__body--item-js"></i>
-                        </div>
-                    </div>
-                    <div class="retos__body--item-bottom">
-                        <a href="https://luis08201.github.io/bookmark-landing-page-master/" class="retos__body--item-bottom-cta">ver proyecto</a>
-                    </div>
-                </div>
-                <div class="retos__body--item" data-aos-duration="2000" data-aos="fade-up">
-                    <figure class="retos__body--item-header">
-                        <img src="img/item02.png" alt="calculadora app" class="retos__body--item-img">
-                        <a href="https://github.com/luis08201/calculator-app-main-second-attempt" class="retos__body--item-cta">
-                            <i class="fa-solid fa-code"></i>
-                        </a>
-                    </figure>
-                    <div class="retos__body--item-middle">
-                        <h4 class="retos__body--item-smallheading">calculadora app</h4>
-                        <div class="retos__body--item-code">
-                            <i class="fa-brands fa-html5 retos__body--item-html"></i>
-                            <i class="fa-brands fa-css3-alt retos__body--item-css"></i>
-                            <i class="fa-brands fa-js-square retos__body--item-js"></i>
-                        </div>
-                    </div>
-                    <div class="retos__body--item-bottom">
-                        <a href="https://luis08201.github.io/calculator-app-main-second-attempt/" class="retos__body--item-bottom-cta">ver proyecto</a>
-                    </div>
-                </div>
-                <div class="retos__body--item" data-aos-duration="2000" data-aos="fade-up">
-                    <figure class="retos__body--item-header">
-                        <img src="img/item03.png" alt="huddle landing page with curve section" class="retos__body--item-img">
-                        <a href="https://github.com/luis08201/huddle-landing-page-with-curved-sections-master" class="retos__body--item-cta">
-                            <i class="fa-solid fa-code"></i>
-                        </a>
-                    </figure>
-                    <div class="retos__body--item-middle">
-                        <h4 class="retos__body--item-smallheading">huddle landing page with curve section</h4>
-                        <div class="retos__body--item-code">
-                            <i class="fa-brands fa-html5 retos__body--item-html"></i>
-                            <i class="fa-brands fa-css3-alt retos__body--item-css"></i>
-                            <i class="fa-brands fa-js-square retos__body--item-js"></i>
-                        </div>
-                    </div>
-                    <div class="retos__body--item-bottom">
-                        <a href="https://luis08201.github.io/huddle-landing-page-with-curved-sections-master/" class="retos__body--item-bottom-cta">ver proyecto</a>
-                    </div>
-                </div>
-                <div class="retos__body--item" data-aos-duration="2000" data-aos="fade-up">
-                    <figure class="retos__body--item-header">
-                        <img src="img/item04.png" alt="chat app CSS Illustation" class="retos__body--item-img">
-                        <a href="https://github.com/luis08201/chat-app-css-illustration-master" class="retos__body--item-cta">
-                            <i class="fa-solid fa-code"></i>
-                        </a>
-                    </figure>
-                    <div class="retos__body--item-middle">
-                        <h4 class="retos__body--item-smallheading">chat app CSS Illustation</h4>
-                        <div class="retos__body--item-code">
-                            <i class="fa-brands fa-html5 retos__body--item-html"></i>
-                            <i class="fa-brands fa-sass retos__body--item-sass"></i>
-                        </div>
-                    </div>
-                    <div class="retos__body--item-bottom">
-                        <a href="https://luis08201.github.io/chat-app-css-illustration-master/" class="retos__body--item-bottom-cta">ver proyecto</a>
-                    </div>
-                </div>
-                <div class="retos__body--item" data-aos-duration="2000" data-aos="fade-up">
-                    <figure class="retos__body--item-header">
-                        <img src="img/item05.png" alt="manage landing page master" class="retos__body--item-img">
-                        <a href="https://github.com/luis08201/manage-landing-page-master" class="retos__body--item-cta">
-                            <i class="fa-solid fa-code"></i>
-                        </a>
-                    </figure>
-                    <div class="retos__body--item-middle">
-                        <h4 class="retos__body--item-smallheading">manage landing page master</h4>
-                        <div class="retos__body--item-code">
-                            <i class="fa-brands fa-html5 retos__body--item-html"></i>
-                            <i class="fa-brands fa-js-square retos__body--item-js"></i>
-                            <i class="fa-brands fa-sass retos__body--item-sass"></i>
-                        </div>
-                    </div>
-                    <div class="retos__body--item-bottom">
-                        <a href="https://luis08201.github.io/manage-landing-page-master/" class="retos__body--item-bottom-cta">ver proyecto</a>
-                    </div>
-                </div>
-                <div class="retos__body--item" data-aos-duration="2000" data-aos="fade-up">
-                    <figure class="retos__body--item-header">
-                        <img src="img/item07.png" alt="Fylo landing page master with two columns" class="retos__body--item-img">
-                        <a href="https://github.com/luis08201/loopstudios-landing-page-main-second-attempt" class="retos__body--item-cta">
-                            <i class="fa-solid fa-code"></i>
-                        </a>
-                    </figure>
-                    <div class="retos__body--item-middle">
-                        <h4 class="retos__body--item-smallheading">Loopstudios Landing Page Main</h4>
-                        <div class="retos__body--item-code">
-                            <i class="fa-brands fa-html5 retos__body--item-html"></i>
-                            <i class="fa-brands fa-js-square retos__body--item-js"></i>
-                            <i class="fa-brands fa-sass retos__body--item-sass"></i>
-                            <i class="fa-brands fa-bootstrap retos__body--item-bootstrap"></i>
-                        </div>
-                    </div>
-                    <div class="retos__body--item-bottom">
-                        <a href="https://luis08201.github.io/loopstudios-landing-page-main-second-attempt/" class="retos__body--item-bottom-cta">ver proyecto</a>
-                    </div>
-                </div>
-            </div>
+      </section>
+
+      <section class="section section--tint" id="practica" aria-labelledby="practica-titulo">
+        <div class="section-head">
+          <p class="script script--green">Práctica</p>
+          <h2 id="practica-titulo">Retos de Frontend Mentor</h2>
+          <p>Sirven para afinar la maquetación. No son proyectos de cliente.</p>
         </div>
-    </section>
-    <section class="contacto contacto-bg" id="contacto">
-        <div class="contacto__main">
-            <div class="contacto__header">
-                <h2 class="contacto__header--secondheading">Contacto</h2>
-            </div>
-            <div class="contacto__body">
-                <form action="https://formspree.io/f/xdobygaw" method="POST" class="contacto__formulario" data-aos="zoom-in-up" data-aos-duration="2000" autocomplete="off">
-                    <div class="contacto__formulario--box">
-                        <input type="text" class="contacto__formulario--input contacto__formulario--name" placeholder="Nombre" name="name" id="contacto__formulario--name" required>
-                    </div>
-                    <div class="contacto__formulario--box">
-                        <input type="email" class="contacto__formulario--input contacto__formulario--email" id="contacto__formulario--email" placeholder="Correo Electronico" name="email" required>
-                    </div>
-                    <div class="contacto__formulario--box">
-                        <input type="text" class="contacto__formulario--input" placeholder="Asunto" name="subject">
-                    </div>
-                    <div class="contacto__formulario--box">
-                        <textarea name="message" id="" cols="30" rows="10" placeholder="Mensaje" class="contacto__formulario--txt"></textarea>
-                    </div>
-                    <div class="contacto__formulario--bottom">
-                        <input type="submit" value="Enviar" class="contacto__formulario--btn">
-                    </div>
-                </form>
-            </div>
+        <div class="practice">
+          <article>
+            <a class="practice__media" href="https://luis08201.github.io/bookmark-landing-page-master/">
+              <img src="img/item01.png" alt="Página de inicio de Bookmark" width="336" height="202" />
+            </a>
+            <h3>Bookmark</h3>
+            <p class="practice__stack">HTML · CSS · JavaScript</p>
+            <p class="project__links">
+              <a href="https://github.com/luis08201/bookmark-landing-page-master">Código</a>
+              <a href="https://luis08201.github.io/bookmark-landing-page-master/">Ver</a>
+            </p>
+          </article>
+          <article>
+            <a class="practice__media" href="https://luis08201.github.io/calculator-app-main-second-attempt/">
+              <img src="img/item02.png" alt="Calculadora con tres temas de color" width="336" height="202" />
+            </a>
+            <h3>Calculadora</h3>
+            <p class="practice__stack">HTML · CSS · JavaScript</p>
+            <p class="project__links">
+              <a href="https://github.com/luis08201/calculator-app-main-second-attempt">Código</a>
+              <a href="https://luis08201.github.io/calculator-app-main-second-attempt/">Ver</a>
+            </p>
+          </article>
+          <article>
+            <a class="practice__media" href="https://luis08201.github.io/manage-landing-page-master/">
+              <img src="img/item05.png" alt="Página de inicio de Manage" width="336" height="202" />
+            </a>
+            <h3>Manage</h3>
+            <p class="practice__stack">HTML · Sass · JavaScript</p>
+            <p class="project__links">
+              <a href="https://github.com/luis08201/manage-landing-page-master">Código</a>
+              <a href="https://luis08201.github.io/manage-landing-page-master/">Ver</a>
+            </p>
+          </article>
+          <article>
+            <a class="practice__media" href="https://luis08201.github.io/loopstudios-landing-page-main-second-attempt/">
+              <img src="img/item07.png" alt="Página de inicio de Loopstudios" width="377" height="240" />
+            </a>
+            <h3>Loopstudios</h3>
+            <p class="practice__stack">HTML · Sass · JavaScript · Bootstrap</p>
+            <p class="project__links">
+              <a href="https://github.com/luis08201/loopstudios-landing-page-main-second-attempt">Código</a>
+              <a href="https://luis08201.github.io/loopstudios-landing-page-main-second-attempt/">Ver</a>
+            </p>
+          </article>
         </div>
-    </section>
-    <footer class="footer">
-        <section class="footer__main">
-            <article class="footer__article">
-                <p class="footer__article--paragraph">
-                    Diseñado y codificado por Luis Selva
-                </p>
-            </article>
-            <aside class="footer__aside">
-                <a href="https://twitter.com/luis08201" class="footer__aside--cta">
-                    <i class="fa-brands fa-twitter"></i>
-                </a>
-                <a href="https://github.com/luis08201" class="footer__aside--cta">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-            </aside>
-        </section>
-    </footer>
-    <a href="#home" class="floating--btn">
-        <i class="fa-solid fa-circle-arrow-up"></i>
-    </a>
-    <script src="js/menu.js"></script>
-    <script src="js/scroll.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/validation.js"></script>
-    <script>
-        AOS.init();
-    </script>
-</body>
+      </section>
+
+      <section class="section about" id="acerca" aria-labelledby="acerca-titulo">
+        <p class="script script--green">Acerca de mí</p>
+        <h2 id="acerca-titulo" class="about__statement">
+          Desde la universidad me gusta construir programas con una
+          interactividad <em>llamativa y amigable</em> para las personas.
+        </h2>
+        <p class="about__body">
+          La persistencia, la perseverancia, la disciplina y el hambre de
+          aprender me han llevado a comprender un poco más el desarrollo web.
+          Sigo aprendiendo para mejorar como persona y como profesional.
+        </p>
+      </section>
+
+      <section class="contact" id="contacto" aria-labelledby="contacto-titulo">
+        <div class="contact__intro">
+          <p class="script">Hablemos,</p>
+          <h2 id="contacto-titulo">¿Tienes una página en mente?</h2>
+          <p>
+            Cuéntame qué necesitas y te respondo al correo que dejes. También
+            estoy en GitHub y en Twitter.
+          </p>
+          <ul class="social">
+            <li><a href="https://github.com/luis08201">GitHub ↗</a></li>
+            <li><a href="https://twitter.com/luis08201">Twitter ↗</a></li>
+          </ul>
+        </div>
+        <form id="contacto-form" action="https://formspree.io/f/xdobygaw" method="POST" novalidate>
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="name" type="text" autocomplete="name" required />
+            <p class="field-error" id="nombre-error"></p>
+          </div>
+          <div class="field">
+            <label for="correo">Correo</label>
+            <input id="correo" name="email" type="email" autocomplete="email" required />
+            <p class="field-error" id="correo-error"></p>
+          </div>
+          <div class="field">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="message" required></textarea>
+            <p class="field-error" id="mensaje-error"></p>
+          </div>
+          <button type="submit" class="pill pill--green">
+            <span class="pill__label">Enviar</span>
+            <span class="pill__arrow" aria-hidden="true">→</span>
+          </button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+        </form>
+      </section>
+
+      <footer class="footer">
+        <p>Diseñado y codificado por Luis Selva</p>
+        <a href="#inicio">Volver arriba ↑</a>
+      </footer>
+    </div>
+  </body>
 </html>
