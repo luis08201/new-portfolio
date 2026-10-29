@@ -1,9 +1,43 @@
+import { applyLanguage, getLanguage, initialLanguage, saveLanguage, t } from "./i18n.js";
+
 const { gsap, ScrollTrigger, Flip, SplitText } = window;
 const hasGsap = Boolean(gsap && ScrollTrigger && Flip && SplitText);
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const root = document.documentElement;
 
 if (hasGsap) gsap.registerPlugin(ScrollTrigger, Flip, SplitText);
+
+/* Language */
+
+// Animations that rewrite or measure text register here so they can undo their
+// changes before the copy is swapped and rebuild afterwards.
+const languageHooks = new Set();
+const onLanguageChange = (hook) => {
+  languageHooks.add(hook);
+  return () => languageHooks.delete(hook);
+};
+
+if (initialLanguage() !== "es") applyLanguage(initialLanguage());
+
+function setLanguage(lang) {
+  if (lang === getLanguage()) return;
+  for (const hook of languageHooks) hook.before?.();
+  applyLanguage(lang);
+  saveLanguage(lang);
+  refreshMessages();
+  for (const hook of languageHooks) hook.after?.();
+  if (hasGsap) ScrollTrigger.refresh();
+
+  const url = new URL(location.href);
+  if (url.searchParams.has("lang")) {
+    url.searchParams.delete("lang");
+    history.replaceState(null, "", url);
+  }
+}
+
+for (const button of document.querySelectorAll("[data-lang]")) {
+  button.addEventListener("click", () => setLanguage(button.dataset.lang));
+}
 
 /* Contact form */
 
@@ -13,15 +47,16 @@ const submit = form.querySelector("button[type=submit]");
 const submitLabel = submit.querySelector(".pill__label");
 
 const fields = [
-  { id: "nombre", empty: "Escribe tu nombre." },
-  { id: "correo", empty: "Escribe un correo válido." },
-  { id: "mensaje", empty: "Escribe un mensaje." },
+  { id: "nombre", empty: "error.name" },
+  { id: "correo", empty: "error.email" },
+  { id: "mensaje", empty: "error.message" },
 ];
 
-function setError(input, message) {
+function setError(input, key) {
   const error = document.getElementById(`${input.id}-error`);
-  error.textContent = message;
-  if (message) {
+  error.dataset.key = key;
+  error.textContent = key ? t(key) : "";
+  if (key) {
     input.setAttribute("aria-invalid", "true");
     input.setAttribute("aria-describedby", error.id);
   } else {
@@ -56,13 +91,13 @@ form.addEventListener("submit", async (event) => {
   event.preventDefault();
   status.hidden = true;
   status.textContent = "";
+  delete status.dataset.key;
   status.className = "form-status";
 
   if (!validate()) return;
 
-  const label = submitLabel.textContent;
   submit.disabled = true;
-  submitLabel.textContent = "Enviando…";
+  submitLabel.textContent = t("form.sending");
 
   try {
     const response = await fetch(form.action, {
@@ -78,19 +113,21 @@ form.addEventListener("submit", async (event) => {
     for (const field of fields) {
       setError(document.getElementById(field.id), "");
     }
-    status.hidden = false;
-    status.textContent = "Mensaje enviado. Te responderé a ese correo.";
-    status.classList.add("form-status--ok");
+    showStatus("form.ok", "form-status--ok");
   } catch {
-    status.hidden = false;
-    status.textContent =
-      "No se pudo enviar. Puedes escribirme por GitHub o por Twitter.";
-    status.classList.add("form-status--error");
+    showStatus("form.fail", "form-status--error");
   } finally {
     submit.disabled = false;
-    submitLabel.textContent = label;
+    submitLabel.textContent = t("form.send");
   }
 });
+
+function showStatus(key, modifier) {
+  status.hidden = false;
+  status.dataset.key = key;
+  status.textContent = t(key);
+  status.classList.add(modifier);
+}
 
 for (const field of fields) {
   document.getElementById(field.id).addEventListener("input", (event) => {
@@ -108,7 +145,6 @@ const chips = [...document.querySelectorAll(".chip")];
 const moreWrap = document.querySelector(".practice__toggle");
 const moreButton = document.getElementById("ver-todos");
 const moreLabel = moreButton.querySelector(".pill__label");
-const moreText = moreLabel.textContent;
 let filter = "todos";
 let expanded = false;
 
@@ -122,7 +158,15 @@ function applyFilter() {
   for (const chip of chips) chip.setAttribute("aria-pressed", String(chip.dataset.filter === filter));
   moreWrap.hidden = filter !== "todos";
   moreButton.setAttribute("aria-expanded", String(expanded));
-  moreLabel.textContent = expanded ? "Ver menos retos" : moreText;
+  moreLabel.textContent = t(expanded ? "more.less" : "more.all");
+}
+
+function refreshMessages() {
+  for (const el of document.querySelectorAll(".field-error[data-key], #form-status[data-key]")) {
+    if (el.dataset.key) el.textContent = t(el.dataset.key);
+  }
+  submitLabel.textContent = t(submit.disabled ? "form.sending" : "form.send");
+  moreLabel.textContent = t(expanded ? "more.less" : "more.all");
 }
 
 function render() {
@@ -197,11 +241,13 @@ if (!hasGsap) {
   });
 
   mm.add("(prefers-reduced-motion: no-preference)", (context) => {
+    const unhooks = [];
     const fontsReady = Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 1200))]);
 
     fontsReady.then(context.add(() => {
       const title = SplitText.create(".hero h1", { type: "words", mask: "words" });
-      const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
+      const intro = gsap.timeline({ defaults: { ease: "power3.out" }, onComplete: () => title.revert() });
+      unhooks.push(onLanguageChange({ before: () => intro.progress(1) }));
       gsap.set([".topbar", ".hero__body > *"], { opacity: 1 });
       root.classList.remove("js-motion");
 
@@ -247,6 +293,7 @@ if (!hasGsap) {
         loop.invalidate();
       };
       window.addEventListener("resize", onResize);
+      unhooks.push(onLanguageChange({ after: onResize }));
       ScrollTrigger.create({
         onUpdate(self) {
           const boost = 1 + Math.min(Math.abs(self.getVelocity()) / 300, 5);
@@ -282,17 +329,30 @@ if (!hasGsap) {
         gsap.to(batch, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.06, clearProps: "transform" }),
     });
 
-    const statement = SplitText.create(".about__statement", { type: "words" });
-    gsap.fromTo(
-      statement.words,
-      { opacity: 0.18 },
-      {
-        opacity: 1,
-        ease: "none",
-        stagger: 0.1,
-        scrollTrigger: { trigger: ".about__statement", start: "top 80%", end: "bottom 45%", scrub: true },
+    let statement;
+    let statementFade;
+    const buildStatement = () => {
+      statement = SplitText.create(".about__statement", { type: "words" });
+      statementFade = gsap.fromTo(
+        statement.words,
+        { opacity: 0.18 },
+        {
+          opacity: 1,
+          ease: "none",
+          stagger: 0.1,
+          scrollTrigger: { trigger: ".about__statement", start: "top 80%", end: "bottom 45%", scrub: true },
+        },
+      );
+    };
+    buildStatement();
+    unhooks.push(onLanguageChange({
+      before: () => {
+        statementFade.scrollTrigger.kill();
+        statementFade.kill();
+        statement.revert();
       },
-    );
+      after: () => context.add(buildStatement),
+    }));
 
     document.querySelectorAll("[data-count]").forEach((el) => {
       const total = Number(el.dataset.count);
@@ -310,7 +370,10 @@ if (!hasGsap) {
       });
     });
 
-    return () => window.removeEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+      unhooks.forEach((unhook) => unhook());
+    };
   });
 
   mm.add("(prefers-reduced-motion: no-preference) and (min-width: 900px)", () => {

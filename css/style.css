@@ -775,7 +775,7 @@ h3 {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.chip span {
+.chip__count {
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--muted);
@@ -790,7 +790,7 @@ h3 {
   color: var(--cream);
 }
 
-.chip[aria-pressed="true"] span {
+.chip[aria-pressed="true"] .chip__count {
   color: var(--lime-soft);
 }
 
@@ -1048,6 +1048,7 @@ form .pill {
 .footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
   padding: 1.5rem var(--gutter) 2rem;
@@ -1067,6 +1068,41 @@ form .pill {
 
 .footer a:hover {
   color: var(--lime-soft);
+}
+
+.lang {
+  display: inline-flex;
+  padding: 0.2rem;
+  border: 1px solid rgba(246, 242, 234, 0.18);
+  border-radius: 999px;
+}
+
+.lang__option {
+  min-width: 2.75rem;
+  min-height: 2rem;
+  padding: 0 0.8rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: 600 0.78rem/1 var(--sans);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lang__option:hover {
+  color: var(--cream);
+}
+
+.lang__option[aria-pressed="true"] {
+  background: var(--lime-soft);
+  color: var(--navy);
+}
+
+.lang__option:focus-visible {
+  outline: 2px solid var(--lime-soft);
+  outline-offset: 2px;
 }
 
 /* Responsive */
@@ -1185,6 +1221,11 @@ form .pill {
 @media (max-width: 480px) {
   .practice {
     grid-template-columns: 1fr;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .pill {
