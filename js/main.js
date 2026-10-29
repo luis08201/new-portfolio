@@ -180,6 +180,22 @@ moreButton.addEventListener("click", () => {
   }
 });
 
+/* Projects gallery */
+
+const works = document.querySelector(".works");
+const bar = document.querySelector(".works__bar");
+const hint = document.querySelector(".works__hint");
+const hintText = hint.textContent;
+
+works.addEventListener(
+  "scroll",
+  () => {
+    const max = works.scrollWidth - works.clientWidth;
+    bar.style.transform = `scaleX(${max > 0 ? works.scrollLeft / max : 0})`;
+  },
+  { passive: true },
+);
+
 /* Motion */
 
 if (!hasGsap) {
@@ -241,26 +257,6 @@ if (!hasGsap) {
         });
       });
 
-    gsap.utils.toArray(".work").forEach((work) => {
-      gsap.fromTo(
-        work.querySelector(".work__media"),
-        { clipPath: "inset(10% 14% 10% 14% round 22px)" },
-        {
-          clipPath: "inset(0% 0% 0% 0% round 22px)",
-          ease: "none",
-          scrollTrigger: { trigger: work, start: "top 90%", end: "top 40%", scrub: 0.6 },
-        },
-      );
-      gsap.from(work.querySelectorAll(".work__body > *"), {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        ease: "power3.out",
-        stagger: 0.08,
-        scrollTrigger: { trigger: work, start: "top 75%", once: true },
-      });
-    });
-
     gsap.set(".reto:not([hidden])", { opacity: 0, y: 30 });
     ScrollTrigger.batch(".reto:not([hidden])", {
       start: "top 92%",
@@ -296,6 +292,40 @@ if (!hasGsap) {
         scrollTrigger: { trigger: el, start: "top 95%", once: true },
       });
     });
+  });
+
+  mm.add("(prefers-reduced-motion: no-preference) and (min-width: 900px)", () => {
+    const track = works.querySelector(".works__track");
+    const distance = () => {
+      const style = getComputedStyle(works);
+      const inner = works.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+      return Math.max(0, track.scrollWidth - inner);
+    };
+
+    works.classList.add("is-pinned");
+    works.scrollLeft = 0;
+    hint.textContent = "Sigue bajando para recorrerlos";
+
+    gsap.to(track, {
+      x: () => -distance(),
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".works-pin",
+        start: "center center",
+        end: () => `+=${distance()}`,
+        pin: ".works-pin",
+        pinSpacing: true,
+        scrub: 0.8,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => gsap.set(bar, { scaleX: self.progress }),
+      },
+    });
+
+    return () => {
+      works.classList.remove("is-pinned");
+      hint.textContent = hintText;
+      gsap.set(bar, { scaleX: 0 });
+    };
   });
 
   mm.add("(prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine)", () => {
