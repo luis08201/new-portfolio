@@ -207,10 +207,10 @@ if (!hasGsap) {
     root.classList.remove("js-motion");
   });
 
-  mm.add("(prefers-reduced-motion: no-preference)", () => {
+  mm.add("(prefers-reduced-motion: no-preference)", (context) => {
     const fontsReady = Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 1200))]);
 
-    fontsReady.then(() => {
+    fontsReady.then(context.add(() => {
       const title = SplitText.create(".hero h1", { type: "words", mask: "words" });
       const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
       gsap.set([".topbar", ".hero__body > *"], { opacity: 1 });
@@ -224,20 +224,48 @@ if (!hasGsap) {
         .from(".hero__intro .hero__small, .hero__aside", { y: 24, opacity: 0, duration: 0.7, stagger: 0.12 }, "-=0.6")
         .from(".badge", { scale: 0, rotation: -120, duration: 0.9, ease: "back.out(1.6)" }, "-=0.6")
         .from(".marquee", { opacity: 0, duration: 0.8 }, "-=0.5");
-    });
+    }));
 
     gsap.to(".badge__ring", { rotation: 360, duration: 16, ease: "none", repeat: -1 });
 
-    const marquee = document.querySelector(".marquee");
-    marquee.classList.add("is-moving");
-    const loop = gsap.to(".marquee__track", { xPercent: -50, duration: 26, ease: "none", repeat: -1 });
-    ScrollTrigger.create({
-      onUpdate(self) {
-        const boost = 1 + Math.min(Math.abs(self.getVelocity()) / 300, 5);
-        loop.timeScale(boost);
-        gsap.to(loop, { timeScale: 1, duration: 0.8, overwrite: true });
-      },
-    });
+    let onResize = () => {};
+    fontsReady.then(context.add(() => {
+      const marquee = document.querySelector(".marquee");
+      const marqueeTrack = marquee.querySelector(".marquee__track");
+      const marqueeSet = marqueeTrack.querySelector("ul");
+      marquee.classList.add("is-moving");
+
+      // The loop shifts by exactly one list, so there must be enough copies to cover
+      // the viewport plus that shift on any screen width.
+      const fillMarquee = () => {
+        const needed = Math.ceil(window.innerWidth / marqueeSet.offsetWidth) + 1;
+        while (marqueeTrack.children.length < needed) {
+          const copy = marqueeSet.cloneNode(true);
+          copy.setAttribute("aria-hidden", "true");
+          marqueeTrack.append(copy);
+        }
+      };
+      fillMarquee();
+
+      const loop = gsap.to(marqueeTrack, {
+        x: () => -marqueeSet.offsetWidth,
+        duration: marqueeSet.offsetWidth / 55,
+        ease: "none",
+        repeat: -1,
+      });
+      onResize = () => {
+        fillMarquee();
+        loop.invalidate();
+      };
+      window.addEventListener("resize", onResize);
+      ScrollTrigger.create({
+        onUpdate(self) {
+          const boost = 1 + Math.min(Math.abs(self.getVelocity()) / 300, 5);
+          loop.timeScale(boost);
+          gsap.to(loop, { timeScale: 1, duration: 0.8, overwrite: true });
+        },
+      });
+    }));
 
     gsap.to(".hero__portrait img", {
       yPercent: 10,
@@ -292,6 +320,8 @@ if (!hasGsap) {
         scrollTrigger: { trigger: el, start: "top 95%", once: true },
       });
     });
+
+    return () => window.removeEventListener("resize", onResize);
   });
 
   mm.add("(prefers-reduced-motion: no-preference) and (min-width: 900px)", () => {

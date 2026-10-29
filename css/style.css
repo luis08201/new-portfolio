@@ -1,7 +1,7 @@
 :root {
-  --night: #0d0f0b;
-  --forest: #1d261b;
-  --forest-2: #263222;
+  --night: #060b18;
+  --navy: #0e1b3b;
+  --navy-2: #1a2c5a;
   --cream: #f6f2ea;
   --sand: #eee6db;
   --stone: #b8ad9a;
@@ -180,8 +180,8 @@ h3 {
   z-index: 1;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 55% 70% at 50% 62%, #3b4a31 0%, rgba(59, 74, 49, 0) 70%),
-    linear-gradient(180deg, var(--forest-2) 0%, var(--forest) 55%, #151b13 100%);
+    radial-gradient(ellipse 55% 70% at 50% 62%, #2c4380 0%, rgba(44, 67, 128, 0) 70%),
+    linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 55%, #08112a 100%);
   color: var(--cream);
   border-radius: 0 0 var(--radius-xl) var(--radius-xl);
   padding: 1.6rem var(--gutter) 0;
@@ -387,7 +387,7 @@ h3 {
   margin: 0 calc(-1 * var(--gutter));
   overflow: hidden;
   border-top: 1px solid rgba(246, 242, 234, 0.12);
-  background: rgba(13, 15, 11, 0.38);
+  background: rgba(6, 11, 24, 0.4);
 }
 
 .marquee__track {
@@ -795,7 +795,7 @@ h3 {
 }
 
 .chip[aria-pressed="true"] {
-  background: var(--forest);
+  background: var(--navy);
   color: var(--cream);
 }
 
@@ -947,7 +947,7 @@ h3 {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
   gap: 2.5rem 4rem;
-  background: var(--forest);
+  background: var(--navy);
   color: var(--cream);
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   padding: clamp(3.5rem, 7vw, 5.5rem) var(--gutter);
@@ -1060,7 +1060,7 @@ form .pill {
   gap: 1rem;
   flex-wrap: wrap;
   padding: 1.5rem var(--gutter) 2rem;
-  background: var(--forest);
+  background: var(--navy);
   color: rgba(246, 242, 234, 0.6);
   font-size: 0.9rem;
   border-top: 1px solid rgba(246, 242, 234, 0.1);
