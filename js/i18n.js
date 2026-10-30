@@ -27,6 +27,9 @@ const en = {
   "work.lead": "I focus on clean, intuitive interfaces, built with care from the very first line of HTML.",
   "work.cta": "Let's build something together",
   "works.label": "Projects, scroll horizontally",
+  "work.forja.tag": "Case study · ISIC redesign",
+  "work.forja.text":
+    "I redesigned my 2021 ISIC project as a fictional technical institute: a filterable catalog, course pages and an enrollment form, in Spanish and English.",
   "work.sfs.tag": "devChallenges challenge · 2025",
   "work.sfs.text":
     "A feature section with three cards on a dark background. Layout practice, not client work.",

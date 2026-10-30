@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Forja, instituto técnico en Managua. Cursos cortos de tecnología, diseño, oficios técnicos y administración con práctica desde la primera clase."
+    />
+    <meta name="theme-color" content="#16130f" />
+    <title>Forja · Instituto técnico</title>
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/forja.css" />
+    <script>
+      document.documentElement.classList.add("js", "js-motion");
+      setTimeout(() => document.documentElement.classList.remove("js-motion"), 2500);
+    </script>
+    <script defer src="../js/vendor/gsap.min.js"></script>
+    <script defer src="../js/vendor/ScrollTrigger.min.js"></script>
+    <script type="module" src="js/app.js"></script>
+  </head>
+  <body data-page="home">
+    <a class="skip" href="#contenido" data-i18n="skip">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="logo" href="./" aria-label="Forja, inicio" data-i18n-aria="logo.label">
+          <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" /><path d="M10 24V9h12.5M10 16.5h9" /><circle cx="23.5" cy="21.5" r="2.5" /></svg>
+          <span>Forja</span>
+        </a>
+        <nav class="nav" aria-label="Principal" data-i18n-aria="nav.label">
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+            <span class="nav__toggle-bars" aria-hidden="true"></span>
+            <span data-i18n="nav.menu">Menú</span>
+          </button>
+          <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+              <li><a class="nav__link" href="./" aria-current="page" data-i18n="nav.home">Inicio</a></li>
+              <li class="nav__courses">
+                <a class="nav__link" href="cursos.html" data-i18n="nav.courses">Cursos</a>
+                <button class="nav__disclosure" type="button" aria-expanded="false" aria-controls="areas-panel" aria-label="Ver áreas de cursos" data-i18n-aria="nav.areas">
+                  <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" /></svg>
+                </button>
+                <div class="areas-panel" id="areas-panel">
+                  <ul>
+                    <li><a href="cursos.html?area=tecnologia"><strong data-i18n="area.tecnologia.name">Tecnología</strong><span data-i18n="area.tecnologia.blurb">Programación, redes, soporte y herramientas de oficina.</span></a></li>
+                    <li><a href="cursos.html?area=diseno"><strong data-i18n="area.diseno.name">Diseño</strong><span data-i18n="area.diseno.blurb">Diseño gráfico, fotografía y edición de video.</span></a></li>
+                    <li><a href="cursos.html?area=oficios"><strong data-i18n="area.oficios.name">Oficios técnicos</strong><span data-i18n="area.oficios.blurb">Electricidad, soldadura y mecánica con práctica en taller.</span></a></li>
+                    <li><a href="cursos.html?area=administracion"><strong data-i18n="area.administracion.name">Administración</strong><span data-i18n="area.administracion.blurb">Contabilidad y marketing para negocios pequeños.</span></a></li>
+                  </ul>
+                  <a class="areas-panel__all" href="cursos.html" data-i18n="nav.allCourses">Ver todos los cursos</a>
+                </div>
+              </li>
+              <li><a class="nav__link" href="./#nosotros" data-i18n="nav.about">Nosotros</a></li>
+              <li><a class="nav__link" href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
+            </ul>
+            <div class="lang" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
+              <button class="lang__option" type="button" data-lang="es" aria-pressed="true">ES</button>
+              <button class="lang__option" type="button" data-lang="en" aria-pressed="false">EN</button>
+            </div>
+            <a class="btn btn--ember nav__cta" href="contacto.html" data-i18n="nav.cta">Inscríbete</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <section class="hero">
+        <div class="container hero__grid">
+          <div class="hero__copy">
+            <p class="eyebrow" data-load data-i18n="hero.eyebrow">Instituto técnico · Managua</p>
+            <h1 class="hero__title" data-load data-i18n="hero.title">Habilidades reales, <em>forjadas</em> con práctica.</h1>
+            <p class="hero__lead" data-load data-i18n="hero.lead">
+              Cursos cortos de tecnología, diseño, oficios técnicos y administración. Grupos pequeños, instructores que trabajan en lo que enseñan y certificado al terminar.
+            </p>
+            <div class="hero__actions" data-load>
+              <a class="btn btn--ember btn--lg" href="cursos.html" data-i18n="hero.cta">Ver cursos</a>
+              <a class="btn btn--ghost btn--lg" href="contacto.html" data-i18n="hero.secondary">Hablar con un asesor</a>
+            </div>
+            <dl class="hero__stats" data-load>
+              <div><dt data-i18n="stats.courses">Cursos</dt><dd data-count-courses>12</dd></div>
+              <div><dt data-i18n="stats.weeks">Semanas por curso</dt><dd>8–16</dd></div>
+              <div><dt data-i18n="stats.group">Alumnos por grupo</dt><dd data-i18n="stats.groupValue">15 máx.</dd></div>
+            </dl>
+          </div>
+          <div class="hero__visual">
+            <figure class="hero__photo" data-load-media>
+              <img src="img/hero.webp" alt="Estudiantes trabajando juntos con sus laptops" data-i18n-alt="hero.photoAlt" width="1200" height="1000" fetchpriority="high" />
+            </figure>
+            <div class="float-card float-card--start" data-float>
+              <span class="float-card__label" data-i18n="hero.nextStart">Próximo inicio</span>
+              <strong data-next-start-title>Reparación de computadoras</strong>
+              <span data-next-start-date>9 de noviembre</span>
+            </div>
+            <div class="float-card float-card--cert" data-float>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z" /><path d="m8.5 13.8-1.5 7.2 5-2.5 5 2.5-1.5-7.2" /></svg>
+              <span data-i18n="hero.cert">Certificado al terminar</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="areas-title">
+        <div class="container">
+          <div class="section__head" data-reveal>
+            <p class="eyebrow" data-i18n="areas.eyebrow">Áreas de estudio</p>
+            <h2 class="section__title" id="areas-title" data-i18n="areas.title">Elige por dónde empezar</h2>
+          </div>
+          <ul class="areas" data-reveal-group>
+            <li class="area-card area-card--tecnologia" data-reveal>
+              <svg class="area-card__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="m11 10-6 6 6 6M21 10l6 6-6 6M18 7l-4 18" /></svg>
+              <h3><a href="cursos.html?area=tecnologia" data-i18n="area.tecnologia.name">Tecnología</a></h3>
+              <p data-i18n="area.tecnologia.blurb">Programación, redes, soporte y herramientas de oficina.</p>
+              <span class="area-card__count" data-area-count="tecnologia">4 cursos</span>
+            </li>
+            <li class="area-card area-card--diseno" data-reveal>
+              <svg class="area-card__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4 6 20l10 8 10-8L16 4Z" /><circle cx="16" cy="18" r="2.5" /><path d="M16 4v11.5" /></svg>
+              <h3><a href="cursos.html?area=diseno" data-i18n="area.diseno.name">Diseño</a></h3>
+              <p data-i18n="area.diseno.blurb">Diseño gráfico, fotografía y edición de video.</p>
+              <span class="area-card__count" data-area-count="diseno">3 cursos</span>
+            </li>
+            <li class="area-card area-card--oficios" data-reveal>
+              <svg class="area-card__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M18 4 8 18h8l-2 10 10-14h-8l2-10Z" /></svg>
+              <h3><a href="cursos.html?area=oficios" data-i18n="area.oficios.name">Oficios técnicos</a></h3>
+              <p data-i18n="area.oficios.blurb">Electricidad, soldadura y mecánica con práctica en taller.</p>
+              <span class="area-card__count" data-area-count="oficios">3 cursos</span>
+            </li>
+            <li class="area-card area-card--administracion" data-reveal>
+              <svg class="area-card__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27h22M8 27V17M14 27V11M20 27v-8M26 27V6" /></svg>
+              <h3><a href="cursos.html?area=administracion" data-i18n="area.administracion.name">Administración</a></h3>
+              <p data-i18n="area.administracion.blurb">Contabilidad y marketing para negocios pequeños.</p>
+              <span class="area-card__count" data-area-count="administracion">2 cursos</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section section--tint" aria-labelledby="featured-title">
+        <div class="container">
+          <div class="section__head section__head--split" data-reveal>
+            <div>
+              <p class="eyebrow" data-i18n="featured.eyebrow">Inscripciones abiertas</p>
+              <h2 class="section__title" id="featured-title" data-i18n="featured.title">Cursos que empiezan pronto</h2>
+            </div>
+            <a class="link-arrow" href="cursos.html" data-i18n="featured.all">Ver el catálogo completo</a>
+          </div>
+          <div class="course-grid" data-featured></div>
+        </div>
+      </section>
+
+      <section class="section section--dark" aria-labelledby="steps-title">
+        <div class="container">
+          <div class="section__head" data-reveal>
+            <p class="eyebrow eyebrow--light" data-i18n="steps.eyebrow">Cómo funciona</p>
+            <h2 class="section__title" id="steps-title" data-i18n="steps.title">De la inscripción al certificado</h2>
+          </div>
+          <ol class="steps">
+            <li class="step" data-reveal>
+              <span class="step__num" aria-hidden="true">01</span>
+              <h3 data-i18n="steps.1.title">Elige tu curso</h3>
+              <p data-i18n="steps.1.text">Revisa el temario, el horario y la modalidad. Si dudas, un asesor te ayuda a decidir.</p>
+            </li>
+            <li class="step" data-reveal>
+              <span class="step__num" aria-hidden="true">02</span>
+              <h3 data-i18n="steps.2.title">Reserva tu cupo</h3>
+              <p data-i18n="steps.2.text">Completa el formulario en dos minutos. Pagas la primera mensualidad al iniciar, no antes.</p>
+            </li>
+            <li class="step" data-reveal>
+              <span class="step__num" aria-hidden="true">03</span>
+              <h3 data-i18n="steps.3.title">Aprende haciendo</h3>
+              <p data-i18n="steps.3.text">Practicas desde la primera clase y terminas con un proyecto real y tu certificado.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section about" id="nosotros" aria-labelledby="about-title">
+        <div class="container about__grid">
+          <div class="about__media" data-reveal>
+            <img class="about__img about__img--main" src="img/aula.webp" alt="Un aula llena de estudiantes atendiendo una clase" data-i18n-alt="about.photo1Alt" width="900" height="700" loading="lazy" />
+            <img class="about__img about__img--side" src="img/taller.webp" alt="Estudiantes trabajando en computadoras en un espacio abierto" data-i18n-alt="about.photo2Alt" width="700" height="520" loading="lazy" />
+          </div>
+          <div class="about__copy">
+            <p class="eyebrow" data-reveal data-i18n="about.eyebrow">Nosotros</p>
+            <h2 class="section__title" id="about-title" data-reveal data-i18n="about.title">Un instituto pequeño a propósito</h2>
+            <p class="about__lead" data-reveal data-i18n="about.lead">
+              Creemos que un oficio se aprende practicándolo. Por eso los grupos son pequeños, las clases son en taller o con proyectos reales, y los horarios están pensados para quien ya trabaja.
+            </p>
+            <ul class="values" data-reveal>
+              <li>
+                <strong data-i18n="about.v1.title">Práctica desde el día uno</strong>
+                <span data-i18n="about.v1.text">Al menos el 70 % de cada curso es trabajo con tus manos.</span>
+              </li>
+              <li>
+                <strong data-i18n="about.v2.title">Instructores en activo</strong>
+                <span data-i18n="about.v2.text">Enseñan lo que hacen todos los días en su trabajo.</span>
+              </li>
+              <li>
+                <strong data-i18n="about.v3.title">Horarios que encajan</strong>
+                <span data-i18n="about.v3.text">Clases entre semana por la noche y los sábados.</span>
+              </li>
+              <li>
+                <strong data-i18n="about.v4.title">Pagos mensuales</strong>
+                <span data-i18n="about.v4.text">Sin matrícula escondida ni contratos largos.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tint" aria-labelledby="voices-title">
+        <div class="container">
+          <div class="section__head" data-reveal>
+            <p class="eyebrow" data-i18n="voices.eyebrow">Egresados</p>
+            <h2 class="section__title" id="voices-title" data-i18n="voices.title">Lo que cuentan al terminar</h2>
+          </div>
+          <ul class="voices">
+            <li class="voice" data-reveal>
+              <blockquote data-i18n="voices.1.quote">“Llegué sin saber qué era una retícula. Hoy diseño las etiquetas y las redes de tres negocios de mi barrio.”</blockquote>
+              <div class="voice__who">
+                <img src="img/personas/mariela.webp" alt="" width="320" height="320" loading="lazy" />
+                <div><strong>Mariela Gutiérrez</strong><span data-i18n="voices.1.course">Diseño gráfico, 2025</span></div>
+              </div>
+            </li>
+            <li class="voice" data-reveal>
+              <blockquote data-i18n="voices.2.quote">“Estudiaba de noche después del trabajo. Con el proyecto final conseguí mi primer cliente como programador.”</blockquote>
+              <div class="voice__who">
+                <img src="img/personas/jose.webp" alt="" width="320" height="320" loading="lazy" />
+                <div><strong>José Altamirano</strong><span data-i18n="voices.2.course">Programación web, 2025</span></div>
+              </div>
+            </li>
+            <li class="voice" data-reveal>
+              <blockquote data-i18n="voices.3.quote">“Don Roberto nos hizo repetir cada instalación hasta que saliera perfecta. Ahora trabajo por mi cuenta.”</blockquote>
+              <div class="voice__who">
+                <img src="img/personas/kevin.webp" alt="" width="320" height="320" loading="lazy" />
+                <div><strong>Kevin Rocha</strong><span data-i18n="voices.3.course">Electricidad residencial, 2024</span></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="faq-title">
+        <div class="container faq">
+          <div class="faq__head" data-reveal>
+            <p class="eyebrow" data-i18n="faq.eyebrow">Preguntas frecuentes</p>
+            <h2 class="section__title" id="faq-title" data-i18n="faq.title">Antes de inscribirte</h2>
+            <p data-i18n="faq.text">¿Tienes otra duda? <a href="contacto.html">Escríbenos</a> y te respondemos el mismo día.</p>
+          </div>
+          <div class="faq__list" data-reveal>
+            <details>
+              <summary data-i18n="faq.1.q">¿Necesito experiencia previa?</summary>
+              <p data-i18n="faq.1.a">La mayoría de cursos empiezan desde cero. Los de nivel intermedio indican en su página qué conviene saber antes.</p>
+            </details>
+            <details>
+              <summary data-i18n="faq.2.q">¿El certificado tiene validez?</summary>
+              <p data-i18n="faq.2.a">Recibes un certificado de Forja con las horas del curso y el proyecto final que completaste, útil para tu currículum y para mostrar a clientes.</p>
+            </details>
+            <details>
+              <summary data-i18n="faq.3.q">¿Cómo funcionan los pagos?</summary>
+              <p data-i18n="faq.3.a">Pagas una mensualidad durante lo que dura el curso. La primera se paga el día de inicio y puedes hacerlo en efectivo, con tarjeta o por transferencia.</p>
+            </details>
+            <details>
+              <summary data-i18n="faq.4.q">¿Qué pasa si falto a una clase?</summary>
+              <p data-i18n="faq.4.a">Las clases en línea quedan grabadas y en los cursos presenciales puedes reponer la práctica en otro grupo esa misma semana.</p>
+            </details>
+            <details>
+              <summary data-i18n="faq.5.q">¿Tengo que llevar mi propio equipo?</summary>
+              <p data-i18n="faq.5.a">El instituto pone las herramientas y los materiales de taller. Cada curso indica si necesitas laptop u otro equipo personal.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band" aria-labelledby="cta-title">
+        <div class="container cta-band__inner" data-reveal>
+          <h2 id="cta-title" data-i18n="cta.title">Tu próximo trabajo empieza con una clase.</h2>
+          <a class="btn btn--light btn--lg" href="contacto.html" data-i18n="cta.button">Reservar mi cupo</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__grid">
+        <div class="site-footer__brand">
+          <a class="logo logo--light" href="./" aria-label="Forja, inicio" data-i18n-aria="logo.label">
+            <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" /><path d="M10 24V9h12.5M10 16.5h9" /><circle cx="23.5" cy="21.5" r="2.5" /></svg>
+            <span>Forja</span>
+          </a>
+          <p data-i18n="footer.tagline">Instituto técnico. Cursos cortos con práctica real desde la primera clase.</p>
+        </div>
+        <nav aria-label="Cursos" data-i18n-aria="footer.coursesLabel">
+          <h2 class="site-footer__title" data-i18n="nav.courses">Cursos</h2>
+          <ul>
+            <li><a href="cursos.html?area=tecnologia" data-i18n="area.tecnologia.name">Tecnología</a></li>
+            <li><a href="cursos.html?area=diseno" data-i18n="area.diseno.name">Diseño</a></li>
+            <li><a href="cursos.html?area=oficios" data-i18n="area.oficios.name">Oficios técnicos</a></li>
+            <li><a href="cursos.html?area=administracion" data-i18n="area.administracion.name">Administración</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2 class="site-footer__title" data-i18n="footer.visit">Visítanos</h2>
+          <address>
+            <span data-i18n="contact.address">Del Parque Central, 2 cuadras al sur. Managua, Nicaragua.</span>
+            <span>+505 8800 1234</span>
+            <span>hola@forja.edu.ni</span>
+          </address>
+        </div>
+        <div>
+          <h2 class="site-footer__title" data-i18n="footer.hours">Atención</h2>
+          <p data-i18n="contact.hours">Lunes a viernes, 8:00&nbsp;a.&nbsp;m. – 8:00&nbsp;p.&nbsp;m.<br />Sábados, 8:00&nbsp;a.&nbsp;m. – 1:00&nbsp;p.&nbsp;m.</p>
+        </div>
+      </div>
+      <div class="container site-footer__bottom">
+        <p data-i18n="footer.concept">
+          Forja es un proyecto conceptual. Diseñado y desarrollado por <a href="../">Luis Selva</a> como rediseño de <a href="https://luis08201.github.io/isic-version2021/">ISIC (2021)</a>.
+        </p>
+        <div class="lang lang--footer" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
+          <button class="lang__option" type="button" data-lang="es" aria-pressed="true">ES</button>
+          <button class="lang__option" type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

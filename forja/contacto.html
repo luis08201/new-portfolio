@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Reserva tu cupo en Forja. Un asesor te escribe en menos de 24 horas."
+    />
+    <meta name="theme-color" content="#16130f" />
+    <title>Contacto e inscripción · Forja</title>
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/forja.css" />
+    <script>
+      document.documentElement.classList.add("js", "js-motion");
+      setTimeout(() => document.documentElement.classList.remove("js-motion"), 2500);
+    </script>
+    <script defer src="../js/vendor/gsap.min.js"></script>
+    <script defer src="../js/vendor/ScrollTrigger.min.js"></script>
+    <script type="module" src="js/app.js"></script>
+  </head>
+  <body data-page="contact">
+    <a class="skip" href="#contenido" data-i18n="skip">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="logo" href="./" aria-label="Forja, inicio" data-i18n-aria="logo.label">
+          <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" /><path d="M10 24V9h12.5M10 16.5h9" /><circle cx="23.5" cy="21.5" r="2.5" /></svg>
+          <span>Forja</span>
+        </a>
+        <nav class="nav" aria-label="Principal" data-i18n-aria="nav.label">
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+            <span class="nav__toggle-bars" aria-hidden="true"></span>
+            <span data-i18n="nav.menu">Menú</span>
+          </button>
+          <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+              <li><a class="nav__link" href="./" data-i18n="nav.home">Inicio</a></li>
+              <li class="nav__courses">
+                <a class="nav__link" href="cursos.html" data-i18n="nav.courses">Cursos</a>
+                <button class="nav__disclosure" type="button" aria-expanded="false" aria-controls="areas-panel" aria-label="Ver áreas de cursos" data-i18n-aria="nav.areas">
+                  <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" /></svg>
+                </button>
+                <div class="areas-panel" id="areas-panel">
+                  <ul>
+                    <li><a href="cursos.html?area=tecnologia"><strong data-i18n="area.tecnologia.name">Tecnología</strong><span data-i18n="area.tecnologia.blurb">Programación, redes, soporte y herramientas de oficina.</span></a></li>
+                    <li><a href="cursos.html?area=diseno"><strong data-i18n="area.diseno.name">Diseño</strong><span data-i18n="area.diseno.blurb">Diseño gráfico, fotografía y edición de video.</span></a></li>
+                    <li><a href="cursos.html?area=oficios"><strong data-i18n="area.oficios.name">Oficios técnicos</strong><span data-i18n="area.oficios.blurb">Electricidad, soldadura y mecánica con práctica en taller.</span></a></li>
+                    <li><a href="cursos.html?area=administracion"><strong data-i18n="area.administracion.name">Administración</strong><span data-i18n="area.administracion.blurb">Contabilidad y marketing para negocios pequeños.</span></a></li>
+                  </ul>
+                  <a class="areas-panel__all" href="cursos.html" data-i18n="nav.allCourses">Ver todos los cursos</a>
+                </div>
+              </li>
+              <li><a class="nav__link" href="./#nosotros" data-i18n="nav.about">Nosotros</a></li>
+              <li><a class="nav__link" href="contacto.html" aria-current="page" data-i18n="nav.contact">Contacto</a></li>
+            </ul>
+            <div class="lang" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
+              <button class="lang__option" type="button" data-lang="es" aria-pressed="true">ES</button>
+              <button class="lang__option" type="button" data-lang="en" aria-pressed="false">EN</button>
+            </div>
+            <a class="btn btn--ember nav__cta" href="contacto.html" data-i18n="nav.cta">Inscríbete</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <section class="page-head">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Ruta" data-i18n-aria="crumb.label">
+            <ol>
+              <li><a href="./" data-i18n="nav.home">Inicio</a></li>
+              <li aria-current="page" data-i18n="nav.contact">Contacto</li>
+            </ol>
+          </nav>
+          <h1 class="page-head__title" data-load data-i18n="contact.title">Reserva tu cupo</h1>
+          <p class="page-head__lead" data-load data-i18n="contact.lead">
+            Déjanos tus datos y un asesor te escribe en menos de 24 horas con horarios, precios y fechas de inicio. No pagas nada hasta el primer día de clases.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section--contact">
+        <div class="container contact">
+          <div class="contact__form-wrap" data-load>
+            <form class="form" novalidate data-enroll>
+              <div class="form__row">
+                <div class="field">
+                  <label class="field__label" for="f-name"><span data-i18n="form.name">Nombre completo</span> <span class="req" aria-hidden="true">*</span></label>
+                  <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Ej. Ana López" data-i18n-placeholder="form.namePh" aria-describedby="f-name-error" />
+                  <p class="field__error" id="f-name-error"></p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="f-email"><span data-i18n="form.email">Correo</span> <span class="req" aria-hidden="true">*</span></label>
+                  <input id="f-email" name="email" type="email" autocomplete="email" required placeholder="tu@correo.com" data-i18n-placeholder="form.emailPh" aria-describedby="f-email-error" />
+                  <p class="field__error" id="f-email-error"></p>
+                </div>
+              </div>
+              <div class="form__row">
+                <div class="field">
+                  <label class="field__label" for="f-phone"><span data-i18n="form.phone">Teléfono o WhatsApp</span> <span class="field__optional" data-i18n="form.optional">(opcional)</span></label>
+                  <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+505 8888 8888" aria-describedby="f-phone-error" />
+                  <p class="field__error" id="f-phone-error"></p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="f-course"><span data-i18n="form.course">Curso de interés</span> <span class="req" aria-hidden="true">*</span></label>
+                  <select id="f-course" name="course" required aria-describedby="f-course-error" data-course-select>
+                    <option value="" data-i18n="form.coursePh">Elige un curso</option>
+                  </select>
+                  <p class="field__error" id="f-course-error"></p>
+                </div>
+              </div>
+              <fieldset class="field">
+                <legend class="field__label" data-i18n="form.mode">Modalidad preferida</legend>
+                <div class="radios">
+                  <label class="radio"><input type="radio" name="mode" value="presencial" /> <span data-i18n="mode.presencial">Presencial</span></label>
+                  <label class="radio"><input type="radio" name="mode" value="online" /> <span data-i18n="mode.online">En línea</span></label>
+                  <label class="radio"><input type="radio" name="mode" value="cualquiera" checked /> <span data-i18n="form.modeAny">Me da igual</span></label>
+                </div>
+              </fieldset>
+              <div class="field">
+                <label class="field__label" for="f-message"><span data-i18n="form.message">¿Algo que debamos saber?</span> <span class="field__optional" data-i18n="form.optional">(opcional)</span></label>
+                <textarea id="f-message" name="message" rows="4" placeholder="Horarios que te convienen, dudas sobre el curso…" data-i18n-placeholder="form.messagePh"></textarea>
+              </div>
+              <div class="form__foot">
+                <button class="btn btn--ember btn--lg" type="submit" data-submit data-i18n="form.submit">Enviar solicitud</button>
+                <p class="form__note" data-i18n="form.note">Sitio de demostración: el formulario no envía tus datos a ningún lado.</p>
+              </div>
+            </form>
+            <div class="success" data-success hidden tabindex="-1">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" /><path d="m15 24.5 6 6 12-13" /></svg>
+              <h2 data-success-title></h2>
+              <p data-success-text></p>
+              <p class="form__note" data-i18n="form.demo">Este es un sitio de demostración, así que no se envió ningún dato.</p>
+              <button class="btn btn--ghost" type="button" data-again data-i18n="form.again">Enviar otra solicitud</button>
+            </div>
+          </div>
+
+          <aside class="contact__info" data-load>
+            <div class="info-card">
+              <h2 class="info-card__title" data-i18n="footer.visit">Visítanos</h2>
+              <dl>
+                <div><dt data-i18n="contact.addressLabel">Dirección</dt><dd data-i18n="contact.address">Del Parque Central, 2 cuadras al sur. Managua, Nicaragua.</dd></div>
+                <div><dt data-i18n="contact.phoneLabel">Teléfono y WhatsApp</dt><dd>+505 8800 1234</dd></div>
+                <div><dt data-i18n="contact.emailLabel">Correo</dt><dd>hola@forja.edu.ni</dd></div>
+                <div><dt data-i18n="footer.hours">Atención</dt><dd data-i18n="contact.hours">Lunes a viernes, 8:00&nbsp;a.&nbsp;m. – 8:00&nbsp;p.&nbsp;m.<br />Sábados, 8:00&nbsp;a.&nbsp;m. – 1:00&nbsp;p.&nbsp;m.</dd></div>
+              </dl>
+            </div>
+            <figure class="map" aria-hidden="true">
+              <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice">
+                <rect width="400" height="260" class="map__bg" />
+                <path class="map__block" d="M0 0h120v70H0zM140 0h120v70H140zM280 0h120v70H280zM0 90h120v80H0zM280 90h120v80H280zM0 190h120v70H0zM140 190h120v70H140zM280 190h120v70H280z" />
+                <path class="map__park" d="M140 90h120v80H140z" />
+                <path class="map__road" d="M130 0v260M270 0v260M0 80h400M0 180h400" />
+                <path class="map__route" d="M200 130v50h70v40" />
+                <g class="map__pin" transform="translate(270 222)"><path d="M0-30c-9 0-16 7-16 16 0 12 16 26 16 26s16-14 16-26c0-9-7-16-16-16Z" /><circle cy="-14" r="6" /></g>
+              </svg>
+              <figcaption data-i18n="contact.mapCaption">Parque Central</figcaption>
+            </figure>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__grid">
+        <div class="site-footer__brand">
+          <a class="logo logo--light" href="./" aria-label="Forja, inicio" data-i18n-aria="logo.label">
+            <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" /><path d="M10 24V9h12.5M10 16.5h9" /><circle cx="23.5" cy="21.5" r="2.5" /></svg>
+            <span>Forja</span>
+          </a>
+          <p data-i18n="footer.tagline">Instituto técnico. Cursos cortos con práctica real desde la primera clase.</p>
+        </div>
+        <nav aria-label="Cursos" data-i18n-aria="footer.coursesLabel">
+          <h2 class="site-footer__title" data-i18n="nav.courses">Cursos</h2>
+          <ul>
+            <li><a href="cursos.html?area=tecnologia" data-i18n="area.tecnologia.name">Tecnología</a></li>
+            <li><a href="cursos.html?area=diseno" data-i18n="area.diseno.name">Diseño</a></li>
+            <li><a href="cursos.html?area=oficios" data-i18n="area.oficios.name">Oficios técnicos</a></li>
+            <li><a href="cursos.html?area=administracion" data-i18n="area.administracion.name">Administración</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2 class="site-footer__title" data-i18n="footer.visit">Visítanos</h2>
+          <address>
+            <span data-i18n="contact.address">Del Parque Central, 2 cuadras al sur. Managua, Nicaragua.</span>
+            <span>+505 8800 1234</span>
+            <span>hola@forja.edu.ni</span>
+          </address>
+        </div>
+        <div>
+          <h2 class="site-footer__title" data-i18n="footer.hours">Atención</h2>
+          <p data-i18n="contact.hours">Lunes a viernes, 8:00&nbsp;a.&nbsp;m. – 8:00&nbsp;p.&nbsp;m.<br />Sábados, 8:00&nbsp;a.&nbsp;m. – 1:00&nbsp;p.&nbsp;m.</p>
+        </div>
+      </div>
+      <div class="container site-footer__bottom">
+        <p data-i18n="footer.concept">
+          Forja es un proyecto conceptual. Diseñado y desarrollado por <a href="../">Luis Selva</a> como rediseño de <a href="https://luis08201.github.io/isic-version2021/">ISIC (2021)</a>.
+        </p>
+        <div class="lang lang--footer" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
+          <button class="lang__option" type="button" data-lang="es" aria-pressed="true">ES</button>
+          <button class="lang__option" type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
