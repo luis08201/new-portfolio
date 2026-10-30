@@ -1,8 +1,8 @@
 import { addEnglish, applyLanguage, getLanguage, initialLanguage, saveLanguage } from "./i18n.js";
 import { initPills } from "./pills.js";
-import { CASES_EN } from "./cases-en.js";
+import { CASES_EN, CASES_META_EN } from "./cases-en.js";
 
-addEnglish(CASES_EN);
+addEnglish({ ...CASES_EN, ...CASES_META_EN[document.body.dataset.case] });
 applyLanguage(initialLanguage());
 
 for (const button of document.querySelectorAll("[data-lang]")) {

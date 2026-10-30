@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luis08201.github.io/new-portfolio/sitemap.xml

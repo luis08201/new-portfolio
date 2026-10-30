@@ -1,3 +1,16 @@
+export const CASES_META_EN = {
+  forja: {
+    "meta.title": "Forja: a filterable catalog with Finsweet | Case study | Luis Selva",
+    "meta.description":
+      "Forja case study: a course catalog filtered with Finsweet Attributes, data-driven detail pages and an accessible enrollment form, in Spanish and English.",
+  },
+  burgerlicious: {
+    "meta.title": "Burgerlicious: Webflow vs Framer | Case study | Luis Selva",
+    "meta.description":
+      "Burgerlicious case study: the same restaurant template in Webflow and in Framer, with CMS, GSAP interactions and React code overrides.",
+  },
+};
+
 export const CASES_EN = {
   "case.back": "← All projects",
   "case.home": "Back to portfolio ↑",

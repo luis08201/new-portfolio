@@ -16,7 +16,7 @@ const en = {
   "hero.small": "I build responsive websites, scalable CMS solutions, and interactive experiences using Webflow, JavaScript, GSAP, and Finsweet.",
   "hero.cta": "View Projects",
   "hero.cta2": "Let's Work Together",
-  "badge.label": "Available for part-time, asynchronous projects. Get in touch",
+  "badge.label": "Part-time · Remote · Async: get in touch",
   "badge.ring": "Part-time · Remote · Async ·",
   "hero.quote": "Webflow, CMS, JavaScript, GSAP, Finsweet, integrations and QA.",
   "hero.fact1": "Case studies",

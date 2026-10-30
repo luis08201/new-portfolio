@@ -148,6 +148,7 @@ const moreButton = document.getElementById("ver-todos");
 const moreLabel = moreButton.querySelector(".pill__label");
 let filter = "todos";
 let expanded = false;
+moreLabel.textContent = t("more.all");
 
 function isVisible(card) {
   if (filter !== "todos") return card.dataset.level === filter;
