@@ -542,17 +542,17 @@
         <form id="contacto-form" action="https://formspree.io/f/xdobygaw" method="POST" novalidate>
           <div class="field">
             <label for="nombre" data-i18n="form.name">Nombre</label>
-            <input id="nombre" name="name" type="text" autocomplete="name" required />
+            <input id="nombre" name="name" type="text" autocomplete="name" placeholder="Tu nombre" data-i18n-placeholder="form.name.placeholder" required />
             <p class="field-error" id="nombre-error"></p>
           </div>
           <div class="field">
             <label for="correo" data-i18n="form.email">Correo</label>
-            <input id="correo" name="email" type="email" autocomplete="email" required />
+            <input id="correo" name="email" type="email" autocomplete="email" placeholder="tu@correo.com" data-i18n-placeholder="form.email.placeholder" required />
             <p class="field-error" id="correo-error"></p>
           </div>
           <div class="field">
             <label for="mensaje" data-i18n="form.message">Mensaje</label>
-            <textarea id="mensaje" name="message" required></textarea>
+            <textarea id="mensaje" name="message" placeholder="Cuéntame sobre tu proyecto…" data-i18n-placeholder="form.message.placeholder" required></textarea>
             <p class="field-error" id="mensaje-error"></p>
           </div>
           <button type="submit" class="pill pill--green">

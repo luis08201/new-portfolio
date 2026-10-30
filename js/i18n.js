@@ -68,6 +68,9 @@ const en = {
   "form.name": "Name",
   "form.email": "Email",
   "form.message": "Message",
+  "form.name.placeholder": "Your name",
+  "form.email.placeholder": "you@email.com",
+  "form.message.placeholder": "Tell me about your project…",
   "form.send": "Send",
   "footer.credit": "Designed and coded by Luis Selva",
   "footer.top": "Back to top ↑",
@@ -113,6 +116,9 @@ for (const el of document.querySelectorAll("[data-i18n]")) {
 }
 for (const el of document.querySelectorAll("[data-i18n-aria]")) {
   es[el.dataset.i18nAria] ??= el.getAttribute("aria-label");
+}
+for (const el of document.querySelectorAll("[data-i18n-placeholder]")) {
+  es[el.dataset.i18nPlaceholder] ??= el.getAttribute("placeholder");
 }
 
 const dictionaries = { es, en };
@@ -190,6 +196,9 @@ export function applyLanguage(lang) {
   }
   for (const el of document.querySelectorAll("[data-i18n-aria]")) {
     el.setAttribute("aria-label", text(el.dataset.i18nAria));
+  }
+  for (const el of document.querySelectorAll("[data-i18n-placeholder]")) {
+    el.setAttribute("placeholder", text(el.dataset.i18nPlaceholder));
   }
   for (const button of document.querySelectorAll("[data-lang]")) {
     button.setAttribute("aria-pressed", String(button.dataset.lang === current));
