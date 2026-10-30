@@ -48,10 +48,10 @@ const en = {
   "link.webflow": "Preview in Webflow",
   "link.framer": "Preview in Framer",
   "practice.script": "Practice",
-  "practice.title": "Frontend Mentor challenges",
+  "practice.title": "Challenges and templates",
   "practice.text":
-    "{total} challenges published between 2021 and 2024, from simple cards to multi-page sites. They sharpen my layout skills; they aren't client projects.",
-  "filters.label": "Filter challenges by level",
+    "{total} Frontend Mentor challenges published between 2021 and 2024, from simple cards to multi-page sites, plus a template built in Webflow and Framer. They sharpen my layout skills; they aren't client projects.",
+  "filters.label": "Filter challenges by level or platform",
   "lvl.todos": "All",
   "lvl.premium": "Premium",
   "lvl.avanzado": "Advanced",

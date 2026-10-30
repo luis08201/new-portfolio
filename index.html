@@ -220,22 +220,49 @@
         <div class="practice__head">
           <div class="section-head">
             <p class="script script--green" data-i18n="practice.script">Práctica</p>
-            <h2 id="practica-titulo" data-i18n="practice.title">Retos de Frontend Mentor</h2>
+            <h2 id="practica-titulo" data-i18n="practice.title">Retos y plantillas</h2>
             <p data-i18n="practice.text">
-              34 retos publicados entre 2021 y 2024, de tarjetas sencillas a sitios
-              de varias páginas. Sirven para afinar la maquetación; no son proyectos de cliente.
+              34 retos de Frontend Mentor publicados entre 2021 y 2024, de tarjetas sencillas a sitios
+              de varias páginas, y una plantilla hecha en Webflow y Framer. Sirven para afinar la maquetación;
+              no son proyectos de cliente.
             </p>
           </div>
-          <div class="filters" role="group" aria-label="Filtrar retos por nivel" data-i18n-aria="filters.label">
-          <button type="button" class="chip" data-filter="todos" aria-pressed="true"><span class="chip__label" data-i18n="lvl.todos">Todos</span><span class="chip__count">34</span></button>
+          <div class="filters" role="group" aria-label="Filtrar retos por nivel o plataforma" data-i18n-aria="filters.label">
+          <button type="button" class="chip" data-filter="todos" aria-pressed="true"><span class="chip__label" data-i18n="lvl.todos">Todos</span><span class="chip__count">36</span></button>
           <button type="button" class="chip" data-filter="premium" aria-pressed="false"><span class="chip__label" data-i18n="lvl.premium">Premium</span><span class="chip__count">2</span></button>
           <button type="button" class="chip" data-filter="avanzado" aria-pressed="false"><span class="chip__label" data-i18n="lvl.avanzado">Avanzado</span><span class="chip__count">2</span></button>
           <button type="button" class="chip" data-filter="intermedio" aria-pressed="false"><span class="chip__label" data-i18n="lvl.intermedio">Intermedio</span><span class="chip__count">15</span></button>
           <button type="button" class="chip" data-filter="junior" aria-pressed="false"><span class="chip__label" data-i18n="lvl.junior">Junior</span><span class="chip__count">9</span></button>
           <button type="button" class="chip" data-filter="newbie" aria-pressed="false"><span class="chip__label" data-i18n="lvl.newbie">Newbie</span><span class="chip__count">6</span></button>
+          <button type="button" class="chip" data-filter="webflow" aria-pressed="false"><span class="chip__label">Webflow</span><span class="chip__count">1</span></button>
+          <button type="button" class="chip" data-filter="framer" aria-pressed="false"><span class="chip__label">Framer</span><span class="chip__count">1</span></button>
           </div>
         </div>
         <div class="practice" id="lista-retos">
+          <article class="reto" data-level="webflow">
+            <a class="practice__media" href="https://burgerlicious.webflow.io/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <img src="img/burgerlicious.webp" alt="" width="1280" height="860" loading="lazy" />
+            </a>
+            <p class="practice__level">Webflow</p>
+            <h3><a href="https://burgerlicious.webflow.io/" target="_blank" rel="noopener">Burgerlicious</a></h3>
+            <p class="practice__stack">Webflow · CMS · GSAP</p>
+            <p class="project__links">
+              <a href="https://burgerlicious.webflow.io/" target="_blank" rel="noopener" data-i18n="link.browser">Ver en el navegador</a>
+              <a href="https://preview.webflow.com/preview/burgerlicious?utm_medium=preview_link&amp;utm_source=designer&amp;utm_content=burgerlicious&amp;preview=13c2b8aefe0be28419e0fbde25394973&amp;locale=en&amp;workflow=preview" target="_blank" rel="noopener" data-i18n="link.webflow">Ver en Webflow</a>
+            </p>
+          </article>
+          <article class="reto" data-level="framer">
+            <a class="practice__media" href="https://hilarious-brand-871051.framer.app/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <img src="img/burgerlicious-framer.webp" alt="" width="1280" height="860" loading="lazy" />
+            </a>
+            <p class="practice__level">Framer</p>
+            <h3><a href="https://hilarious-brand-871051.framer.app/" target="_blank" rel="noopener">Burgerlicious</a></h3>
+            <p class="practice__stack">Framer · CMS · Code overrides</p>
+            <p class="project__links">
+              <a href="https://hilarious-brand-871051.framer.app/" target="_blank" rel="noopener" data-i18n="link.browser">Ver en el navegador</a>
+              <a href="https://framer.com/projects/Burgerlicious--Z3IbG6fEh3c73QAXGYFD-8Tz8F" target="_blank" rel="noopener" data-i18n="link.framer">Ver en Framer</a>
+            </p>
+          </article>
           <article class="reto" data-level="avanzado">
             <a class="practice__media" href="https://luis08201.github.io/space-tourism-website-main/" tabindex="-1" aria-hidden="true">
               <img src="img/retos/space-tourism-website-main.webp" alt="" width="640" height="400" loading="lazy" />
@@ -326,7 +353,7 @@
             <p class="practice__stack">HTML · Sass · JavaScript · Bootstrap</p>
             <p class="project__links"><a href="https://luis08201.github.io/loopstudios-landing-page-main-second-attempt/" data-i18n="link.browser">Ver en el navegador</a></p>
           </article>
-          <article class="reto" data-level="intermedio">
+          <article class="reto" data-level="intermedio" data-extra hidden>
             <a class="practice__media" href="https://luis08201.github.io/bookmark-landing-page-master/" tabindex="-1" aria-hidden="true">
               <img src="img/retos/bookmark-landing-page-master.webp" alt="" width="640" height="400" loading="lazy" />
             </a>
@@ -335,7 +362,7 @@
             <p class="practice__stack">HTML · Sass · JavaScript</p>
             <p class="project__links"><a href="https://luis08201.github.io/bookmark-landing-page-master/" data-i18n="link.browser">Ver en el navegador</a></p>
           </article>
-          <article class="reto" data-level="intermedio">
+          <article class="reto" data-level="intermedio" data-extra hidden>
             <a class="practice__media" href="https://luis08201.github.io/calculator-app-main-second-attempt/" tabindex="-1" aria-hidden="true">
               <img src="img/retos/calculator-app-main-second-attempt.webp" alt="" width="640" height="400" loading="lazy" />
             </a>
