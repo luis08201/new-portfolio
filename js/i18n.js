@@ -33,6 +33,9 @@ const en = {
   "work.burger.tag": "Webflow template · 2026",
   "work.burger.text":
     "A Webflow template for burger restaurants: CMS-driven menu and blog, reusable components and GSAP interactions.",
+  "work.burgerFramer.tag": "Framer version · 2026",
+  "work.burgerFramer.text":
+    "The same template rebuilt in Framer: a menu catalog with an “Order now” button, a blog powered by Framer CMS and the burger that comes apart as you scroll.",
   "work.sfs.tag": "devChallenges challenge · 2025",
   "work.sfs.text":
     "A feature section with three cards on a dark background. Layout practice, not client work.",
@@ -43,6 +46,7 @@ const en = {
   "work.sydicom.text": "Final project of Unitec's web design course, rebuilt in 2021.",
   "link.browser": "Preview in browser",
   "link.webflow": "Preview in Webflow",
+  "link.framer": "Preview in Framer",
   "practice.script": "Practice",
   "practice.title": "Frontend Mentor challenges",
   "practice.text":
