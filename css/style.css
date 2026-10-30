@@ -123,8 +123,10 @@ h3 {
   border: 1.5px solid transparent;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.85rem;
-  padding: 0.85rem 1.45rem;
+  min-height: 3rem;
+  padding: 0 1.5rem;
   border-radius: 999px;
   font: 600 0.92rem/1 var(--sans);
   text-decoration: none;
@@ -181,6 +183,12 @@ h3 {
 
 .pill--green.is-hover {
   color: var(--cream);
+}
+
+.pill--sm {
+  min-height: 2.5rem;
+  padding: 0 1.1rem;
+  font-size: 0.875rem;
 }
 
 .pill:disabled {
@@ -722,29 +730,6 @@ h3 {
   margin: 0;
 }
 
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.75rem 0.95rem;
-  border: 1px solid rgba(22, 23, 18, 0.16);
-  border-radius: 8px;
-  background: #fff;
-  color: var(--ink);
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.2;
-  white-space: nowrap;
-  text-decoration: none;
-  transition: border-color var(--hover-speed) var(--ease-smooth), background-color var(--hover-speed) var(--ease-smooth),
-    color var(--hover-speed) var(--ease-smooth);
-}
-
-.btn-outline:hover {
-  border-color: var(--navy);
-  background: var(--navy);
-  color: var(--cream);
-}
-
 .section-head {
   max-width: 40rem;
   margin-bottom: 2.6rem;
@@ -786,12 +771,12 @@ h3 {
   align-items: center;
   gap: 0.45rem;
   min-height: 2.5rem;
-  padding: 0 0.95rem;
-  border: 0;
+  padding: 0 1.1rem;
+  border: 1.5px solid transparent;
   border-radius: 999px;
   background: var(--cream);
   color: var(--ink);
-  font: 500 0.9rem/1 var(--sans);
+  font: 600 0.875rem/1 var(--sans);
   cursor: pointer;
   transition: background-color var(--hover-speed) var(--ease-smooth), color var(--hover-speed) var(--ease-smooth);
 }
@@ -978,20 +963,19 @@ h3 {
   padding: 0;
 }
 
-.social a {
-  display: inline-block;
-  padding: 0.55rem 1rem;
-  border: 1px solid rgba(246, 242, 234, 0.25);
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.92rem;
-  transition: border-color var(--hover-speed) var(--ease-smooth), color var(--hover-speed) var(--ease-smooth);
+.pill--outline-light {
+  background: transparent;
+  border-color: rgba(246, 242, 234, 0.35);
+  color: var(--cream);
 }
 
-.social a:hover {
+.pill--outline-light .pill__fill {
+  background: var(--lime);
+}
+
+.pill--outline-light.is-hover {
   border-color: var(--lime);
-  color: var(--lime-soft);
+  color: var(--night);
 }
 
 .field {
@@ -1243,10 +1227,6 @@ form .pill {
   .footer {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .pill {
-    font-size: 0.86rem;
   }
 
   .facts dd {
