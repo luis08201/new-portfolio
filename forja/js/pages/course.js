@@ -35,7 +35,7 @@ function detail(course) {
         <nav class="breadcrumb" aria-label="${t("crumb.label")}">
           <ol>
             <li><a href="./">${t("crumb.home")}</a></li>
-            <li><a href="cursos.html?area=${course.area}">${areaName(course.area)}</a></li>
+            <li><a href="cursos.html?area_equal=${course.area}">${areaName(course.area)}</a></li>
             <li aria-current="page">${title}</li>
           </ol>
         </nav>

@@ -1552,6 +1552,10 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 .chip {
@@ -1572,10 +1576,19 @@ p {
   border-color: var(--ink);
 }
 
-.chip[aria-pressed="true"] {
+.chip:has(input:checked) {
   background: var(--coal);
   border-color: var(--coal);
   color: var(--paper);
+}
+
+.chip:has(input:focus-visible) {
+  outline: 2.5px solid var(--ember);
+  outline-offset: 3px;
+}
+
+.chip.is-list-emptyfacet {
+  opacity: 0.45;
 }
 
 .chip__count {
@@ -1588,7 +1601,7 @@ p {
   text-align: center;
 }
 
-.chip[aria-pressed="true"] .chip__count {
+.chip:has(input:checked) .chip__count {
   background: rgba(251, 247, 241, 0.16);
   color: var(--paper);
 }
@@ -1655,10 +1668,6 @@ p {
   text-align: center;
 }
 
-.empty[hidden] {
-  display: none;
-}
-
 .empty svg {
   width: 3.5rem;
   fill: none;
@@ -1674,6 +1683,27 @@ p {
 .empty p {
   max-width: 28rem;
   color: var(--muted);
+}
+
+/* Finsweet list animations: the grid fades out while filtering, then cards rise back in. */
+.course-grid[fs-list-element="list"] {
+  transition: opacity 0.2s ease;
+}
+
+.course-grid.is-list-filtering {
+  opacity: 0;
+}
+
+.course-grid .course-card {
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease;
+}
+
+.course-grid .course-card.is-list-starting {
+  opacity: 0;
+  transform: translateY(18px) scale(0.97);
 }
 
 /* Course detail */

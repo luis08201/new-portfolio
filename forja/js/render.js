@@ -23,11 +23,23 @@ export function formatDate(iso, { long = false } = {}) {
 
 export const countLabel = (n, prefix) => t(`${prefix}.${n === 1 ? "one" : "many"}`, { n });
 
-export function courseCard(course, { headingLevel = 3 } = {}) {
+const stripAccents = (text) => text.normalize("NFD").replace(/\p{Diacritic}/gu, "");
+
+// Hidden values Finsweet's list filter reads; keywords repeat the text without
+// accents so "electronica" and "electrónica" both match.
+function listFields(course) {
+  const text = `${pick(course.title)} ${pick(course.summary)} ${areaName(course.area)}`;
+  return `
+      <span hidden fs-list-field="area">${course.area}</span>
+      <span hidden fs-list-field="mode">${course.mode}</span>
+      <span hidden fs-list-field="keywords">${escapeHtml(`${text} ${stripAccents(text)}`)}</span>`;
+}
+
+export function courseCard(course, { headingLevel = 3, listItem = false } = {}) {
   const h = `h${headingLevel}`;
   const title = escapeHtml(pick(course.title));
   return `
-    <article class="course-card" data-slug="${course.slug}">
+    <article class="course-card" data-slug="${course.slug}"${listItem ? ' fs-list-element="item"' : ""}>${listItem ? listFields(course) : ""}
       <div class="course-card__media">
         <img src="${course.image}" alt="" width="720" height="480" loading="lazy" />
         <span class="tag tag--${course.area}">${areaName(course.area)}</span>

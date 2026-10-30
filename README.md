@@ -25,6 +25,7 @@ Las animaciones se desactivan cuando el sistema pide reducir el movimiento, y el
 - `forja/js/courses.js`: los 12 cursos, áreas e instructores en español e inglés; el catálogo, las páginas de curso y el formulario se generan desde aquí
 - `forja/js/strings.js`: textos en inglés y mensajes que solo existen en JavaScript
 - `forja/curso.html?c=<slug>`: plantilla única para todos los cursos
+- Los filtros del catálogo usan [Finsweet Attributes](https://finsweet.com/attributes/list-filter) (`fs-list`, v2.7.1 desde jsDelivr): áreas como botones de radio, modalidad, buscador, conteo por área, estado vacío y filtros en la URL (`?area_equal=diseno`). Como el sitio no corre en Webflow, `forja/js/pages/catalog.js` simula `Webflow.push`, carga el script después de dibujar las tarjetas y lo reinicia al cambiar de idioma
 - El formulario de inscripción valida los datos y muestra la confirmación, pero no envía nada: es un sitio de demostración
 - Fotos de Unsplash en WebP; la carpeta completa pesa 1,3 MB frente a los 24 MB del original
 

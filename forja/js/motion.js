@@ -9,21 +9,28 @@ export function initMotion() {
   }
   gsap.registerPlugin(ScrollTrigger);
 
+  const all = (selector) => [...document.querySelectorAll(selector)];
   const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
-  intro
-    .fromTo("[data-load]", { y: 28, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08 })
-    .fromTo(
-      "[data-load-media]",
+  const [load, media, float] = [all("[data-load]"), all("[data-load-media]"), all("[data-float]")];
+  if (load.length) {
+    intro.fromTo(load, { y: 28, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08 }, 0);
+  }
+  if (media.length) {
+    intro.fromTo(
+      media,
       { clipPath: "inset(18% 12% 18% 12% round 28px)", autoAlpha: 0 },
       { clipPath: "inset(0% 0% 0% 0% round 28px)", autoAlpha: 1, duration: 1.1, ease: "power3.inOut" },
       0.1,
-    )
-    .fromTo(
-      "[data-float]",
+    );
+  }
+  if (float.length) {
+    intro.fromTo(
+      float,
       { y: 24, scale: 0.92, autoAlpha: 0 },
       { y: 0, scale: 1, autoAlpha: 1, duration: 0.7, stagger: 0.12, ease: "back.out(1.6)" },
       0.7,
     );
+  }
   root.classList.remove("js-motion");
 
   revealOnScroll();

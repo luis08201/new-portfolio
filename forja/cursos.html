@@ -23,7 +23,6 @@
     </script>
     <script defer src="../js/vendor/gsap.min.js"></script>
     <script defer src="../js/vendor/ScrollTrigger.min.js"></script>
-    <script defer src="../js/vendor/Flip.min.js"></script>
     <script type="module" src="js/app.js"></script>
   </head>
   <body data-page="catalog">
@@ -50,10 +49,10 @@
                 </button>
                 <div class="areas-panel" id="areas-panel">
                   <ul>
-                    <li><a href="cursos.html?area=tecnologia"><strong data-i18n="area.tecnologia.name">Tecnología</strong><span data-i18n="area.tecnologia.blurb">Programación, redes, soporte y herramientas de oficina.</span></a></li>
-                    <li><a href="cursos.html?area=diseno"><strong data-i18n="area.diseno.name">Diseño</strong><span data-i18n="area.diseno.blurb">Diseño gráfico, fotografía y edición de video.</span></a></li>
-                    <li><a href="cursos.html?area=oficios"><strong data-i18n="area.oficios.name">Oficios técnicos</strong><span data-i18n="area.oficios.blurb">Electricidad, soldadura y mecánica con práctica en taller.</span></a></li>
-                    <li><a href="cursos.html?area=administracion"><strong data-i18n="area.administracion.name">Administración</strong><span data-i18n="area.administracion.blurb">Contabilidad y marketing para negocios pequeños.</span></a></li>
+                    <li><a href="cursos.html?area_equal=tecnologia"><strong data-i18n="area.tecnologia.name">Tecnología</strong><span data-i18n="area.tecnologia.blurb">Programación, redes, soporte y herramientas de oficina.</span></a></li>
+                    <li><a href="cursos.html?area_equal=diseno"><strong data-i18n="area.diseno.name">Diseño</strong><span data-i18n="area.diseno.blurb">Diseño gráfico, fotografía y edición de video.</span></a></li>
+                    <li><a href="cursos.html?area_equal=oficios"><strong data-i18n="area.oficios.name">Oficios técnicos</strong><span data-i18n="area.oficios.blurb">Electricidad, soldadura y mecánica con práctica en taller.</span></a></li>
+                    <li><a href="cursos.html?area_equal=administracion"><strong data-i18n="area.administracion.name">Administración</strong><span data-i18n="area.administracion.blurb">Contabilidad y marketing para negocios pequeños.</span></a></li>
                   </ul>
                   <a class="areas-panel__all" href="cursos.html" data-i18n="nav.allCourses">Ver todos los cursos</a>
                 </div>
@@ -89,19 +88,36 @@
 
       <section class="section section--catalog" aria-label="Catálogo" data-i18n-aria="catalog.label">
         <div class="container">
-          <form class="toolbar" role="search" data-load>
-            <div class="chips" role="group" aria-label="Filtrar por área" data-i18n-aria="catalog.areaLabel">
-              <button class="chip" type="button" data-area="todas" aria-pressed="true"><span data-i18n="catalog.all">Todas</span> <span class="chip__count" data-chip-count="todas"></span></button>
-              <button class="chip" type="button" data-area="tecnologia" aria-pressed="false"><span data-i18n="area.tecnologia.name">Tecnología</span> <span class="chip__count" data-chip-count="tecnologia"></span></button>
-              <button class="chip" type="button" data-area="diseno" aria-pressed="false"><span data-i18n="area.diseno.name">Diseño</span> <span class="chip__count" data-chip-count="diseno"></span></button>
-              <button class="chip" type="button" data-area="oficios" aria-pressed="false"><span data-i18n="area.oficios.name">Oficios técnicos</span> <span class="chip__count" data-chip-count="oficios"></span></button>
-              <button class="chip" type="button" data-area="administracion" aria-pressed="false"><span data-i18n="area.administracion.name">Administración</span> <span class="chip__count" data-chip-count="administracion"></span></button>
-            </div>
+          <div fs-list-element="wrapper">
+          <form class="toolbar" role="search" fs-list-element="filters" data-load>
+            <fieldset class="chips">
+              <legend class="visually-hidden" data-i18n="catalog.areaLabel">Filtrar por área</legend>
+              <label class="chip">
+                <input class="visually-hidden" type="radio" name="area" value="" fs-list-field="area" fs-list-value="" checked />
+                <span data-i18n="catalog.all">Todas</span> <span class="chip__count" fs-list-element="facet-count" data-total></span>
+              </label>
+              <label class="chip">
+                <input class="visually-hidden" type="radio" name="area" value="tecnologia" fs-list-field="area" fs-list-value="tecnologia" />
+                <span data-i18n="area.tecnologia.name">Tecnología</span> <span class="chip__count" fs-list-element="facet-count"></span>
+              </label>
+              <label class="chip">
+                <input class="visually-hidden" type="radio" name="area" value="diseno" fs-list-field="area" fs-list-value="diseno" />
+                <span data-i18n="area.diseno.name">Diseño</span> <span class="chip__count" fs-list-element="facet-count"></span>
+              </label>
+              <label class="chip">
+                <input class="visually-hidden" type="radio" name="area" value="oficios" fs-list-field="area" fs-list-value="oficios" />
+                <span data-i18n="area.oficios.name">Oficios técnicos</span> <span class="chip__count" fs-list-element="facet-count"></span>
+              </label>
+              <label class="chip">
+                <input class="visually-hidden" type="radio" name="area" value="administracion" fs-list-field="area" fs-list-value="administracion" />
+                <span data-i18n="area.administracion.name">Administración</span> <span class="chip__count" fs-list-element="facet-count"></span>
+              </label>
+            </fieldset>
             <div class="toolbar__fields">
               <label class="field field--inline">
                 <span class="field__label" data-i18n="catalog.mode">Modalidad</span>
-                <select name="modo" data-mode-filter>
-                  <option value="todas" data-i18n="catalog.allModes">Todas</option>
+                <select name="modo" fs-list-field="mode" fs-list-operator="equal">
+                  <option value="" data-i18n="catalog.allModes">Todas</option>
                   <option value="presencial" data-i18n="mode.presencial">Presencial</option>
                   <option value="online" data-i18n="mode.online">En línea</option>
                   <option value="hibrido" data-i18n="mode.hibrido">Híbrido</option>
@@ -110,18 +126,19 @@
               <label class="field field--search">
                 <span class="visually-hidden" data-i18n="catalog.search">Buscar un curso</span>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
-                <input type="search" name="q" placeholder="Buscar un curso" data-i18n-placeholder="catalog.search" autocomplete="off" data-search />
+                <input type="search" name="q" placeholder="Buscar un curso" data-i18n-placeholder="catalog.search" autocomplete="off" fs-list-field="keywords" />
               </label>
             </div>
           </form>
 
           <p class="results" aria-live="polite" data-results></p>
-          <div class="course-grid" data-catalog></div>
-          <div class="empty" data-empty hidden>
+          <div class="course-grid" fs-list-element="list" fs-list-showquery="true" fs-list-stagger="40" data-catalog></div>
+          <div class="empty" fs-list-element="empty">
             <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="21" cy="21" r="13" /><path d="m31 31 10 10M16 21h10" /></svg>
             <h2 data-i18n="catalog.emptyTitle">No hay cursos con esos filtros</h2>
             <p data-i18n="catalog.emptyText">Prueba con otra área o modalidad, o escríbenos y te avisamos cuando abra uno parecido.</p>
-            <button class="btn btn--ghost" type="button" data-reset data-i18n="catalog.reset">Quitar filtros</button>
+            <button class="btn btn--ghost" type="button" fs-list-element="clear" data-i18n="catalog.reset">Quitar filtros</button>
+          </div>
           </div>
           <noscript><p class="results">Activa JavaScript para ver el catálogo de cursos.</p></noscript>
         </div>
@@ -140,10 +157,10 @@
         <nav aria-label="Cursos" data-i18n-aria="footer.coursesLabel">
           <h2 class="site-footer__title" data-i18n="nav.courses">Cursos</h2>
           <ul>
-            <li><a href="cursos.html?area=tecnologia" data-i18n="area.tecnologia.name">Tecnología</a></li>
-            <li><a href="cursos.html?area=diseno" data-i18n="area.diseno.name">Diseño</a></li>
-            <li><a href="cursos.html?area=oficios" data-i18n="area.oficios.name">Oficios técnicos</a></li>
-            <li><a href="cursos.html?area=administracion" data-i18n="area.administracion.name">Administración</a></li>
+            <li><a href="cursos.html?area_equal=tecnologia" data-i18n="area.tecnologia.name">Tecnología</a></li>
+            <li><a href="cursos.html?area_equal=diseno" data-i18n="area.diseno.name">Diseño</a></li>
+            <li><a href="cursos.html?area_equal=oficios" data-i18n="area.oficios.name">Oficios técnicos</a></li>
+            <li><a href="cursos.html?area_equal=administracion" data-i18n="area.administracion.name">Administración</a></li>
           </ul>
         </nav>
         <div>
