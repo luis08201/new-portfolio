@@ -21,7 +21,7 @@ const en = {
   "hero.fact1": "Published challenges",
   "hero.fact2": "First course",
   "trust.label": "Where I've practiced",
-  "trust.text": "Training and challenges that shaped my work",
+  "trust.text": "Platforms where I practice with real-world challenges",
   "work.script": "Behind the code",
   "work.title": "Clear pages that make every visit <em>simpler</em>",
   "work.lead": "I focus on clean, intuitive interfaces, built with care from the very first line of HTML.",
