@@ -459,9 +459,10 @@ h3 {
 
 .trust__list {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   align-items: center;
-  gap: 1.25rem clamp(2rem, 6vw, 4.5rem);
+  gap: 1.25rem clamp(1.25rem, 3.5vw, 3.5rem);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -487,6 +488,13 @@ h3 {
 .trust__list img[src$="webflow.svg"],
 .trust__list img[src$="framer.svg"] {
   height: 1.05em;
+}
+
+@media (max-width: 640px) {
+  .trust__list {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 }
 
 /* Sections */
