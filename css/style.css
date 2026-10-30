@@ -475,32 +475,12 @@ h3 {
   white-space: nowrap;
   display: flex;
   align-items: center;
-  gap: 0.55rem;
 }
 
-.trust__list li::before {
-  content: "";
-  flex: none;
-  width: 1.15em;
-  height: 1.15em;
-  border-radius: 50%;
-  border: 0.2em solid currentColor;
-}
-
-.trust__list li:nth-child(2)::before {
-  border-radius: 0.2em;
-  background: currentColor;
-  border: 0;
-}
-
-.trust__list li:nth-child(3)::before {
-  border-width: 0.2em 0.6em;
-  border-radius: 0;
-  border-color: currentColor transparent;
-}
-
-.trust__list li:nth-child(4)::before {
-  background: linear-gradient(90deg, currentColor 50%, transparent 50%);
+.trust__list img {
+  width: auto;
+  height: 1.35em;
+  max-width: 100%;
 }
 
 /* Sections */
