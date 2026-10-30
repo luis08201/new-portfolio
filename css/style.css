@@ -14,6 +14,8 @@
   --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
   --sans: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
   --radius-xl: 44px;
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --hover-speed: 0.35s;
   --radius-lg: 22px;
   --gutter: max(clamp(1.25rem, 3.5vw, 2.6rem), calc((100vw - 1180px) / 2));
   color-scheme: light;
@@ -128,7 +130,7 @@ h3 {
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
-  transition: color 0.3s ease 0.1s, border-color 0.3s ease 0.1s;
+  transition: color 0.4s var(--ease-smooth) 0.1s, border-color 0.4s var(--ease-smooth) 0.1s;
 }
 
 .pill > :not(.pill__fill) {
@@ -236,6 +238,7 @@ h3 {
 .topbar__links a {
   text-decoration: none;
   opacity: 0.86;
+  transition: opacity var(--hover-speed) var(--ease-smooth), color var(--hover-speed) var(--ease-smooth);
 }
 
 .topbar__links a:hover {
@@ -343,7 +346,7 @@ h3 {
   background: var(--night);
   color: var(--lime-soft);
   font-size: 1.2rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s var(--ease-smooth);
 }
 
 .badge:hover .badge__core {
@@ -421,7 +424,7 @@ h3 {
   border-radius: 14px;
   overflow: hidden;
   background: var(--navy-2);
-  transition: transform 0.4s ease;
+  transition: transform 0.5s var(--ease-smooth);
 }
 
 .showcase__card:hover {
@@ -611,7 +614,7 @@ h3 {
   width: calc(100% - 2 * clamp(1rem, 2.4vw, 2rem));
   height: calc(100% - 2 * clamp(1rem, 2.4vw, 2rem));
   object-fit: contain;
-  transition: transform 0.6s ease;
+  transition: transform 0.7s var(--ease-smooth);
 }
 
 .work__media--cover {
@@ -668,6 +671,7 @@ h3 {
 .work h3 a,
 .practice h3 a {
   text-decoration: none;
+  transition: color var(--hover-speed) var(--ease-smooth);
 }
 
 .work h3 a:hover,
@@ -703,10 +707,12 @@ h3 {
   text-decoration: none;
   border-bottom: 1.5px solid var(--lime);
   padding-bottom: 1px;
+  transition: color var(--hover-speed) var(--ease-smooth), border-color var(--hover-speed) var(--ease-smooth);
 }
 
 .project__links a:hover {
   color: var(--lime-deep);
+  border-color: var(--lime-deep);
 }
 
 .project__buttons {
@@ -729,7 +735,8 @@ h3 {
   line-height: 1.2;
   white-space: nowrap;
   text-decoration: none;
-  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  transition: border-color var(--hover-speed) var(--ease-smooth), background-color var(--hover-speed) var(--ease-smooth),
+    color var(--hover-speed) var(--ease-smooth);
 }
 
 .btn-outline:hover {
@@ -786,7 +793,7 @@ h3 {
   color: var(--ink);
   font: 500 0.9rem/1 var(--sans);
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color var(--hover-speed) var(--ease-smooth), color var(--hover-speed) var(--ease-smooth);
 }
 
 .chip__count {
@@ -825,7 +832,7 @@ h3 {
   height: 100%;
   object-fit: cover;
   object-position: top;
-  transition: transform 0.5s ease;
+  transition: transform 0.7s var(--ease-smooth);
 }
 
 .practice__level {
@@ -979,6 +986,7 @@ h3 {
   text-decoration: none;
   font-weight: 500;
   font-size: 0.92rem;
+  transition: border-color var(--hover-speed) var(--ease-smooth), color var(--hover-speed) var(--ease-smooth);
 }
 
 .social a:hover {
@@ -1007,7 +1015,7 @@ textarea {
   border: 1px solid rgba(246, 242, 234, 0.18);
   border-radius: 14px;
   padding: 0.85rem 1rem;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: border-color var(--hover-speed) var(--ease-smooth), background-color var(--hover-speed) var(--ease-smooth);
 }
 
 input::placeholder,
@@ -1076,6 +1084,7 @@ form .pill {
 
 .footer a {
   text-decoration: none;
+  transition: color var(--hover-speed) var(--ease-smooth);
 }
 
 .footer a:hover {
@@ -1100,7 +1109,7 @@ form .pill {
   font: 600 0.78rem/1 var(--sans);
   letter-spacing: 0.08em;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color var(--hover-speed) var(--ease-smooth), color var(--hover-speed) var(--ease-smooth);
 }
 
 .lang__option:hover {

@@ -434,8 +434,8 @@ if (!hasGsap) {
 
     const hover = gsap
       .timeline({ paused: true })
-      .to(pill, { scale: 0.98, duration: 0.3, ease: "power1.out" }, 0)
-      .to(fill, { yPercent: 0, duration: 0.5, ease: "power2.out" }, 0);
+      .to(pill, { scale: 0.98, duration: 0.4, ease: "power2.out" }, 0)
+      .to(fill, { yPercent: 0, duration: 0.6, ease: "power3.out" }, 0);
 
     const enter = () => {
       if (pill.disabled) return;
