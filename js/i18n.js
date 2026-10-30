@@ -41,7 +41,6 @@ const en = {
     "Final project of the web design course I took in 2014, rebuilt in 2021 with everything I'd learned since.",
   "work.sydicom.tag": "Course project · Unitec",
   "work.sydicom.text": "Final project of Unitec's web design course, rebuilt in 2021.",
-  "link.live": "Live site",
   "link.browser": "Preview in browser",
   "link.webflow": "Preview in Webflow",
   "practice.script": "Practice",
