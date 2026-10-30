@@ -30,6 +30,9 @@ const en = {
   "work.forja.tag": "Case study · ISIC redesign",
   "work.forja.text":
     "I redesigned my 2021 ISIC project as a fictional technical institute: a catalog filtered with Finsweet Attributes, course pages and an enrollment form, in Spanish and English.",
+  "work.burger.tag": "Webflow template · 2026",
+  "work.burger.text":
+    "A Webflow template for burger restaurants: CMS-driven menu and blog, reusable components and GSAP interactions.",
   "work.sfs.tag": "devChallenges challenge · 2025",
   "work.sfs.text":
     "A feature section with three cards on a dark background. Layout practice, not client work.",
@@ -39,6 +42,8 @@ const en = {
   "work.sydicom.tag": "Course project · Unitec",
   "work.sydicom.text": "Final project of Unitec's web design course, rebuilt in 2021.",
   "link.live": "Live site",
+  "link.browser": "Preview in browser",
+  "link.webflow": "Preview in Webflow",
   "practice.script": "Practice",
   "practice.title": "Frontend Mentor challenges",
   "practice.text":
