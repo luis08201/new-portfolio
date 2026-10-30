@@ -29,6 +29,29 @@ Las animaciones se desactivan cuando el sistema pide reducir el movimiento, y el
 - El formulario de inscripción valida los datos y muestra la confirmación, pero no envía nada: es un sitio de demostración
 - Fotos de Unsplash en WebP; la carpeta completa pesa 1,3 MB frente a los 24 MB del original
 
+## Casos de estudio
+
+- `case-studies/forja/` y `case-studies/burgerlicious/`: objetivo, rol, stack, desafío, solución, capturas y resultado de cada proyecto
+- `js/case.js`: idioma, botones y animaciones de las páginas de caso; sus textos en inglés están en `js/cases-en.js`
+- `js/pills.js`: efecto de los botones, compartido por la portada y los casos
+- `img/casos/`: capturas propias en escritorio (1280 × 800) y móvil (390 px a 2x)
+
+## QA (30 de octubre de 2026)
+
+- Responsive: portada y casos revisados en 1920, 1440, 1280, 992, 991, 767, 479 y 375 px, sin scroll horizontal ni errores de consola
+- Accesibilidad: un H1 por página, todas las imágenes con `alt`, campos con `label`, foco visible al navegar con teclado y contenido visible con movimiento reducido
+- Idioma: cambiar ES ↔ EN no deja textos mezclados en ninguna de las tres páginas
+- Enlaces: 48 enlaces internos y externos responden 200; el formulario muestra errores al enviarse vacío (no se enviaron mensajes reales)
+- Lighthouse (local):
+
+  | Página | Móvil (rend. / acc. / prácticas / SEO) | Escritorio |
+  |---|---|---|
+  | Portada | 86 / 97 / 100 / 100 | 99 / 97 / 100 / 100 |
+  | Caso Forja | 95 / 100 / 100 / 100 | 100 / 100 / 100 / 100 |
+  | Caso Burgerlicious | 97 / 100 / 100 / 100 | 100 / 100 / 100 / 100 |
+
+  El 97 de accesibilidad de la portada viene del título de «Acerca de mí», cuyas palabras empiezan tenues a propósito y se completan con el scroll.
+
 ## Verla en local
 
 Abre la carpeta con cualquier servidor estático, por ejemplo:
