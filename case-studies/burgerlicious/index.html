@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Caso de estudio de Burgerlicious: la misma plantilla de restaurante en Webflow y en Framer, con CMS, animaciones con GSAP y code overrides en React."
+    />
+    <meta name="theme-color" content="#0e1b3b" />
+    <title>Burgerlicious: Webflow vs Framer | Caso de estudio | Luis Selva</title>
+    <link rel="canonical" href="https://luis08201.github.io/new-portfolio/case-studies/burgerlicious/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Burgerlicious case study: Webflow vs Framer | Luis Selva" />
+    <meta property="og:description" content="The same restaurant template built in Webflow and in Framer: CMS, GSAP interactions and React code overrides." />
+    <meta property="og:image" content="https://luis08201.github.io/new-portfolio/img/casos/burger-wf-d.webp" />
+    <meta property="og:url" content="https://luis08201.github.io/new-portfolio/case-studies/burgerlicious/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script defer src="../../js/vendor/gsap.min.js"></script>
+    <script defer src="../../js/vendor/ScrollTrigger.min.js"></script>
+    <script type="module" src="../../js/case.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#contenido" data-i18n="skip">Saltar al contenido</a>
+
+    <div class="page">
+      <header class="hero case-hero">
+        <nav class="topbar" aria-label="Principal" data-i18n-aria="nav.label">
+          <a class="brand" href="../../">Luis Selva<sup>®</sup></a>
+          <ul class="topbar__links">
+            <li><a href="../../#trabajo" data-i18n="case.back">← Todos los proyectos</a></li>
+            <li><a href="../forja/" data-i18n="case.next.forja">Caso: Forja</a></li>
+          </ul>
+          <a class="pill pill--light" href="../../#contacto">
+            <span data-i18n="nav.cta">Trabajemos juntos</span>
+          </a>
+        </nav>
+
+        <main id="contenido" class="case-hero__body">
+          <div class="case-hero__copy">
+            <p class="script" data-i18n="case.script" data-load>Caso de estudio</p>
+            <h1 data-load>Burgerlicious</h1>
+            <p class="case-hero__lead" data-i18n="burger.lead" data-load>
+              Plantilla para hamburgueserías que creé en Webflow pensando en venderla y que después reconstruí en
+              Framer. Este caso compara cómo resolví lo mismo en las dos plataformas.
+            </p>
+            <p class="case-hero__links" data-load>
+              <a class="pill pill--green" href="https://burgerlicious.webflow.io/" target="_blank" rel="noopener"><span data-i18n="burger.demoWf">Demo en Webflow</span></a>
+              <a class="pill pill--outline-light" href="https://hilarious-brand-871051.framer.app/" target="_blank" rel="noopener"><span data-i18n="burger.demoFr">Demo en Framer</span></a>
+            </p>
+          </div>
+          <dl class="case-meta" data-load>
+            <div><dt data-i18n="case.type">Tipo</dt><dd data-i18n="burger.type">Plantilla propia · contenido de ejemplo</dd></div>
+            <div><dt data-i18n="case.role">Mi rol</dt><dd data-i18n="burger.role">CMS, componentes, animaciones, SEO y QA en las dos versiones</dd></div>
+            <div><dt data-i18n="case.stack">Stack</dt><dd data-i18n="burger.stack">Webflow (CMS, Ecommerce, Interactions con GSAP) · Framer (CMS, code overrides en React)</dd></div>
+            <div><dt data-i18n="case.year">Año</dt><dd>2024–2026</dd></div>
+          </dl>
+        </main>
+
+        <figure class="case-cover" data-load>
+          <img src="../../img/casos/burger-wf-d.webp" alt="Página de inicio de Burgerlicious en Webflow" data-i18n-alt="burger.coverAlt" width="1280" height="800" fetchpriority="high" />
+        </figure>
+      </header>
+
+      <article class="case">
+        <section class="case-section" data-reveal>
+          <h2 data-i18n="case.goal">Objetivo</h2>
+          <div class="case-prose" data-i18n="burger.goal">
+            <p>Tener una plantilla de restaurante lista para vender: menú y blog administrados desde el CMS, páginas claras para pedir y contactar, y animaciones que den personalidad sin afectar la carga.</p>
+          </div>
+        </section>
+
+        <section class="case-section" data-reveal>
+          <h2 data-i18n="case.myRole">Mi rol</h2>
+          <div class="case-prose" data-i18n="burger.roleText">
+            <p><strong>En Webflow</strong> partí de la plantilla Ecommerce que hice en 2024 y la ordené:</p>
+            <ul>
+              <li>Campos nuevos en el CMS (destacado, etiqueta, vegetariano, picante, calorías, alérgenos y SEO en los platillos; fecha y tiempo de lectura en el blog) y nombres de campos agrupados para el editor.</li>
+              <li>Contenido realista en lugar de lorem ipsum, componente CTA Banner y SEO en cada página.</li>
+              <li>Cuatro interacciones con GSAP: intro del hero, títulos palabra por palabra, tarjetas al hacer scroll y elevación en hover.</li>
+            </ul>
+            <p><strong>En Framer</strong> la reconstruí completa: 7 páginas en tres breakpoints, 4 colecciones CMS, filtros por categoría y la animación de la hamburguesa con code overrides.</p>
+          </div>
+        </section>
+
+        <section class="case-section case-section--wide" id="comparacion" data-reveal>
+          <h2 data-i18n="burger.compareTitle">Webflow vs Framer</h2>
+          <div class="compare-wrap">
+            <table class="compare">
+              <thead>
+                <tr>
+                  <th scope="col"><span class="visually-hidden" data-i18n="burger.feature">Función</span></th>
+                  <th scope="col">Webflow</th>
+                  <th scope="col">Framer</th>
+                </tr>
+              </thead>
+              <tbody data-i18n="burger.compare">
+                <tr><th scope="row">Páginas</th><td>Home, Menu, About, Contact, Blog y Chef, más plantillas CMS y checkout</td><td>Home, Menu, About, Contact y Blog, más plantillas de platillo y de artículo</td></tr>
+                <tr><th scope="row">CMS</th><td>Platillos (productos de Ecommerce), categorías, blog, categorías del blog y chefs</td><td>Platillos, categorías, blog y categorías del blog</td></tr>
+                <tr><th scope="row">Filtro del menú</th><td>Enlaces a páginas de categoría (recargan la página)</td><td>Pestañas en la misma página, con la categoría en la URL</td></tr>
+                <tr><th scope="row">Animaciones</th><td>Interactions con GSAP: intro del hero, títulos, tarjetas al hacer scroll y hover</td><td>Efectos nativos y code overrides: la hamburguesa se desarma con el scroll y el texto queda fijo</td></tr>
+                <tr><th scope="row">Pedidos</th><td>Carrito de Webflow Ecommerce, demostrativo: no hay pagos configurados</td><td>Sin ecommerce: «Order now» lleva a la página de contacto</td></tr>
+                <tr><th scope="row">Formularios</th><td>Formularios nativos de Webflow</td><td>Formulario nativo de Framer</td></tr>
+                <tr><th scope="row">Breakpoints</th><td>Escritorio, tablet y móvil</td><td>Escritorio, tablet (810 px) y móvil (390 px)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="case-prose case-note" data-i18n="burger.demoNote">
+            <p><strong>Qué es funcional y qué es demo.</strong> El CMS, los filtros y las animaciones funcionan en las dos versiones. El carrito de Webflow es la estructura de Ecommerce de la plantilla, sin pagos activos. Los formularios son los nativos de cada plataforma y no los probé con envíos reales. Los testimonios, las respuestas del FAQ y la dirección siguen siendo contenido de ejemplo.</p>
+          </div>
+        </section>
+
+        <section class="case-section" data-reveal>
+          <h2 data-i18n="case.challenge">Desafío</h2>
+          <div class="case-prose" data-i18n="burger.challenge">
+            <p>En Webflow, la hamburguesa del hero se desarma capa por capa mientras haces scroll. En Framer, los efectos de scroll nativos solo cambian entre estados: no siguen el scroll de forma continua, así que el efecto se veía a saltos.</p>
+          </div>
+        </section>
+
+        <section class="case-section" data-reveal>
+          <h2 data-i18n="case.solution">Solución</h2>
+          <div class="case-prose" data-i18n="burger.solution">
+            <ul>
+              <li>Escribí code overrides en React, uno por capa, que leen la posición del contenedor y mueven cada capa con un resorte (<code>useSpring</code>), calibrado con las medidas de la versión de Webflow.</li>
+              <li>Otro override deja fijo el texto del hero solo en escritorio, con <code>matchMedia</code>.</li>
+              <li>En tablet y móvil reduje la hamburguesa a los tamaños de Webflow para que no tape el texto.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="case-section case-section--wide" data-reveal>
+          <h2 data-i18n="case.screens">Capturas</h2>
+          <div class="case-gallery">
+            <figure class="case-shot case-shot--desktop">
+              <img src="../../img/casos/burger-wf-menu-d.webp" alt="Página de menú de Burgerlicious en Webflow" data-i18n-alt="burger.alt.wfMenu" width="1280" height="800" loading="lazy" />
+              <figcaption data-i18n="burger.cap.wfMenu">Webflow: menú desde el CMS.</figcaption>
+            </figure>
+            <figure class="case-shot case-shot--desktop">
+              <img src="../../img/casos/burger-fr-item-d.webp" alt="Página de un platillo en la versión de Framer" data-i18n-alt="burger.alt.frItem" width="1280" height="800" loading="lazy" />
+              <figcaption data-i18n="burger.cap.frItem">Framer: plantilla de platillo con «Order now».</figcaption>
+            </figure>
+            <figure class="case-shot case-shot--desktop">
+              <img src="../../img/casos/burger-fr-d.webp" alt="Inicio de Burgerlicious en Framer" data-i18n-alt="burger.alt.frHome" width="1280" height="800" loading="lazy" />
+              <figcaption data-i18n="burger.cap.frHome">Framer: inicio reconstruido.</figcaption>
+            </figure>
+            <figure class="case-shot case-shot--mobile">
+              <img src="../../img/casos/burger-wf-m.webp" alt="Inicio de la versión de Webflow en móvil" data-i18n-alt="burger.alt.wfM" width="780" height="1688" loading="lazy" />
+              <figcaption data-i18n="burger.cap.wfM">Webflow en móvil.</figcaption>
+            </figure>
+            <figure class="case-shot case-shot--mobile">
+              <img src="../../img/casos/burger-fr-m.webp" alt="Inicio de la versión de Framer en móvil" data-i18n-alt="burger.alt.frM" width="780" height="1688" loading="lazy" />
+              <figcaption data-i18n="burger.cap.frM">Framer en móvil.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-section" data-reveal>
+          <h2 data-i18n="case.result">Resultado</h2>
+          <div class="case-prose" data-i18n="burger.result">
+            <ul>
+              <li>Dos versiones publicadas con contenido equivalente, que se pueden comparar lado a lado.</li>
+              <li>Platillos y artículos editables desde el CMS en las dos plataformas.</li>
+              <li>Animaciones que respetan la preferencia de movimiento reducido.</li>
+            </ul>
+            <p class="case-credits">Fotos de producto: recursos de la plantilla. Fuentes: Tanker e Inter. Estructura, contenido, animaciones y QA: Luis Selva.</p>
+            <p class="case-links">
+              <a href="https://preview.webflow.com/preview/burgerlicious?utm_medium=preview_link&amp;utm_source=designer&amp;utm_content=burgerlicious&amp;preview=13c2b8aefe0be28419e0fbde25394973&amp;locale=en&amp;workflow=preview" target="_blank" rel="noopener" data-i18n="link.webflow">Ver en Webflow</a>
+              <a href="https://framer.com/projects/Burgerlicious--Z3IbG6fEh3c73QAXGYFD-8Tz8F" target="_blank" rel="noopener" data-i18n="link.framer">Ver en Framer</a>
+            </p>
+          </div>
+        </section>
+      </article>
+
+      <section class="case-cta" aria-labelledby="case-cta-title">
+        <p class="script" data-i18n="contact.script">Hablemos,</p>
+        <h2 id="case-cta-title" data-i18n="contact.title">¿Necesitas ayuda con un proyecto <em>Webflow?</em></h2>
+        <p class="case-cta__links">
+          <a class="pill pill--green" href="../../#contacto"><span data-i18n="contact.cta">Hablemos de tu proyecto</span></a>
+          <a class="pill pill--outline-light" href="../forja/"><span data-i18n="case.next.forja">Caso: Forja</span></a>
+        </p>
+      </section>
+
+      <footer class="footer">
+        <p data-i18n="footer.credit">Diseñado y codificado por Luis Selva</p>
+        <div class="lang" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
+          <button type="button" class="lang__option" data-lang="es" lang="es" aria-pressed="true" aria-label="ES · Español">ES</button>
+          <button type="button" class="lang__option" data-lang="en" lang="en" aria-pressed="false" aria-label="EN · English">EN</button>
+        </div>
+        <a href="../../" data-i18n="case.home">Volver al portafolio ↑</a>
+      </footer>
+    </div>
+  </body>
+</html>

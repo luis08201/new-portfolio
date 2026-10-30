@@ -162,8 +162,16 @@ for (const el of document.querySelectorAll("[data-i18n-aria]")) {
 for (const el of document.querySelectorAll("[data-i18n-placeholder]")) {
   es[el.dataset.i18nPlaceholder] ??= el.getAttribute("placeholder");
 }
+for (const el of document.querySelectorAll("[data-i18n-alt]")) {
+  es[el.dataset.i18nAlt] ??= el.getAttribute("alt");
+}
 
 const dictionaries = { es, en };
+
+// Pages with their own copy register their English strings before the first applyLanguage.
+export function addEnglish(strings) {
+  Object.assign(en, strings);
+}
 let current = "es";
 
 const fill = (text) => text.replaceAll("{total}", total);
@@ -241,6 +249,9 @@ export function applyLanguage(lang) {
   }
   for (const el of document.querySelectorAll("[data-i18n-placeholder]")) {
     el.setAttribute("placeholder", text(el.dataset.i18nPlaceholder));
+  }
+  for (const el of document.querySelectorAll("[data-i18n-alt]")) {
+    el.setAttribute("alt", text(el.dataset.i18nAlt));
   }
   for (const button of document.querySelectorAll("[data-lang]")) {
     button.setAttribute("aria-pressed", String(button.dataset.lang === current));

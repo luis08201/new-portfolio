@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Caso de estudio de Forja: catálogo de cursos filtrable con Finsweet Attributes, páginas de detalle generadas desde datos y formulario de inscripción accesible, en español e inglés."
+    />
+    <meta name="theme-color" content="#0e1b3b" />
+    <title>Forja: catálogo filtrable con Finsweet | Caso de estudio | Luis Selva</title>
+    <link rel="canonical" href="https://luis08201.github.io/new-portfolio/case-studies/forja/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Forja case study | Luis Selva" />
+    <meta property="og:description" content="A filterable course catalog with Finsweet Attributes, data-driven detail pages and an accessible enrollment form." />
+    <meta property="og:image" content="https://luis08201.github.io/new-portfolio/img/casos/forja-home-d.webp" />
+    <meta property="og:url" content="https://luis08201.github.io/new-portfolio/case-studies/forja/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script defer src="../../js/vendor/gsap.min.js"></script>
+    <script defer src="../../js/vendor/ScrollTrigger.min.js"></script>
+    <script type="module" src="../../js/case.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#contenido" data-i18n="skip">Saltar al contenido</a>
+
+    <div class="page">
+      <header class="hero case-hero">
+        <nav class="topbar" aria-label="Principal" data-i18n-aria="nav.label">
+          <a class="brand" href="../../">Luis Selva<sup>®</sup></a>
+          <ul class="topbar__links">
+            <li><a href="../../#trabajo" data-i18n="case.back">← Todos los proyectos</a></li>
+            <li><a href="../burgerlicious/" data-i18n="case.next.burger">Caso: Burgerlicious</a></li>
+          </ul>
+          <a class="pill pill--light" href="../../#contacto">
+            <span data-i18n="nav.cta">Trabajemos juntos</span>
+          </a>
+        </nav>
+
+        <main id="contenido" class="case-hero__body">
+          <div class="case-hero__copy">
+            <p class="script" data-i18n="case.script" data-load>Caso de estudio</p>
+            <h1 data-load>Forja</h1>
+            <p class="case-hero__lead" data-i18n="forja.lead" data-load>
+              Sitio de un instituto técnico ficticio en Managua. Lo diseñé y programé de principio a fin para
+              resolver un problema típico de Webflow: un catálogo con filtros, búsqueda y páginas de detalle que
+              se mantiene desde una sola fuente de datos.
+            </p>
+            <p class="case-hero__links" data-load>
+              <a class="pill pill--green" href="../../forja/"><span data-i18n="link.demo">Ver demo</span></a>
+              <a class="pill pill--outline-light" href="https://github.com/luis08201/new-portfolio/tree/main/forja"><span data-i18n="link.code">Ver código</span></a>
+            </p>
+          </div>
+          <dl class="case-meta" data-load>
+            <div><dt data-i18n="case.type">Tipo</dt><dd data-i18n="forja.type">Proyecto personal · demo original</dd></div>
+            <div><dt data-i18n="case.role">Mi rol</dt><dd data-i18n="forja.role">Diseño, contenido, desarrollo y QA</dd></div>
+            <div><dt data-i18n="case.stack">Stack</dt><dd>HTML, CSS, JavaScript (ES modules), Finsweet Attributes, GSAP</dd></div>
+            <div><dt data-i18n="case.year">Año</dt><dd>2026</dd></div>
+          </dl>
+        </main>
+
+        <figure class="case-cover" data-load>
+          <img src="../../img/casos/forja-home-d.webp" alt="Página de inicio de Forja en escritorio" data-i18n-alt="forja.coverAlt" width="1280" height="800" fetchpriority="high" />
+        </figure>
+      </header>
+
+      <article class="case">
+        <section class="case-section" data-reveal>
+          <h2 data-i18n="case.goal">Objetivo</h2>
+          <div class="case-prose" data-i18n="forja.goal">
+            <p>Mostrar cómo construyo un sitio con catálogo, como los que se arman con Webflow CMS y Finsweet: que el visitante encuentre un curso en segundos y que agregar uno nuevo no obligue a tocar el HTML.</p>
+          </div>
+        </section>
+
+        <section class="case-section" data-reveal>
+          <h2 data-i18n="case.myRole">Mi rol</h2>
+          <div class="case-prose" data-i18n="forja.roleText">
+            <ul>
+              <li>Definí la arquitectura y escribí el contenido de los 12 cursos, en español e inglés.</li>
+              <li>Diseñé la interfaz y el sistema de componentes en CSS.</li>
+              <li>Programé el catálogo, las páginas de detalle, el formulario de inscripción y el cambio de idioma.</li>
+              <li>Hice el QA en escritorio, tablet y móvil, con teclado y con movimiento reducido.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="case-section" data-reveal>
+          <h2 data-i18n="case.architecture">Arquitectura</h2>
+          <div class="case-prose" data-i18n="forja.architecture">
+            <p>Cuatro páginas y una fuente de datos. Un módulo de JavaScript cumple el papel de una colección CMS: cada curso tiene título, resumen, área, modalidad, precio, fechas, temario, requisitos e instructor, en los dos idiomas.</p>
+            <ul>
+              <li><strong>Inicio:</strong> propuesta, áreas y cursos próximos.</li>
+              <li><strong>Catálogo:</strong> los 12 cursos con filtros por área, modalidad y búsqueda.</li>
+              <li><strong>Detalle:</strong> una sola plantilla (<code>curso.html?c=slug</code>) para todos los cursos, como una plantilla CMS de Webflow.</li>
+              <li><strong>Inscripción:</strong> formulario con el curso preseleccionado desde el detalle.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="case-section" data-reveal>
+          <h2 data-i18n="case.challenge">Desafío</h2>
+          <div class="case-prose" data-i18n="forja.challenge">
+            <p>Finsweet Attributes está pensado para Webflow: espera el runtime de Webflow y lee las tarjetas una sola vez al iniciar. En Forja las tarjetas se generan con JavaScript y se vuelven a generar al cambiar de idioma, así que el filtro se quedaba con tarjetas que ya no existían.</p>
+          </div>
+        </section>
+
+        <section class="case-section" data-reveal>
+          <h2 data-i18n="case.solution">Solución</h2>
+          <div class="case-prose" data-i18n="forja.solution">
+            <ul>
+              <li>Cargo el script de Finsweet solo después del primer render y simulo <code>Webflow.push</code> para que arranque sin el runtime de Webflow.</li>
+              <li>Al cambiar de idioma reconstruyo las tarjetas y reinicio el módulo List con <code>restart()</code>, así el contador y los filtros siguen correctos.</li>
+              <li>Cada tarjeta lleva campos ocultos (<code>fs-list-field</code>) con área, modalidad y palabras clave sin tildes, para que «electronica» encuentre «electrónica».</li>
+              <li>Los filtros se reflejan en la URL (<code>?area_equal=tecnologia</code>): la miga de pan del detalle abre el catálogo ya filtrado.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="case-section case-section--wide" data-reveal>
+          <h2 data-i18n="case.responsive">Inscripción y responsive</h2>
+          <div class="case-prose" data-i18n="forja.responsive">
+            <p>El formulario valida cada campo al salir de él, asocia los errores a su campo y lleva el foco al primer error. Es una demo: no envía datos. En móvil, el menú se abre y cierra con teclado (Escape) y las tarjetas pasan de cuatro columnas a una.</p>
+          </div>
+          <div class="case-gallery">
+            <figure class="case-shot case-shot--desktop">
+              <img src="../../img/casos/forja-catalog-d.webp" alt="Catálogo de Forja filtrado por Tecnología en escritorio" data-i18n-alt="forja.alt.catalog" width="1280" height="800" loading="lazy" />
+              <figcaption data-i18n="forja.cap.catalog">Catálogo filtrado por área, con contador de resultados.</figcaption>
+            </figure>
+            <figure class="case-shot case-shot--desktop">
+              <img src="../../img/casos/forja-course-d.webp" alt="Página de detalle del curso Programación web" data-i18n-alt="forja.alt.course" width="1280" height="800" loading="lazy" />
+              <figcaption data-i18n="forja.cap.course">Detalle generado desde los datos del curso.</figcaption>
+            </figure>
+            <figure class="case-shot case-shot--mobile">
+              <img src="../../img/casos/forja-home-m.webp" alt="Inicio de Forja en móvil" data-i18n-alt="forja.alt.homeM" width="780" height="1688" loading="lazy" />
+              <figcaption data-i18n="forja.cap.homeM">Inicio en móvil.</figcaption>
+            </figure>
+            <figure class="case-shot case-shot--mobile">
+              <img src="../../img/casos/forja-catalog-m.webp" alt="Filtros del catálogo en móvil" data-i18n-alt="forja.alt.catalogM" width="780" height="1688" loading="lazy" />
+              <figcaption data-i18n="forja.cap.catalogM">Filtros en móvil.</figcaption>
+            </figure>
+            <figure class="case-shot case-shot--mobile">
+              <img src="../../img/casos/forja-form-m.webp" alt="Formulario de inscripción en móvil" data-i18n-alt="forja.alt.formM" width="780" height="1688" loading="lazy" />
+              <figcaption data-i18n="forja.cap.formM">Formulario de inscripción.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-section" data-reveal>
+          <h2 data-i18n="case.result">Resultado</h2>
+          <div class="case-prose" data-i18n="forja.result">
+            <ul>
+              <li>12 cursos en 4 áreas, filtrables por área, modalidad y texto, con contador de resultados y estado vacío.</li>
+              <li>Sitio bilingüe; el idioma elegido se comparte con este portafolio.</li>
+              <li>Animaciones con GSAP que respetan la preferencia de movimiento reducido.</li>
+            </ul>
+            <p class="case-credits">Fotos: Unsplash. Librerías: Finsweet Attributes v2 y GSAP. Diseño, código y textos: Luis Selva.</p>
+          </div>
+        </section>
+      </article>
+
+      <section class="case-cta" aria-labelledby="case-cta-title">
+        <p class="script" data-i18n="contact.script">Hablemos,</p>
+        <h2 id="case-cta-title" data-i18n="contact.title">¿Necesitas ayuda con un proyecto <em>Webflow?</em></h2>
+        <p class="case-cta__links">
+          <a class="pill pill--green" href="../../#contacto"><span data-i18n="contact.cta">Hablemos de tu proyecto</span></a>
+          <a class="pill pill--outline-light" href="../burgerlicious/"><span data-i18n="case.next.burger">Caso: Burgerlicious</span></a>
+        </p>
+      </section>
+
+      <footer class="footer">
+        <p data-i18n="footer.credit">Diseñado y codificado por Luis Selva</p>
+        <div class="lang" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
+          <button type="button" class="lang__option" data-lang="es" lang="es" aria-pressed="true" aria-label="ES · Español">ES</button>
+          <button type="button" class="lang__option" data-lang="en" lang="en" aria-pressed="false" aria-label="EN · English">EN</button>
+        </div>
+        <a href="../../" data-i18n="case.home">Volver al portafolio ↑</a>
+      </footer>
+    </div>
+  </body>
+</html>
