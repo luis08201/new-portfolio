@@ -122,7 +122,7 @@ h3 {
   display: inline-flex;
   align-items: center;
   gap: 0.85rem;
-  padding: 0.3rem 0.3rem 0.3rem 1.2rem;
+  padding: 0.85rem 1.45rem;
   border-radius: 999px;
   font: 600 0.92rem/1 var(--sans);
   text-decoration: none;
@@ -148,20 +148,7 @@ h3 {
   pointer-events: none;
 }
 
-.pill__arrow {
-  display: grid;
-  place-items: center;
-  width: 2.15rem;
-  height: 2.15rem;
-  border-radius: 50%;
-  font-size: 1rem;
-  line-height: 1;
-  transition: transform 0.25s ease, background-color 0.3s ease 0.1s, color 0.3s ease 0.1s;
-}
 
-.pill__arrow > span {
-  display: block;
-}
 
 .pill--light {
   background: var(--cream);
@@ -169,10 +156,6 @@ h3 {
   color: var(--ink);
 }
 
-.pill--light .pill__arrow {
-  background: var(--lime);
-  color: var(--night);
-}
 
 .pill--light .pill__fill {
   background: var(--lime);
@@ -182,10 +165,6 @@ h3 {
   color: var(--night);
 }
 
-.pill--light.is-hover .pill__arrow {
-  background: var(--night);
-  color: var(--lime-soft);
-}
 
 .pill--green {
   background: var(--lime);
@@ -193,10 +172,6 @@ h3 {
   color: var(--night);
 }
 
-.pill--green .pill__arrow {
-  background: var(--cream);
-  color: var(--ink);
-}
 
 .pill--green .pill__fill {
   background: var(--navy);
@@ -856,10 +831,6 @@ h3 {
   color: var(--ink);
 }
 
-.pill--outline .pill__arrow {
-  background: var(--ink);
-  color: var(--cream);
-}
 
 .pill--outline .pill__fill {
   background: var(--navy);
@@ -870,14 +841,7 @@ h3 {
   color: var(--cream);
 }
 
-.pill--outline.is-hover .pill__arrow {
-  background: var(--lime);
-  color: var(--night);
-}
 
-.pill--outline[aria-expanded="true"] .pill__arrow {
-  transform: rotate(180deg);
-}
 
 .practice h3 {
   margin: 0.35rem 0 0.35rem;

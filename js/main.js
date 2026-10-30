@@ -423,8 +423,8 @@ if (!hasGsap) {
     return () => cleanups.forEach((cleanup) => cleanup());
   });
 
-  // Buttons: a slight press, an oval fill rising from below and the arrow nudging
-  // out; leaving plays the same timeline backwards.
+  // Buttons: a slight press and an oval fill rising from below; leaving plays
+  // the same timeline backwards.
   for (const pill of document.querySelectorAll(".pill")) {
     const fill = document.createElement("span");
     fill.className = "pill__fill";
@@ -432,13 +432,10 @@ if (!hasGsap) {
     pill.prepend(fill);
     gsap.set(fill, { yPercent: 100 });
 
-    const glyph = pill.querySelector(".pill__arrow > span");
-    const nudge = glyph?.textContent.trim() === "↓" ? { y: 3 } : { x: 3, y: -3, rotation: -45 };
     const hover = gsap
       .timeline({ paused: true })
       .to(pill, { scale: 0.98, duration: 0.3, ease: "power1.out" }, 0)
       .to(fill, { yPercent: 0, duration: 0.5, ease: "power2.out" }, 0);
-    if (glyph) hover.to(glyph, { ...nudge, duration: 0.3, ease: "power1.out" }, 0);
 
     const enter = () => {
       if (pill.disabled) return;
