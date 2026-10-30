@@ -186,15 +186,18 @@ function render() {
   const toHeight = list.offsetHeight;
 
   const duration = 0.6;
-  const settle = () => ScrollTrigger.refresh();
+  let heightTween = null;
+  const release = () => {
+    gsap.set(list, { clearProps: "height" });
+    ScrollTrigger.refresh();
+  };
   if (toHeight >= fromHeight) {
     gsap.set(list, { height: toHeight });
-    gsap.set(list, { clearProps: "height", delay: duration + 0.2, onComplete: settle });
   } else {
-    gsap.fromTo(
+    heightTween = gsap.fromTo(
       list,
       { height: fromHeight },
-      { height: toHeight, duration: 0.5, delay: 0.3, ease: "power3.inOut", clearProps: "height", onComplete: settle },
+      { height: toHeight, duration: 0.75, delay: 0.25, ease: "power2.inOut" },
     );
   }
   Flip.from(state, {
@@ -202,6 +205,12 @@ function render() {
     ease: "power3.inOut",
     absolute: true,
     stagger: 0.015,
+    // The staggered cards finish after the height tween. Releasing the height
+    // earlier collapses the list for a few frames and makes the next section jump.
+    onComplete: () => {
+      if (heightTween?.isActive()) heightTween.eventCallback("onComplete", release);
+      else release();
+    },
     onEnter: (els) =>
       gsap.fromTo(els, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.45, delay: 0.15 }),
     onLeave: (els) => gsap.to(els, { opacity: 0, scale: 0.9, duration: 0.3 }),
