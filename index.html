@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Luis Selva, desarrollador web en Nicaragua. Maquetación e interfaces que se entienden a la primera."
+      content="Luis Selva, desarrollador Webflow y frontend. Sitios responsivos con CMS, integraciones, animaciones con GSAP y QA, en proyectos part-time y asíncronos."
     />
     <meta name="theme-color" content="#0e1b3b" />
-    <title>Luis Selva · Desarrollador web</title>
+    <title>Luis Selva · Desarrollador Webflow y frontend</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Luis Selva" />
+    <meta property="og:title" content="Luis Selva · Webflow Developer &amp; Frontend Specialist" />
+    <meta property="og:description" content="Responsive, scalable Webflow websites: CMS, integrations, GSAP animations and website QA. Available for selected part-time, asynchronous projects." />
+    <meta property="og:image" content="https://luis08201.github.io/new-portfolio/img/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,21 +44,27 @@
           <a class="brand" href="#inicio">Luis Selva<sup>®</sup></a>
           <ul class="topbar__links">
             <li><a href="#trabajo" data-i18n="nav.work">Trabajo</a></li>
-            <li><a href="#practica" data-i18n="nav.practice">Práctica</a></li>
+            <li><a href="#servicios" data-i18n="nav.services">Servicios</a></li>
             <li><a href="#acerca" data-i18n="nav.about">Acerca</a></li>
+            <li><a href="#practica" data-i18n="nav.practice">Práctica</a></li>
           </ul>
           <a class="pill pill--light" href="#contacto">
-            <span data-i18n="nav.cta">Escríbeme</span>
+            <span data-i18n="nav.cta">Trabajemos juntos</span>
           </a>
         </nav>
 
         <main id="contenido" class="hero__body">
           <div class="hero__intro">
+            <p class="hero__eyebrow" data-i18n="hero.eyebrow" data-load="slide" data-delay="0.1">Desarrollador Webflow · Especialista frontend</p>
             <p class="script" data-i18n="hero.script" data-load="slide" data-delay="0.2">Hola, soy Luis,</p>
-            <h1 data-i18n="hero.title" data-load="slide" data-delay="0.2">Desarrollador <em>web</em></h1>
+            <h1 data-i18n="hero.title" data-load="slide" data-delay="0.2">Desarrollador <em>Webflow</em></h1>
             <p class="hero__small" data-i18n="hero.small" data-load="slide" data-delay="0.3">
-              Maqueto páginas en HTML, CSS y JavaScript que cargan rápido y se
-              leen bien en cualquier pantalla.
+              Construyo sitios en Webflow responsivos y escalables para equipos en crecimiento:
+              CMS, integraciones, animaciones y QA.
+            </p>
+            <p class="hero__ctas" data-load="slide" data-delay="0.35">
+              <a class="pill pill--green" href="#contacto"><span data-i18n="hero.cta">Trabajemos juntos</span></a>
+              <a class="pill pill--outline-light" href="#trabajo"><span data-i18n="hero.cta2">Ver trabajos</span></a>
             </p>
           </div>
 
@@ -58,21 +72,21 @@
             <img src="img/luis.png" alt="Luis Selva" width="800" height="800" />
           </figure>
 
-          <a class="badge" data-load="fade" data-delay="0.4" href="#contacto" aria-label="Disponible para nuevos proyectos. Escríbeme" data-i18n-aria="badge.label">
+          <a class="badge" data-load="fade" data-delay="0.4" href="#contacto" aria-label="Disponible para proyectos part-time y asíncronos. Escríbeme" data-i18n-aria="badge.label">
             <svg class="badge__ring" viewBox="0 0 120 120" aria-hidden="true">
               <defs>
                 <path id="badge-path" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0" />
               </defs>
-              <text><textPath href="#badge-path" textLength="280" lengthAdjust="spacing" data-i18n="badge.ring">Disponible · Frontend · Nicaragua ·</textPath></text>
+              <text><textPath href="#badge-path" textLength="280" lengthAdjust="spacing" data-i18n="badge.ring">Part-time · Remoto · Asíncrono ·</textPath></text>
             </svg>
             <span class="badge__core" aria-hidden="true">↗</span>
           </a>
 
           <div class="hero__aside" data-load="slide" data-delay="0.3">
-            <p class="hero__quote" data-i18n="hero.quote">Una buena interfaz se entiende a la primera.</p>
+            <p class="hero__quote" data-i18n="hero.quote">Disponible para proyectos part-time seleccionados y asíncronos.</p>
             <dl class="hero__facts">
-              <div><dt data-i18n="hero.fact1">Retos publicados</dt><dd data-count="34">34</dd></div>
-              <div><dt data-i18n="hero.fact2">Primer curso</dt><dd>2014</dd></div>
+              <div><dt data-i18n="hero.fact1">Años de experiencia</dt><dd>4+</dd></div>
+              <div><dt data-i18n="hero.fact2">Retos publicados</dt><dd data-count="34">34</dd></div>
             </dl>
           </div>
         </main>
@@ -97,26 +111,26 @@
         </div>
       </header>
 
-      <section class="trust" aria-label="Dónde he practicado" data-i18n-aria="trust.label">
-        <p class="trust__label" data-i18n="trust.text">Plataformas donde practico con retos reales</p>
+      <section class="trust" aria-label="Herramientas y plataformas" data-i18n-aria="trust.label">
+        <p class="trust__label" data-i18n="trust.text">Construyo en Webflow y Framer, y practico con retos reales</p>
         <ul class="trust__list">
-          <li><img src="img/logos/frontend-mentor.svg" alt="Frontend Mentor" width="175" height="25" /></li>
-          <li><img src="img/logos/devchallenges.svg" alt="devChallenges" width="229" height="31" /></li>
           <li><img src="img/logos/webflow.svg" alt="Webflow" width="142" height="25" /></li>
           <li><img src="img/logos/framer.svg" alt="Framer" width="116" height="25" /></li>
+          <li><img src="img/logos/frontend-mentor.svg" alt="Frontend Mentor" width="175" height="25" /></li>
+          <li><img src="img/logos/devchallenges.svg" alt="devChallenges" width="229" height="31" /></li>
         </ul>
       </section>
 
       <section class="section" id="trabajo" aria-labelledby="trabajo-titulo">
         <div class="split">
           <div>
-            <p class="script script--green" data-i18n="work.script">Detrás del código</p>
-            <h2 id="trabajo-titulo" data-i18n="work.title">Páginas claras que hacen la visita <em>más simple</em></h2>
+            <p class="script script--green" data-i18n="work.script">Trabajos seleccionados</p>
+            <h2 id="trabajo-titulo" data-i18n="work.title">Webflow, CMS e interacciones <em>bien resueltas</em></h2>
           </div>
           <div class="split__aside">
             <p class="lead-serif" data-i18n="work.lead">
-              Me enfoco en interfaces limpias e intuitivas, construidas con
-              cuidado desde la primera línea de HTML.
+              Proyectos propios donde hice el diseño y el desarrollo completos:
+              estructura del CMS, componentes, animaciones y QA responsive.
             </p>
             <a class="pill pill--green" href="#contacto">
               <span data-i18n="work.cta">Construyamos algo juntos</span>
@@ -131,10 +145,11 @@
                 <img src="img/forja.webp" alt="" width="1280" height="860" loading="lazy" style="object-position: left top" />
               </a>
               <div class="work__body">
-                <p class="work__num">01<span>/ 06</span></p>
+                <p class="work__num">01<span>/ 03</span></p>
                 <p class="project__tag" data-i18n="work.forja.tag">Caso de estudio · Rediseño de ISIC</p>
                 <h3><a href="forja/">Forja</a></h3>
                 <p class="work__text" data-i18n="work.forja.text">Rediseñé mi proyecto ISIC de 2021 como un instituto técnico ficticio: catálogo filtrable con Finsweet Attributes, páginas de curso y formulario de inscripción, en español e inglés.</p>
+                <ul class="work__tags" aria-label="Tecnologías" data-i18n-aria="work.tagsLabel"><li>JavaScript</li><li>GSAP</li><li>Finsweet Attributes</li><li>i18n</li><li>QA</li></ul>
                 <p class="project__buttons">
                   <a class="pill pill--outline pill--sm" href="forja/"><span data-i18n="link.browser">Ver en el navegador</span></a>
                 </p>
@@ -145,10 +160,11 @@
                 <img src="img/burgerlicious.webp" alt="" width="1280" height="860" loading="lazy" style="object-position: left top" />
               </a>
               <div class="work__body">
-                <p class="work__num">02<span>/ 06</span></p>
+                <p class="work__num">02<span>/ 03</span></p>
                 <p class="project__tag" data-i18n="work.burger.tag">Plantilla de Webflow · 2026</p>
                 <h3><a href="https://burgerlicious.webflow.io/" target="_blank" rel="noopener">Burgerlicious</a></h3>
-                <p class="work__text" data-i18n="work.burger.text">Plantilla de Webflow para hamburgueserías: menú y blog administrados desde el CMS, componentes reutilizables e interacciones con GSAP.</p>
+                <p class="work__text" data-i18n="work.burger.text">Diseñé y desarrollé una plantilla de Webflow para hamburgueserías: colecciones CMS para el menú y el blog, componentes reutilizables, interacciones con GSAP y QA en todos los breakpoints.</p>
+                <ul class="work__tags" aria-label="Tecnologías" data-i18n-aria="work.tagsLabel"><li>Webflow</li><li>CMS</li><li>GSAP</li><li>QA</li></ul>
                 <p class="project__buttons">
                   <a class="pill pill--outline pill--sm" href="https://burgerlicious.webflow.io/" target="_blank" rel="noopener"><span data-i18n="link.browser">Ver en el navegador</span></a>
                   <a class="pill pill--outline pill--sm" href="https://preview.webflow.com/preview/burgerlicious?utm_medium=preview_link&amp;utm_source=designer&amp;utm_content=burgerlicious&amp;preview=13c2b8aefe0be28419e0fbde25394973&amp;locale=en&amp;workflow=preview" target="_blank" rel="noopener"><span data-i18n="link.webflow">Ver en Webflow</span></a>
@@ -160,75 +176,76 @@
                 <img src="img/burgerlicious-framer.webp" alt="" width="1280" height="860" loading="lazy" style="object-position: left top" />
               </a>
               <div class="work__body">
-                <p class="work__num">03<span>/ 06</span></p>
+                <p class="work__num">03<span>/ 03</span></p>
                 <p class="project__tag" data-i18n="work.burgerFramer.tag">Versión en Framer · 2026</p>
                 <h3><a href="https://hilarious-brand-871051.framer.app/" target="_blank" rel="noopener">Burgerlicious · Framer</a></h3>
                 <p class="work__text" data-i18n="work.burgerFramer.text">La misma plantilla reconstruida en Framer: menú como catálogo con botón “Order now”, blog con el CMS de Framer y la hamburguesa que se desarma al hacer scroll.</p>
+                <ul class="work__tags" aria-label="Tecnologías" data-i18n-aria="work.tagsLabel"><li>Framer</li><li>CMS</li><li>Code overrides</li><li>QA</li></ul>
                 <p class="project__buttons">
                   <a class="pill pill--outline pill--sm" href="https://hilarious-brand-871051.framer.app/" target="_blank" rel="noopener"><span data-i18n="link.browser">Ver en el navegador</span></a>
                   <a class="pill pill--outline pill--sm" href="https://framer.com/projects/Burgerlicious--Z3IbG6fEh3c73QAXGYFD-8Tz8F" target="_blank" rel="noopener"><span data-i18n="link.framer">Ver en Framer</span></a>
                 </p>
               </div>
             </article>
-            <article class="work">
-              <a class="work__media work__media--cover" href="https://luis08201.github.io/Simple-Feature-Section/" tabindex="-1" aria-hidden="true">
-                <img src="https://raw.githubusercontent.com/luis08201/Simple-Feature-Section/main/thumbnail.jpg" alt="" width="1280" height="900" loading="lazy" />
-              </a>
-              <div class="work__body">
-                <p class="work__num">04<span>/ 06</span></p>
-                <p class="project__tag" data-i18n="work.sfs.tag">Reto de devChallenges · 2025</p>
-                <h3><a href="https://luis08201.github.io/Simple-Feature-Section/">Simple Feature Section</a></h3>
-                <p class="work__text" data-i18n="work.sfs.text">Sección de características con tres tarjetas sobre fondo oscuro. Práctica de maquetación, no un trabajo de cliente.</p>
-                <p class="project__buttons">
-                  <a class="pill pill--outline pill--sm" href="https://luis08201.github.io/Simple-Feature-Section/"><span data-i18n="link.browser">Ver en el navegador</span></a>
-                </p>
-              </div>
-            </article>
-            <article class="work">
-              <a class="work__media" href="https://luis08201.github.io/isic-version2021/" tabindex="-1" aria-hidden="true">
-                <img src="img/isic.png" alt="" width="307" height="259" loading="lazy" />
-              </a>
-              <div class="work__body">
-                <p class="work__num">05<span>/ 06</span></p>
-                <p class="project__tag" data-i18n="work.isic.tag">Proyecto de curso · ISIC</p>
-                <h3><a href="https://luis08201.github.io/isic-version2021/">ISIC</a></h3>
-                <p class="work__text" data-i18n="work.isic.text">Proyecto final del curso de diseño web que tomé en 2014, rehecho en 2021 con lo aprendido desde entonces.</p>
-                <p class="project__buttons">
-                  <a class="pill pill--outline pill--sm" href="https://luis08201.github.io/isic-version2021/"><span data-i18n="link.browser">Ver en el navegador</span></a>
-                </p>
-              </div>
-            </article>
-            <article class="work">
-              <a class="work__media" href="https://luis08201.github.io/SYDICOM/" tabindex="-1" aria-hidden="true">
-                <img src="img/sydicom.png" alt="" width="336" height="280" loading="lazy" />
-              </a>
-              <div class="work__body">
-                <p class="work__num">06<span>/ 06</span></p>
-                <p class="project__tag" data-i18n="work.sydicom.tag">Proyecto de curso · Unitec</p>
-                <h3><a href="https://luis08201.github.io/SYDICOM/">Sydicom</a></h3>
-                <p class="work__text" data-i18n="work.sydicom.text">Proyecto final del curso de diseño web de Unitec, rehecho en 2021.</p>
-                <p class="project__buttons">
-                  <a class="pill pill--outline pill--sm" href="https://luis08201.github.io/SYDICOM/"><span data-i18n="link.browser">Ver en el navegador</span></a>
-                </p>
-              </div>
-            </article>
+            </div>
+        </div>
+      </section>
+
+      <section class="section services" id="servicios" aria-labelledby="servicios-titulo">
+        <div class="services__head">
+          <div class="section-head">
+            <p class="script script--green" data-i18n="services.script">Servicios</p>
+            <h2 id="servicios-titulo" data-i18n="services.title">Ayuda puntual para <em>proyectos Webflow</em></h2>
           </div>
+          <p class="services__note" data-i18n="services.note">Abierto a proyectos part-time seleccionados, con colaboración flexible y asíncrona.</p>
+        </div>
+        <ol class="services__list">
+          <li class="service">
+            <span class="service__num" aria-hidden="true">01</span>
+            <h3 data-i18n="services.s1.title">Desarrollo Webflow e implementación de CMS</h3>
+            <p data-i18n="services.s1.text">Paso el diseño a Webflow con clases ordenadas, componentes reutilizables y colecciones CMS fáciles de editar.</p>
+          </li>
+          <li class="service">
+            <span class="service__num" aria-hidden="true">02</span>
+            <h3 data-i18n="services.s2.title">Correcciones responsive y QA</h3>
+            <p data-i18n="services.s2.text">Reviso cada breakpoint, enlaces, formularios y accesibilidad, y corrijo lo que se rompe antes de publicar.</p>
+          </li>
+          <li class="service">
+            <span class="service__num" aria-hidden="true">03</span>
+            <h3 data-i18n="services.s3.title">JavaScript, GSAP y mejoras frontend</h3>
+            <p data-i18n="services.s3.text">Animaciones con scroll, filtros, sliders y detalles de interacción que Webflow no resuelve por sí solo.</p>
+          </li>
+          <li class="service">
+            <span class="service__num" aria-hidden="true">04</span>
+            <h3 data-i18n="services.s4.title">Integraciones de formularios, CMS y terceros</h3>
+            <p data-i18n="services.s4.text">Formularios conectados, Finsweet Attributes, scripts de analítica y herramientas externas bien integradas.</p>
+          </li>
+        </ol>
+        <div class="process">
+          <h3 class="process__title" data-i18n="process.title">Cómo trabajo, por escrito y de forma asíncrona</h3>
+          <ol class="process__steps">
+            <li><span data-i18n="process.s1">Brief escrito</span></li>
+            <li><span data-i18n="process.s2">Estimación</span></li>
+            <li><span data-i18n="process.s3">Implementación</span></li>
+            <li><span data-i18n="process.s4">QA</span></li>
+            <li><span data-i18n="process.s5">Entrega documentada</span></li>
+          </ol>
         </div>
       </section>
 
       <section class="section section--tint" id="practica" aria-labelledby="practica-titulo">
         <div class="practice__head">
           <div class="section-head">
-            <p class="script script--green" data-i18n="practice.script">Práctica</p>
-            <h2 id="practica-titulo" data-i18n="practice.title">Retos y plantillas</h2>
+            <p class="script script--green" data-i18n="practice.script">Práctica de código</p>
+            <h2 id="practica-titulo" data-i18n="practice.title">Experimentos frontend</h2>
             <p data-i18n="practice.text">
-              34 retos de Frontend Mentor publicados entre 2021 y 2024, de tarjetas sencillas a sitios
-              de varias páginas, y una plantilla hecha en Webflow y Framer. Sirven para afinar la maquetación;
-              no son proyectos de cliente.
+              34 retos de Frontend Mentor publicados entre 2021 y 2024, retos de devChallenges y proyectos
+              de curso, además de la plantilla Burgerlicious en Webflow y Framer. Son ejercicios para afinar
+              la maquetación, no proyectos de cliente.
             </p>
           </div>
           <div class="filters" role="group" aria-label="Filtrar retos por nivel o plataforma" data-i18n-aria="filters.label">
-          <button type="button" class="chip" data-filter="todos" aria-pressed="true"><span class="chip__label" data-i18n="lvl.todos">Todos</span><span class="chip__count">36</span></button>
+          <button type="button" class="chip" data-filter="todos" aria-pressed="true"><span class="chip__label" data-i18n="lvl.todos">Todos</span><span class="chip__count">39</span></button>
           <button type="button" class="chip" data-filter="premium" aria-pressed="false"><span class="chip__label" data-i18n="lvl.premium">Premium</span><span class="chip__count">2</span></button>
           <button type="button" class="chip" data-filter="avanzado" aria-pressed="false"><span class="chip__label" data-i18n="lvl.avanzado">Avanzado</span><span class="chip__count">2</span></button>
           <button type="button" class="chip" data-filter="intermedio" aria-pressed="false"><span class="chip__label" data-i18n="lvl.intermedio">Intermedio</span><span class="chip__count">15</span></button>
@@ -236,6 +253,7 @@
           <button type="button" class="chip" data-filter="newbie" aria-pressed="false"><span class="chip__label" data-i18n="lvl.newbie">Newbie</span><span class="chip__count">6</span></button>
           <button type="button" class="chip" data-filter="webflow" aria-pressed="false"><span class="chip__label">Webflow</span><span class="chip__count">1</span></button>
           <button type="button" class="chip" data-filter="framer" aria-pressed="false"><span class="chip__label">Framer</span><span class="chip__count">1</span></button>
+          <button type="button" class="chip" data-filter="otros" aria-pressed="false"><span class="chip__label" data-i18n="lvl.otros">Otros</span><span class="chip__count">3</span></button>
           </div>
         </div>
         <div class="practice" id="lista-retos">
@@ -569,6 +587,33 @@
             <p class="practice__stack">HTML · CSS</p>
             <p class="project__links"><a href="https://luis08201.github.io/qr-code-component-v1/" data-i18n="link.browser">Ver en el navegador</a></p>
           </article>
+          <article class="reto" data-level="otros" data-extra hidden>
+            <a class="practice__media" href="https://luis08201.github.io/Simple-Feature-Section/" tabindex="-1" aria-hidden="true">
+              <img src="https://raw.githubusercontent.com/luis08201/Simple-Feature-Section/main/thumbnail.jpg" alt="" width="1280" height="900" loading="lazy" />
+            </a>
+            <p class="practice__level" data-i18n="lvl.devchallenges">devChallenges</p>
+            <h3><a href="https://luis08201.github.io/Simple-Feature-Section/">Simple Feature Section</a></h3>
+            <p class="practice__stack">HTML · CSS</p>
+            <p class="project__links"><a href="https://luis08201.github.io/Simple-Feature-Section/" data-i18n="link.browser">Ver en el navegador</a></p>
+          </article>
+          <article class="reto" data-level="otros" data-extra hidden>
+            <a class="practice__media" href="https://luis08201.github.io/isic-version2021/" tabindex="-1" aria-hidden="true">
+              <img src="img/isic.png" alt="" width="307" height="259" loading="lazy" style="object-fit: contain; padding: 1.5rem" />
+            </a>
+            <p class="practice__level" data-i18n="lvl.curso">Proyecto de curso</p>
+            <h3><a href="https://luis08201.github.io/isic-version2021/">ISIC</a></h3>
+            <p class="practice__stack">HTML · CSS</p>
+            <p class="project__links"><a href="https://luis08201.github.io/isic-version2021/" data-i18n="link.browser">Ver en el navegador</a></p>
+          </article>
+          <article class="reto" data-level="otros" data-extra hidden>
+            <a class="practice__media" href="https://luis08201.github.io/SYDICOM/" tabindex="-1" aria-hidden="true">
+              <img src="img/sydicom.png" alt="" width="336" height="280" loading="lazy" style="object-fit: contain; padding: 1.5rem" />
+            </a>
+            <p class="practice__level" data-i18n="lvl.curso">Proyecto de curso</p>
+            <h3><a href="https://luis08201.github.io/SYDICOM/">Sydicom</a></h3>
+            <p class="practice__stack">HTML · CSS</p>
+            <p class="project__links"><a href="https://luis08201.github.io/SYDICOM/" data-i18n="link.browser">Ver en el navegador</a></p>
+          </article>
         </div>
         <div class="practice__toggle">
           <button type="button" class="pill pill--outline" id="ver-todos" aria-expanded="false" aria-controls="lista-retos">
@@ -580,19 +625,19 @@
       <section class="section about" id="acerca" aria-labelledby="acerca-titulo">
         <p class="script script--green" data-i18n="about.script">Acerca de mí</p>
         <h2 id="acerca-titulo" class="about__statement" data-i18n="about.statement">
-          Desde la universidad me gusta construir programas con una
-          interactividad <em>llamativa y amigable</em> para las personas.
+          Convierto diseños detallados y requisitos técnicos en sitios
+          <em>mantenibles y bien documentados.</em>
         </h2>
         <div class="about__row">
           <p class="about__body" data-i18n="about.body">
-            La persistencia, la perseverancia, la disciplina y el hambre de
-            aprender me han llevado a comprender un poco más el desarrollo web.
-            Sigo aprendiendo para mejorar como persona y como profesional.
+            Soy desarrollador Webflow y frontend con más de cuatro años de experiencia en proyectos web de
+            agencia. Trabajo en implementaciones responsive, estructuras de CMS, mejoras con JavaScript,
+            integraciones y control de calidad, con documentación clara y comunicación asíncrona confiable.
           </p>
           <dl class="facts">
-            <div><dt data-i18n="about.fact1">Primer curso de diseño web</dt><dd>2014</dd></div>
+            <div><dt data-i18n="about.fact1">Años en proyectos web</dt><dd>4+</dd></div>
             <div><dt data-i18n="about.fact2">Retos de Frontend Mentor</dt><dd data-count="34">34</dd></div>
-            <div><dt data-i18n="about.fact3">Último reto publicado</dt><dd>2025</dd></div>
+            <div><dt data-i18n="about.fact3">Primer curso de diseño web</dt><dd>2014</dd></div>
           </dl>
         </div>
       </section>
@@ -600,11 +645,12 @@
       <section class="contact" id="contacto" aria-labelledby="contacto-titulo">
         <div class="contact__intro">
           <p class="script" data-i18n="contact.script">Hablemos,</p>
-          <h2 id="contacto-titulo" data-i18n="contact.title">¿Tienes una página <em>en mente?</em></h2>
+          <h2 id="contacto-titulo" data-i18n="contact.title">¿Necesitas ayuda con un proyecto <em>Webflow?</em></h2>
           <p data-i18n="contact.text">
-            Cuéntame qué necesitas y te respondo al correo que dejes. También
-            estoy en GitHub y en Twitter.
+            Envíame los detalles y te respondo por correo con los siguientes pasos. Trabajo por escrito y de
+            forma asíncrona, así que cuanto más claro el alcance, el plazo y el presupuesto, mejor.
           </p>
+          <p class="contact__note" data-i18n="contact.note">Abierto a proyectos part-time seleccionados con colaboración flexible y asíncrona.</p>
           <ul class="social">
             <li><a class="pill pill--outline-light pill--sm" href="https://github.com/luis08201"><span>GitHub ↗</span></a></li>
             <li><a class="pill pill--outline-light pill--sm" href="https://twitter.com/luis08201"><span>Twitter ↗</span></a></li>
@@ -621,9 +667,32 @@
             <input id="correo" name="email" type="email" autocomplete="email" placeholder="tu@correo.com" data-i18n-placeholder="form.email.placeholder" required />
             <p class="field-error" id="correo-error"></p>
           </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="plazo" data-i18n="form.timeline">Plazo <span class="field__optional">(opcional)</span></label>
+              <select id="plazo" name="timeline">
+                <option value="" data-i18n="form.choose">Elige una opción</option>
+                <option value="1-2 weeks" data-i18n="form.timeline.1">1–2 semanas</option>
+                <option value="2-4 weeks" data-i18n="form.timeline.2">2–4 semanas</option>
+                <option value="1-2 months" data-i18n="form.timeline.3">1–2 meses</option>
+                <option value="Flexible" data-i18n="form.timeline.4">Flexible</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="presupuesto" data-i18n="form.budget">Presupuesto <span class="field__optional">(opcional)</span></label>
+              <select id="presupuesto" name="budget">
+                <option value="" data-i18n="form.choose">Elige una opción</option>
+                <option value="Under $500" data-i18n="form.budget.1">Menos de $500</option>
+                <option value="$500-$1,500">$500–$1,500</option>
+                <option value="$1,500-$3,000">$1,500–$3,000</option>
+                <option value="$3,000+">$3,000+</option>
+                <option value="To be defined" data-i18n="form.budget.tbd">Por definir</option>
+              </select>
+            </div>
+          </div>
           <div class="field">
             <label for="mensaje" data-i18n="form.message">Mensaje</label>
-            <textarea id="mensaje" name="message" placeholder="Cuéntame sobre tu proyecto…" data-i18n-placeholder="form.message.placeholder" required></textarea>
+            <textarea id="mensaje" name="message" placeholder="Alcance, número de páginas, enlace al diseño o al sitio…" data-i18n-placeholder="form.message.placeholder" required></textarea>
             <p class="field-error" id="mensaje-error"></p>
           </div>
           <button type="submit" class="pill pill--green">
@@ -635,6 +704,7 @@
 
       <footer class="footer">
         <p data-i18n="footer.credit">Diseñado y codificado por Luis Selva</p>
+        <a class="footer__cta" href="#contacto" data-i18n="footer.cta">¿Proyecto Webflow? Escríbeme →</a>
         <div class="lang" role="group" aria-label="Idioma" data-i18n-aria="lang.label">
           <button type="button" class="lang__option" data-lang="es" lang="es" aria-pressed="true" aria-label="Español">ES</button>
           <button type="button" class="lang__option" data-lang="en" lang="en" aria-pressed="false" aria-label="English">EN</button>

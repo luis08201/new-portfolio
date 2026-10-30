@@ -305,7 +305,7 @@ if (!hasGsap) {
     });
 
     gsap.utils
-      .toArray(".trust__list, .split > *, .practice__head > *, .about__row, .contact__intro, .contact form")
+      .toArray(".trust__list, .split > *, .services__head > *, .services__list, .process, .practice__head > *, .about__row, .contact__intro, .contact form")
       .forEach((el) => {
         gsap.from(el, {
           opacity: 0,
